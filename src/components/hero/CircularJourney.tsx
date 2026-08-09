@@ -126,7 +126,7 @@ export function CircularJourney() {
   }, []);
 
   return (
-    <div className="w-full max-w-[540px] mx-auto bg-[#fcfbf9] p-6 rounded-3xl border border-stone-200/60 shadow-sm flex items-center justify-center overflow-hidden">
+    <div className="w-full max-w-[460px] lg:max-w-[480px] mx-auto bg-[#fcfbf9] p-5 sm:p-6 rounded-3xl border border-stone-200/60 shadow-sm flex items-center justify-center overflow-hidden">
       <svg
         viewBox="-40 -40 580 580"
         className="w-full h-auto select-none"
