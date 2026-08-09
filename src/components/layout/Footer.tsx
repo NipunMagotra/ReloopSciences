@@ -62,13 +62,13 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 py-6 border-b border-emerald-900/40">
           {/* Brand Logo & Subtitle */}
           <div className="space-y-1">
-            <Link href="/" className="flex items-center gap-2.5 group overflow-visible">
+            <Link href="/" className="flex items-center group">
               <Image
                 src="/logo.png"
                 alt="Reloop Sciences Logo"
-                width={450}
-                height={120}
-                className="h-16 sm:h-20 md:h-24 w-auto max-w-[260px] sm:max-w-[340px] m-0 brightness-0 invert object-contain"
+                width={220}
+                height={84}
+                className="h-10 sm:h-12 md:h-14 w-auto object-contain brightness-0 invert"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                   const sibling = e.currentTarget.nextElementSibling;
