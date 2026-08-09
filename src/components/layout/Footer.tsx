@@ -182,7 +182,10 @@ export function Footer() {
 
         {/* Display Watermark (Train Marquee) */}
         <div className="pt-8 overflow-hidden select-none pointer-events-none opacity-10 flex w-full">
-          <div className="flex shrink-0 animate-marquee whitespace-nowrap">
+          <div
+            className="reloop-marquee-track"
+            style={{ animation: "marquee-scroll 25s linear infinite" }}
+          >
             {[...Array(4)].map((_, i) => (
               <span
                 key={i}
@@ -192,7 +195,11 @@ export function Footer() {
               </span>
             ))}
           </div>
-          <div aria-hidden="true" className="flex shrink-0 animate-marquee whitespace-nowrap">
+          <div
+            aria-hidden="true"
+            className="reloop-marquee-track"
+            style={{ animation: "marquee-scroll 25s linear infinite" }}
+          >
             {[...Array(4)].map((_, i) => (
               <span
                 key={`dup-${i}`}
