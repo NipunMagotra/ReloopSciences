@@ -21,16 +21,16 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-offwhite/90 backdrop-blur-md border-b border-border/60 shadow-xs">
-      <nav className="mx-auto max-w-7xl px-6 lg:px-10 flex items-center justify-between h-20 md:h-22">
+      <nav className="mx-auto max-w-7xl px-6 lg:px-10 flex items-center justify-between h-20 md:h-24">
         {/* Logo / Wordmark */}
-        <Link href="/" className="flex items-center gap-2.5 group py-1">
+        <Link href="/" className="flex items-center gap-2.5 group py-1 overflow-visible">
           <Image
             src="/logo.png"
             alt="Reloop Sciences Logo"
-            width={320}
-            height={80}
+            width={450}
+            height={120}
             priority
-            className="h-11 sm:h-13 md:h-16 w-auto object-contain transition-all duration-300 group-hover:opacity-90"
+            className="h-16 sm:h-20 md:h-24 w-auto max-w-[260px] sm:max-w-[340px] md:max-w-[420px] object-contain transition-all duration-300 group-hover:opacity-90 scale-125 sm:scale-135 origin-left"
             onError={(e) => {
               e.currentTarget.style.display = 'none';
               const sibling = e.currentTarget.nextElementSibling;
