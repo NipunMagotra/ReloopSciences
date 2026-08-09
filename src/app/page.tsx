@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { Hero } from "@/components/hero/Hero";
+import { MediaVideoSection } from "@/components/home/MediaVideoSection";
 import { WhyThisMattersSection } from "@/components/home/WhyThisMattersSection";
 import { CircularModelSection } from "@/components/home/CircularModelSection";
 import { BuiltByScientistsSection } from "@/components/home/BuiltByScientistsSection";
@@ -16,6 +17,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen">
       <Hero />
+      <MediaVideoSection />
       <WhyThisMattersSection />
       <CircularModelSection />
       <BuiltByScientistsSection />
