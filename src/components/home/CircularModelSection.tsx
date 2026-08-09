@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { ThreeCircularLoop } from "./ThreeCircularLoop";
+import { CircularHubDiagram } from "./CircularHubDiagram";
 
 export function CircularModelSection() {
   return (
@@ -26,6 +27,17 @@ export function CircularModelSection() {
           className="mb-14"
         >
           <ThreeCircularLoop />
+        </motion.div>
+
+        {/* Interactive Hub & Spoke Diagram */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-14"
+        >
+          <CircularHubDiagram />
         </motion.div>
 
         {/* Visual Summary Banner */}
