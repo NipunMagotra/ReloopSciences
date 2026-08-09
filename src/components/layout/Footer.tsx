@@ -62,7 +62,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 py-6 border-b border-emerald-900/40">
           {/* Brand Logo & Subtitle */}
           <div className="space-y-1">
-            <Link href="/" className="inline-block">
+            <Link href="/" className="flex items-center gap-2.5 group">
               <Image
                 src="/logo.png"
                 alt="Reloop Sciences Logo"
@@ -73,11 +73,19 @@ export function Footer() {
                   e.currentTarget.style.display = 'none';
                   const sibling = e.currentTarget.nextElementSibling;
                   if (sibling) sibling.classList.remove('hidden');
+                  if (sibling) sibling.classList.add('flex');
                 }}
               />
-              <span className="hidden text-lg font-bold tracking-wider uppercase text-white">
-                Reloop Sciences
-              </span>
+              <div className="hidden items-center gap-2.5">
+                <div className="w-8 h-8 rounded-xl bg-[#2da021] text-white flex items-center justify-center shadow-md">
+                  <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                  </svg>
+                </div>
+                <span className="text-base font-black tracking-widest uppercase text-white">
+                  RELOOP <span className="text-[#f88a0d]">SCIENCES</span>
+                </span>
+              </div>
             </Link>
             <p className="text-xs text-emerald-300/50">
               Based in India

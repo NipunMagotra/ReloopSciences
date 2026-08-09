@@ -23,7 +23,7 @@ export function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-offwhite/85 backdrop-blur-md border-b border-border/60 shadow-xs">
       <nav className="mx-auto max-w-7xl px-6 lg:px-10 flex items-center justify-between h-18">
         {/* Logo / Wordmark */}
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2.5 group">
           <Image
             src="/logo.png"
             alt="Reloop Sciences Logo"
@@ -35,11 +35,24 @@ export function Navbar() {
               e.currentTarget.style.display = 'none';
               const sibling = e.currentTarget.nextElementSibling;
               if (sibling) sibling.classList.remove('hidden');
+              if (sibling) sibling.classList.add('flex');
             }}
           />
-          <span className="hidden text-charcoal font-bold text-base tracking-[0.1em] uppercase hover:text-[#2da021] transition-colors duration-300">
-            Reloop Sciences
-          </span>
+          <div className="hidden items-center gap-2.5">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#134c2c] to-[#0c2a19] text-[#2da021] border border-[#2da021]/30 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
+              <svg className="w-5 h-5 text-[#2da021]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+              </svg>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm sm:text-base font-black tracking-widest uppercase text-[#134c2c] leading-none group-hover:text-[#2da021] transition-colors">
+                RELOOP <span className="text-[#f88a0d]">SCIENCES</span>
+              </span>
+              <span className="text-[9px] font-bold uppercase tracking-widest text-[#2da021] mt-0.5">
+                Circular Life Sciences
+              </span>
+            </div>
+          </div>
         </Link>
 
         {/* Desktop links */}
