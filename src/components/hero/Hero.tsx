@@ -23,7 +23,7 @@ export function Hero() {
       className="relative min-h-[90vh] flex items-center pt-28 pb-20 overflow-hidden bg-gradient-to-b from-offwhite via-white to-offwhite"
       id="hero"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 w-full relative z-10">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* ─── Left: Main Headline & Copy ────────────────── */}
           <div className="lg:col-span-7 max-w-2xl">

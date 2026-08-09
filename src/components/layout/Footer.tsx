@@ -22,7 +22,7 @@ export function Footer() {
       {/* Top Gradient Accent Line */}
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#2da021] via-[#f88a0d] to-[#2da021]" />
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
         {/* Top Call-to-Action & Newsletter Banner */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pb-8 border-b border-emerald-900/40 items-center">
           <div className="lg:col-span-7 space-y-2">

@@ -21,7 +21,7 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-offwhite/90 backdrop-blur-md border-b border-border/60 shadow-xs">
-      <nav className="mx-auto max-w-7xl px-6 lg:px-10 flex items-center justify-between h-20 md:h-24">
+      <nav className="mx-auto max-w-7xl px-6 lg:px-8 flex items-center justify-between h-20 md:h-24">
         {/* Logo / Wordmark */}
         <Link href="/" className="flex items-center gap-2.5 group py-1 overflow-visible translate-y-1 md:translate-y-1.5">
           <Image

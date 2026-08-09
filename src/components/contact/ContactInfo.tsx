@@ -3,7 +3,7 @@ import { Mail } from "lucide-react";
 export function ContactInfo() {
   return (
     <div className="mt-20 pt-12 border-t border-emerald-900/50">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <h3 className="text-xs font-semibold tracking-widest uppercase text-[#f88a0d] mb-6">
           Direct Channels
         </h3>
