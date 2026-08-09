@@ -23,7 +23,7 @@ export function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-offwhite/90 backdrop-blur-md border-b border-border/60 shadow-xs">
       <nav className="mx-auto max-w-7xl px-6 lg:px-10 flex items-center justify-between h-20 md:h-24">
         {/* Logo / Wordmark (Anchored Flush to Far Left Boundary) */}
-        <Link href="/" className="flex items-center gap-2.5 group py-1 overflow-visible -ml-3 sm:-ml-4 md:-ml-6">
+        <Link href="/" className="flex items-center gap-2.5 group py-1 overflow-visible -ml-3 sm:-ml-4 md:-ml-6 translate-y-1 md:translate-y-1.5">
           <Image
             src="/logo.png"
             alt="Reloop Sciences Logo"
