@@ -182,10 +182,20 @@ export function Footer() {
 
         {/* Display Watermark (Train Marquee) */}
         <div className="pt-8 overflow-hidden select-none pointer-events-none opacity-10 flex w-full">
-          <div className="animate-marquee flex w-max whitespace-nowrap">
-            {[...Array(8)].map((_, i) => (
+          <div className="flex shrink-0 animate-marquee whitespace-nowrap">
+            {[...Array(4)].map((_, i) => (
               <span
                 key={i}
+                className="text-5xl sm:text-7xl md:text-9xl font-black tracking-widest text-white uppercase pr-16"
+              >
+                RELOOP SCIENCES
+              </span>
+            ))}
+          </div>
+          <div aria-hidden="true" className="flex shrink-0 animate-marquee whitespace-nowrap">
+            {[...Array(4)].map((_, i) => (
+              <span
+                key={`dup-${i}`}
                 className="text-5xl sm:text-7xl md:text-9xl font-black tracking-widest text-white uppercase pr-16"
               >
                 RELOOP SCIENCES

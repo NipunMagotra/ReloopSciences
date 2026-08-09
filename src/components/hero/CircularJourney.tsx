@@ -27,21 +27,21 @@ const TRAIL_PARTICLES = [
   { angleBehind: 21, radius: NODE_RADIUS, size: 1.5, opacity: 0.1 },
 ];
 
+// Pre-compute static node positions (in the rotating coordinate frame)
+const NODE_POSITIONS = NODES.map((_, i) => {
+  const angleDeg = i * 72 - 90;
+  const rad = (angleDeg * Math.PI) / 180;
+  return {
+    cx: CENTER + Math.cos(rad) * NODE_RADIUS,
+    cy: CENTER + Math.sin(rad) * NODE_RADIUS,
+  };
+});
+
 export function CircularJourney() {
   const orbitGroupRef = useRef<SVGGElement>(null);
   const counterRotateRefs = useRef<(SVGGElement | null)[]>([]);
   const centerIconRef = useRef<SVGGElement>(null);
   const trailRefs = useRef<(SVGCircleElement | null)[]>([]);
-
-  // Pre-compute static node positions (in the rotating coordinate frame)
-  const nodePositions = NODES.map((_, i) => {
-    const angleDeg = i * 72 - 90;
-    const rad = (angleDeg * Math.PI) / 180;
-    return {
-      cx: CENTER + Math.cos(rad) * NODE_RADIUS,
-      cy: CENTER + Math.sin(rad) * NODE_RADIUS,
-    };
-  });
 
   const setCounterRef = useCallback(
     (el: SVGGElement | null, i: number) => {
@@ -63,13 +63,6 @@ export function CircularJourney() {
     let rafId: number;
     let lastTime = performance.now();
 
-    // Check for reduced motion preference
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (prefersReducedMotion) return;
-
     const animate = (time: number) => {
       const delta = Math.min(time - lastTime, 50); // cap delta to avoid jumps
       lastTime = time;
@@ -90,7 +83,7 @@ export function CircularJourney() {
       // Counter-rotate each node to keep text upright
       counterRotateRefs.current.forEach((ref, i) => {
         if (ref) {
-          const { cx, cy } = nodePositions[i];
+          const { cx, cy } = NODE_POSITIONS[i];
           ref.setAttribute(
             "transform",
             `rotate(${-orbitAngle}, ${cx}, ${cy})`
@@ -130,7 +123,7 @@ export function CircularJourney() {
 
     rafId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(rafId);
-  }, [nodePositions]);
+  }, []);
 
   return (
     <div className="w-full max-w-[540px] mx-auto bg-[#fcfbf9] p-6 rounded-3xl border border-stone-200/60 shadow-sm flex items-center justify-center overflow-hidden">
