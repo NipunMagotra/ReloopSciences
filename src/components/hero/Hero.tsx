@@ -6,13 +6,13 @@ import { motion } from "motion/react";
 import { CircularJourney } from "./CircularJourney";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 24 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
-      delay: 0.12 + i * 0.1,
+      duration: 0.7,
+      delay: 0.15 + i * 0.12,
     },
   }),
 };
@@ -20,15 +20,15 @@ const fadeUp = {
 export function Hero() {
   return (
     <section
-      className="relative min-h-[calc(100vh-96px)] flex flex-col justify-between pt-28 md:pt-32 pb-6 overflow-hidden bg-gradient-to-b from-offwhite via-white to-offwhite"
+      className="relative min-h-[90vh] flex items-center pt-28 pb-20 overflow-hidden bg-gradient-to-b from-offwhite via-white to-offwhite"
       id="hero"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 w-full relative z-10 my-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 xl:gap-8 items-center">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10 w-full relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* ─── Left: Main Headline & Copy ────────────────── */}
           <div className="lg:col-span-7 max-w-2xl">
             <motion.div
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-900/5 border border-[#2da021]/20 text-[#2da021] text-xs font-semibold uppercase tracking-widest mb-4 sm:mb-5"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-900/5 border border-[#2da021]/20 text-[#2da021] text-xs font-semibold uppercase tracking-widest mb-6"
               variants={fadeUp}
               initial="hidden"
               animate="visible"
@@ -38,26 +38,26 @@ export function Hero() {
             </motion.div>
 
             <motion.h1
-              className="text-3xl sm:text-4xl lg:text-[50px] xl:text-[54px] font-extrabold text-[#134c2c] tracking-tight leading-[1.12] mb-4 sm:mb-5"
+              className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-[#134c2c] tracking-tight leading-[1.2] mb-6"
               variants={fadeUp}
               initial="hidden"
               animate="visible"
               custom={1}
             >
               India’s Labs Are Throwing Away a Hidden Resource.
-              <span className="block text-[#2da021] mt-1.5 sm:mt-2">
+              <span className="block text-[#2da021] mt-2">
                 We’re Turning It Into a Circular Economy.
               </span>
             </motion.h1>
 
             <motion.p
-              className="max-w-[620px] text-base sm:text-lg text-gray-700 font-normal leading-relaxed mb-7"
+              className="text-lg md:text-xl text-[#134c2c]/80 font-medium leading-relaxed mb-10"
               variants={fadeUp}
               initial="hidden"
               animate="visible"
               custom={2}
             >
-              A traceable, closed-loop system that transforms clean lab plastics into new lab products.
+              A traceable, closed‑loop system that transforms clean lab plastics into new lab products.
             </motion.p>
 
             <motion.div
@@ -70,16 +70,16 @@ export function Hero() {
               {/* Primary CTA */}
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 h-12 px-7 bg-[#f88a0d] hover:bg-[#d87609] text-white text-sm font-bold tracking-wide rounded-full transition-all duration-300 shadow-md hover:shadow-lg shadow-orange-950/15 hover:-translate-y-0.5 group"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#f88a0d] hover:bg-[#d87609] text-white text-base font-semibold tracking-wide rounded-full transition-all duration-300 shadow-xl shadow-orange-950/20 hover:-translate-y-0.5 group"
               >
                 Partner With Us
-                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
 
               {/* Secondary CTA */}
               <Link
                 href="#circular-model"
-                className="inline-flex items-center justify-center h-12 px-7 text-[#134c2c] hover:text-[#2da021] font-semibold text-sm rounded-full bg-white border border-gray-300 hover:border-[#2da021] transition-all duration-300 shadow-xs hover:shadow-sm"
+                className="inline-flex items-center justify-center px-8 py-4 text-[#134c2c] font-semibold text-base rounded-full bg-white border border-gray-200 hover:border-[#2da021] hover:text-[#2da021] transition-all duration-300 shadow-sm"
               >
                 Learn How It Works
               </Link>
@@ -88,9 +88,9 @@ export function Hero() {
 
           {/* ─── Right: Interactive Visualization ─────────────────────── */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
+            initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
             className="lg:col-span-5 flex justify-center lg:justify-end"
           >
             <CircularJourney />
@@ -99,11 +99,11 @@ export function Hero() {
       </div>
 
       {/* ─── Scroll indicator ──────────────────────────────── */}
-      <div className="pt-4 flex flex-col items-center gap-1 opacity-60">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 opacity-60">
         <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-gray-400">
           Scroll Down
         </span>
-        <ChevronDown size={15} className="scroll-indicator text-gray-400" />
+        <ChevronDown size={16} className="scroll-indicator text-gray-400" />
       </div>
     </section>
   );

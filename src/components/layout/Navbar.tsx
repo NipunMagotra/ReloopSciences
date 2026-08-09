@@ -20,17 +20,17 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-offwhite/92 backdrop-blur-md border-b border-border/60 shadow-xs">
-      <nav className="mx-auto max-w-7xl px-6 lg:px-10 flex items-center justify-between h-[92px] md:h-[96px]">
-        {/* Logo / Wordmark */}
-        <Link href="/" className="flex items-center gap-2.5 group overflow-visible py-1">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-offwhite/90 backdrop-blur-md border-b border-border/60 shadow-xs">
+      <nav className="mx-auto max-w-7xl px-6 lg:px-10 flex items-center justify-between h-20 md:h-24">
+        {/* Logo / Wordmark (Anchored Flush to Far Left Boundary) */}
+        <Link href="/" className="flex items-center gap-2.5 group py-1 overflow-visible -ml-3 sm:-ml-4 md:-ml-6">
           <Image
             src="/logo.png"
             alt="Reloop Sciences Logo"
-            width={280}
-            height={70}
+            width={450}
+            height={120}
             priority
-            className="h-10 sm:h-12 md:h-14 w-auto max-w-[240px] sm:max-w-[280px] md:max-w-[320px] object-contain transition-all duration-300 group-hover:opacity-90 scale-110 sm:scale-115 origin-left"
+            className="h-16 sm:h-20 md:h-24 w-auto max-w-[260px] sm:max-w-[340px] md:max-w-[420px] object-contain transition-all duration-300 group-hover:opacity-90 scale-125 sm:scale-135 origin-left"
             onError={(e) => {
               e.currentTarget.style.display = 'none';
               const sibling = e.currentTarget.nextElementSibling;
@@ -56,7 +56,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-8 lg:gap-9">
+        <ul className="hidden md:flex items-center gap-7">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
