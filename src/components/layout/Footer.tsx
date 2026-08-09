@@ -110,7 +110,7 @@ export function Footer() {
               </a>
               <a
                 href="#"
-                className="w-9 h-9 rounded-full bg-emerald-950/80 border border-emerald-800/50 flex items-center justify-center text-emerald-200 hover:text-white hover:bg-[#2da021] hover:border-[#2da021] transition-all duration-300"
+                className="w-9 h-9 rounded-full bg-emerald-950/80 border border-emerald-800/50 flex items-center justify-center text-emerald-200 hover:text-white hover:bg-[#0a66c2] hover:border-[#0a66c2] transition-all duration-300"
                 aria-label="LinkedIn"
               >
                 <svg

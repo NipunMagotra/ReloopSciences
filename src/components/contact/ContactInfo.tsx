@@ -28,9 +28,9 @@ export function ContactInfo() {
           {/* LinkedIn */}
           <a
             href="#"
-            className="group p-5 rounded-2xl bg-emerald-950/40 border border-emerald-800/40 hover:border-[#f88a0d] hover:bg-emerald-900/40 transition-all duration-300 flex items-center gap-4 shadow-lg"
+            className="group p-5 rounded-2xl bg-emerald-950/40 border border-emerald-800/40 hover:border-[#0a66c2] hover:bg-emerald-900/40 transition-all duration-300 flex items-center gap-4 shadow-lg"
           >
-            <div className="w-12 h-12 rounded-xl bg-emerald-900/80 border border-emerald-700/50 flex items-center justify-center text-[#f88a0d] group-hover:bg-[#f88a0d] group-hover:text-white transition-all duration-300">
+            <div className="w-12 h-12 rounded-xl bg-emerald-900/80 border border-emerald-700/50 flex items-center justify-center text-[#0a66c2] group-hover:bg-[#0a66c2] group-hover:text-white transition-all duration-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -48,7 +48,7 @@ export function ContactInfo() {
               </svg>
             </div>
             <div>
-              <p className="font-semibold text-white group-hover:text-[#f88a0d] transition-colors">LinkedIn</p>
+              <p className="font-semibold text-white group-hover:text-[#0a66c2] transition-colors">LinkedIn</p>
               <p className="text-emerald-200/70 text-xs mt-0.5">
                 Reloop Sciences Official
               </p>
