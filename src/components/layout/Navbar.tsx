@@ -20,17 +20,17 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-offwhite/85 backdrop-blur-md border-b border-border/60 shadow-xs">
-      <nav className="mx-auto max-w-7xl px-6 lg:px-10 flex items-center justify-between h-18">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-offwhite/90 backdrop-blur-md border-b border-border/60 shadow-xs">
+      <nav className="mx-auto max-w-7xl px-6 lg:px-10 flex items-center justify-between h-20 md:h-22">
         {/* Logo / Wordmark */}
-        <Link href="/" className="flex items-center gap-2.5 group">
+        <Link href="/" className="flex items-center gap-2.5 group py-1">
           <Image
             src="/logo.png"
             alt="Reloop Sciences Logo"
-            width={180}
-            height={40}
+            width={320}
+            height={80}
             priority
-            className="h-8 md:h-9 w-auto object-contain transition-opacity duration-300 group-hover:opacity-85"
+            className="h-11 sm:h-13 md:h-16 w-auto object-contain transition-all duration-300 group-hover:opacity-90"
             onError={(e) => {
               e.currentTarget.style.display = 'none';
               const sibling = e.currentTarget.nextElementSibling;
