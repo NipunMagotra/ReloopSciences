@@ -21,16 +21,16 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-offwhite/90 backdrop-blur-md border-b border-border/60 shadow-xs">
-      <nav className="mx-auto max-w-7xl px-6 lg:px-10 flex items-center justify-between h-20 md:h-24">
-        {/* Logo / Wordmark (Anchored Flush to Far Left Boundary) */}
-        <Link href="/" className="flex items-center gap-2.5 group py-1 overflow-visible -ml-3 sm:-ml-4 md:-ml-6 translate-y-1 md:translate-y-1.5">
+      <nav className="mx-auto max-w-7xl px-6 lg:px-10 flex items-center justify-between h-20 md:h-22">
+        {/* Logo / Wordmark (Anchored Flush to Far Left Boundary & Dead-Centered Vertically) */}
+        <Link href="/" className="flex items-center gap-2.5 group overflow-visible -ml-3 sm:-ml-4 md:-ml-6 my-auto">
           <Image
             src="/logo.png"
             alt="Reloop Sciences Logo"
             width={450}
             height={120}
             priority
-            className="h-16 sm:h-20 md:h-24 w-auto max-w-[260px] sm:max-w-[340px] md:max-w-[420px] object-contain transition-all duration-300 group-hover:opacity-90 scale-125 sm:scale-135 origin-left"
+            className="h-14 sm:h-16 md:h-18 w-auto max-w-[260px] sm:max-w-[340px] md:max-w-[400px] object-contain transition-all duration-300 group-hover:opacity-90 scale-125 sm:scale-130 origin-left"
             onError={(e) => {
               e.currentTarget.style.display = 'none';
               const sibling = e.currentTarget.nextElementSibling;
