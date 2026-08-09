@@ -25,7 +25,7 @@ function FounderCard({ name }: FounderProps) {
         {/* Content */}
         <h3 className="text-2xl font-bold text-[#2da021] mb-1">{name}</h3>
         <p className="font-bold text-[#134c2c] mb-4 uppercase text-xs tracking-widest">
-          Co-founder
+          Founder
         </p>
 
         {/* Icons */}
@@ -57,7 +57,7 @@ function FounderCard({ name }: FounderProps) {
 }
 
 export function FoundersSection() {
-  const founders = ["Founder X", "Founder Y", "Founder Z"];
+  const founders = ["Founder X"];
 
   return (
     <section className="bg-offwhite py-24 px-6 relative">
@@ -67,14 +67,14 @@ export function FoundersSection() {
             Leadership
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-[#134c2c] mb-4">
-            Meet the Founders
+            Meet the Founder
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-base">
-            The visionary team driving the future of laboratory sustainability.
+            The visionary driving the future of laboratory sustainability.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        <div className="flex justify-center">
           {founders.map((name, index) => (
             <FounderCard key={index} name={name} />
           ))}

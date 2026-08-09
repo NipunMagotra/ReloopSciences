@@ -42,7 +42,9 @@ export function ContactForm() {
   useEffect(() => {
     if (state.success && state.message) {
       formRef.current?.reset();
-      setStakeholderType("");
+      setTimeout(() => {
+        setStakeholderType("");
+      }, 0);
     }
   }, [state.success, state.message]);
 
@@ -55,9 +57,6 @@ export function ContactForm() {
       transition={{ duration: 0.6, delay: 0.3 }}
       className="bg-[#0c2a19]/90 border border-emerald-800/60 p-8 sm:p-10 rounded-3xl shadow-2xl shadow-emerald-950/60 backdrop-blur-xl relative overflow-hidden"
     >
-      {/* Decorative top right gradient orb */}
-      <div className="absolute -top-16 -right-16 w-32 h-32 bg-[#2da021]/20 rounded-full blur-2xl pointer-events-none" />
-
       {/* Success state */}
       <AnimatePresence mode="wait">
         {state.success && state.message ? (

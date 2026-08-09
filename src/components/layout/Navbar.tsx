@@ -3,21 +3,25 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 const navLinks = [
-  { href: "/solutions", label: "Solutions" },
-  { href: "/about", label: "About" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About Us" },
+  { href: "/challenges", label: "The Challenges" },
+  { href: "/pilot", label: "Pilot Programme" },
   { href: "/contact", label: "Contact" },
 ];
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-offwhite/80 backdrop-blur-md border-b border-border/50">
-      <nav className="mx-auto max-w-7xl px-6 lg:px-10 flex items-center justify-between h-16 md:h-18">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-offwhite/85 backdrop-blur-md border-b border-border/60 shadow-xs">
+      <nav className="mx-auto max-w-7xl px-6 lg:px-10 flex items-center justify-between h-18">
         {/* Logo / Wordmark */}
         <Link href="/" className="flex items-center gap-2 group">
           <Image
@@ -26,49 +30,65 @@ export function Navbar() {
             width={180}
             height={40}
             priority
-            className="h-8 md:h-10 w-auto object-contain transition-opacity duration-300 group-hover:opacity-85"
+            className="h-8 md:h-9 w-auto object-contain transition-opacity duration-300 group-hover:opacity-85"
             onError={(e) => {
-              // Hide image and fallback to text if logo.png is not yet added
               e.currentTarget.style.display = 'none';
               const sibling = e.currentTarget.nextElementSibling;
               if (sibling) sibling.classList.remove('hidden');
             }}
           />
-          <span className="hidden text-charcoal font-semibold text-sm tracking-[0.12em] uppercase hover:text-green transition-colors duration-300">
+          <span className="hidden text-charcoal font-bold text-base tracking-[0.1em] uppercase hover:text-[#2da021] transition-colors duration-300">
             Reloop Sciences
           </span>
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className="text-sm text-muted-foreground hover:text-charcoal transition-colors duration-300"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-          <li>
-            <Link
-              href="/contact"
-              className="text-sm font-medium text-green hover:text-green-dark transition-colors duration-300"
-            >
-              Start a Conversation
-            </Link>
-          </li>
+        <ul className="hidden md:flex items-center gap-7">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={`text-xs font-bold uppercase tracking-wider transition-all duration-200 relative py-1 ${
+                    isActive
+                      ? "text-[#2da021]"
+                      : "text-gray-600 hover:text-[#134c2c]"
+                  }`}
+                >
+                  {link.label}
+                  {isActive && (
+                    <motion.span
+                      layoutId="activeNavIndicator"
+                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#2da021] rounded-full"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
+
+        {/* Start a Conversation CTA */}
+        <div className="hidden md:flex items-center gap-4">
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#f88a0d] hover:bg-[#d87609] text-white text-xs font-bold tracking-wider uppercase transition-all duration-300 shadow-md shadow-orange-950/15 group"
+          >
+            Partner With Us
+            <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />
+          </Link>
+        </div>
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden p-2 -mr-2 text-charcoal"
+          className="md:hidden p-2 -mr-2 text-[#134c2c]"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
         >
-          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </nav>
 
@@ -80,27 +100,32 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="md:hidden bg-offwhite/95 backdrop-blur-md border-b border-border overflow-hidden"
+            className="md:hidden bg-offwhite/98 backdrop-blur-md border-b border-border overflow-hidden"
           >
             <ul className="px-6 py-6 space-y-4">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="block text-base text-charcoal-light hover:text-charcoal transition-colors duration-200"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-              <li className="pt-2 border-t border-border">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className={`block text-sm font-bold uppercase tracking-wider transition-colors duration-200 ${
+                        isActive ? "text-[#2da021]" : "text-[#134c2c] hover:text-[#2da021]"
+                      }`}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
+              <li className="pt-3 border-t border-border">
                 <Link
                   href="/contact"
-                  className="block text-base font-medium text-green"
+                  className="block text-sm font-bold text-[#f88a0d] uppercase tracking-wider"
                   onClick={() => setMobileOpen(false)}
                 >
-                  Start a Conversation →
+                  Partner With Us →
                 </Link>
               </li>
             </ul>

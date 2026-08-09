@@ -40,7 +40,7 @@ export function ContactPageContent() {
         </motion.div>
 
         <motion.h1
-          className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight max-w-2xl mb-6 text-white"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight max-w-2xl mb-6 text-white"
           variants={fadeUp}
           initial="hidden"
           animate="visible"
