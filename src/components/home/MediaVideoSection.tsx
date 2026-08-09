@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Mail, ArrowUpRight } from "lucide-react";
+import { Mail, ArrowUpRight, Play } from "lucide-react";
 
 function YoutubeIcon({ size = 16, className = "" }: { size?: number; className?: string }) {
   return (
@@ -25,7 +25,7 @@ interface MediaVideoSectionProps {
 }
 
 export function MediaVideoSection({
-  videoId = "dQw4w9WgXcQ", // Default video ID; replaceable with any YouTube video ID
+  videoId = "", // Empty default — no unwanted default video links
   youtubeChannelUrl = "https://www.youtube.com",
   linkedinUrl = "#",
   email = "mailto:hello@reloopsciences.com",
@@ -43,24 +43,38 @@ export function MediaVideoSection({
           </p>
         </div>
 
-        {/* Responsive YouTube Embed Container */}
+        {/* Video Player Container */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative w-full max-w-4xl mx-auto aspect-video rounded-3xl overflow-hidden border-2 border-emerald-950/15 shadow-2xl bg-black mb-10"
+          className="relative w-full max-w-4xl mx-auto aspect-video rounded-3xl overflow-hidden border-2 border-emerald-950/15 shadow-2xl bg-gradient-to-br from-[#0c2a19] via-[#134c2c] to-[#0c2a19] mb-10 flex flex-col items-center justify-center text-white p-8 text-center"
         >
-          <iframe
-            className="w-full h-full"
-            src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=0&rel=0`}
-            title="Reloop Sciences YouTube Video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          />
+          {videoId ? (
+            <iframe
+              className="w-full h-full"
+              src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=0&rel=0`}
+              title="Reloop Sciences Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          ) : (
+            <div className="space-y-4 max-w-md">
+              <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center mx-auto text-[#f88a0d] shadow-lg">
+                <Play size={28} className="fill-[#f88a0d] ml-1" />
+              </div>
+              <h3 className="text-xl font-bold text-white">
+                Official Video Highlights
+              </h3>
+              <p className="text-xs sm:text-sm text-emerald-100/80 leading-relaxed">
+                Reloop Sciences official video overview. Pass your video ID to embed directly.
+              </p>
+            </div>
+          )}
         </motion.div>
 
-        {/* Social Connections & YouTube Channel Link Bar */}
+        {/* Social Connections & Media Links Bar */}
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-2xl bg-white border border-gray-200/80 shadow-md">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-red-50 text-[#ff0000] flex items-center justify-center flex-shrink-0">
@@ -71,7 +85,7 @@ export function MediaVideoSection({
                 Reloop Sciences Official Media
               </h4>
               <p className="text-xs text-gray-500">
-                Subscribe on YouTube and follow our social channels
+                Follow our official channels & direct communications
               </p>
             </div>
           </div>
