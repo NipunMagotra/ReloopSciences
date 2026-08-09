@@ -66,9 +66,9 @@ export function Footer() {
               <Image
                 src="/logo.png"
                 alt="Reloop Sciences Logo"
-                width={220}
-                height={84}
-                className="h-10 sm:h-12 md:h-14 w-auto object-contain brightness-0 invert"
+                width={320}
+                height={122}
+                className="h-14 sm:h-16 md:h-20 lg:h-22 w-auto object-contain brightness-0 invert"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                   const sibling = e.currentTarget.nextElementSibling;
