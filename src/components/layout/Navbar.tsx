@@ -85,13 +85,37 @@ export function Navbar() {
 
         {/* Start a Conversation CTA */}
         <div className="hidden md:flex items-center gap-4">
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#f88a0d] hover:bg-[#d87609] text-white text-xs font-bold tracking-wider uppercase transition-all duration-300 shadow-md shadow-orange-950/15 group"
+          <motion.div
+            whileHover={{ scale: 1.05, y: -1 }}
+            whileTap={{ scale: 0.96 }}
+            transition={{ type: "spring", stiffness: 400, damping: 22 }}
+            className="relative group rounded-full p-[2px] bg-gradient-to-r from-[#134c2c] via-[#2da021] to-[#f88a0d] animate-border-shimmer shadow-lg hover:shadow-[#2da021]/35 hover:shadow-xl transition-all duration-300"
           >
-            Partner With Us
-            <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />
-          </Link>
+            <Link
+              href="/contact"
+              className="relative flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#0c2a19] text-white text-xs font-black tracking-wider uppercase overflow-hidden"
+            >
+              {/* Shimmer Light Beam Sweep */}
+              <span className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/25 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-1000 ease-out pointer-events-none" />
+
+              {/* Pulsing live dot */}
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f88a0d] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#f88a0d]" />
+              </span>
+
+              {/* Button text */}
+              <span className="relative z-10 font-extrabold text-white group-hover:text-emerald-300 transition-colors duration-200">
+                Partner With Us
+              </span>
+
+              {/* Animated Arrow Icon */}
+              <ArrowRight
+                size={14}
+                className="relative z-10 text-[#f88a0d] transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"
+              />
+            </Link>
+          </motion.div>
         </div>
 
         {/* Mobile toggle */}
@@ -132,14 +156,26 @@ export function Navbar() {
                   </li>
                 );
               })}
-              <li className="pt-3 border-t border-border">
-                <Link
-                  href="/contact"
-                  className="block text-sm font-bold text-[#f88a0d] uppercase tracking-wider"
-                  onClick={() => setMobileOpen(false)}
+              <li className="pt-4 border-t border-border">
+                <motion.div
+                  whileTap={{ scale: 0.97 }}
+                  className="rounded-full p-[2px] bg-gradient-to-r from-[#134c2c] via-[#2da021] to-[#f88a0d] animate-border-shimmer shadow-md"
                 >
-                  Partner With Us →
-                </Link>
+                  <Link
+                    href="/contact"
+                    className="flex items-center justify-between px-5 py-3 rounded-full bg-[#0c2a19] text-white text-xs font-black tracking-wider uppercase"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <span className="flex items-center gap-2">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f88a0d] opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#f88a0d]" />
+                      </span>
+                      Partner With Us
+                    </span>
+                    <ArrowRight size={15} className="text-[#f88a0d]" />
+                  </Link>
+                </motion.div>
               </li>
             </ul>
           </motion.div>
