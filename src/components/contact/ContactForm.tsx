@@ -166,7 +166,7 @@ export function ContactForm() {
               <input type="hidden" name="stakeholderType" value={stakeholderType} />
               <Select value={stakeholderType} onValueChange={(val) => setStakeholderType(val || "")}>
                 <SelectTrigger
-                  className="bg-emerald-950/60 border-emerald-800/60 text-white focus:border-[#2da021] focus:ring-[#2da021]/20 h-12 rounded-xl transition-all duration-200"
+                  className="w-full bg-emerald-950/70 border-emerald-800/70 text-white hover:border-emerald-700/80 focus:border-[#2da021] focus:ring-2 focus:ring-[#2da021]/30 h-12 rounded-xl transition-all duration-200"
                   aria-describedby={
                     fieldError("stakeholderType") ? "type-error" : undefined
                   }
@@ -174,9 +174,9 @@ export function ContactForm() {
                 >
                   <SelectValue placeholder="Select type" />
                 </SelectTrigger>
-                <SelectContent className="bg-[#0c2a19] border-emerald-800 text-white">
+                <SelectContent className="bg-[#092214]/95 border-emerald-700/60 text-white shadow-2xl backdrop-blur-xl">
                   {stakeholderTypes.map((type) => (
-                    <SelectItem key={type} value={type} className="focus:bg-[#2da021] focus:text-white">
+                    <SelectItem key={type} value={type}>
                       {type}
                     </SelectItem>
                   ))}
