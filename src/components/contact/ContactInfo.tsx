@@ -54,6 +54,31 @@ export function ContactInfo() {
               </p>
             </div>
           </a>
+
+          {/* YouTube */}
+          <a
+            href="https://www.youtube.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group p-5 rounded-2xl bg-emerald-950/40 border border-emerald-800/40 hover:border-[#ff0000] hover:bg-emerald-900/40 transition-all duration-300 flex items-center gap-4 shadow-lg"
+          >
+            <div className="w-12 h-12 rounded-xl bg-emerald-900/80 border border-emerald-700/50 flex items-center justify-center text-[#ff0000] group-hover:bg-[#ff0000] group-hover:text-white transition-all duration-300">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </div>
+            <div>
+              <p className="font-semibold text-white group-hover:text-[#ff0000] transition-colors">YouTube</p>
+              <p className="text-emerald-200/70 text-xs mt-0.5">
+                Reloop Sciences Channel
+              </p>
+            </div>
+          </a>
         </div>
       </div>
     </div>

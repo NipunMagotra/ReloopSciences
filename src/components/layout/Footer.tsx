@@ -4,14 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Mail, ArrowUpRight, ArrowUp, Send } from "lucide-react";
 
-const footerNavLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
-  { href: "/challenges", label: "The Challenges" },
-  { href: "/pilot", label: "Pilot Programme" },
-  { href: "/contact", label: "Contact" },
-];
-
 export function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -92,17 +84,6 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Quick Page Links */}
-          <ul className="flex flex-wrap items-center gap-5 text-xs font-semibold uppercase tracking-wider text-emerald-200/80">
-            {footerNavLinks.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className="hover:text-white transition-colors">
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-
           {/* Connect Section */}
           <div className="flex items-center gap-3">
             <span className="text-xs font-semibold tracking-widest uppercase text-[#f88a0d]">
@@ -135,6 +116,17 @@ export function Footer() {
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                   <rect width="4" height="12" x="2" y="9" />
                   <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+              <a
+                href="https://www.youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-emerald-950/80 border border-emerald-800/50 flex items-center justify-center text-emerald-200 hover:text-white hover:bg-[#ff0000] hover:border-[#ff0000] transition-all duration-300"
+                aria-label="YouTube"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                 </svg>
               </a>
             </div>
