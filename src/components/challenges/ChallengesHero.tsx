@@ -40,7 +40,7 @@ export function ChallengesHero() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-950/5 border border-[#f88a0d]/30 text-[#f88a0d] text-xs font-semibold uppercase tracking-widest"
           >
             <AlertCircle size={14} />
-            The Challenges — Page 3
+            The Challenges
           </motion.div>
 
           <motion.h1

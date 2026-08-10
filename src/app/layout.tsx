@@ -14,6 +14,11 @@ export const metadata: Metadata = {
   title: "Reloop Sciences — Closing the Loop on Lab Plastics",
   description:
     "Reloop Sciences is working to transform the way laboratories manage plastic waste by enabling more circular, measurable and sustainable pathways.",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({

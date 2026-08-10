@@ -28,7 +28,7 @@ export function PilotHero() {
             custom={0}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-900/5 border border-[#2da021]/30 text-[#2da021] text-xs font-semibold uppercase tracking-widest"
           >
-            Pilot Programme — Page 6
+            Pilot Programme
           </motion.div>
 
           <motion.h1
