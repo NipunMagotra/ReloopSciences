@@ -10,7 +10,7 @@ import { motion, AnimatePresence } from "motion/react";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
-  { href: "/challenges", label: "The Challenges" },
+  { href: "/challenges", label: "Challenges" },
   { href: "/solutions", label: "Our Approach & Solutions" },
   { href: "/pilot", label: "Pilot Programme" },
   { href: "/contact", label: "Contact" },
@@ -87,33 +87,36 @@ export function Navbar() {
         {/* Start a Conversation CTA */}
         <div className="hidden md:flex items-center gap-4">
           <motion.div
-            whileHover={{ scale: 1.05, y: -1 }}
+            whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.96 }}
             transition={{ type: "spring", stiffness: 400, damping: 22 }}
-            className="relative group rounded-full p-[2px] bg-gradient-to-r from-[#134c2c] via-[#2da021] to-[#f88a0d] animate-border-shimmer shadow-lg hover:shadow-[#2da021]/35 hover:shadow-xl transition-all duration-300"
+            className="relative group rounded-full p-[2px] bg-gradient-to-r from-[#f88a0d] via-[#fb923c] to-[#d97706] animate-border-shimmer shadow-lg hover:shadow-[#f88a0d]/40 hover:shadow-xl transition-all duration-300"
           >
+            {/* Ambient Constant Pulsing Outer Glow Aura */}
+            <span className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#f88a0d] to-[#ea580c] opacity-45 blur-md animate-pulse pointer-events-none group-hover:opacity-80 transition-opacity" />
+
             <Link
               href="/contact"
-              className="relative flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-[#0c2a19] text-white text-xs font-black tracking-wider uppercase overflow-hidden"
+              className="relative flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#f88a0d] via-[#ea580c] to-[#f88a0d] text-white text-xs font-black tracking-wider uppercase overflow-hidden shadow-inner group-hover:from-[#ea580c] group-hover:to-[#f88a0d] transition-all duration-300"
             >
               {/* Shimmer Light Beam Sweep */}
-              <span className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/25 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-1000 ease-out pointer-events-none" />
+              <span className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/35 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-1000 ease-out pointer-events-none" />
 
               {/* Pulsing live dot */}
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f88a0d] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#f88a0d]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-80" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
               </span>
 
               {/* Button text */}
-              <span className="relative z-10 font-extrabold text-white group-hover:text-emerald-300 transition-colors duration-200">
+              <span className="relative z-10 font-extrabold text-white tracking-wider group-hover:tracking-widest transition-all duration-300">
                 Partner With Us
               </span>
 
               {/* Animated Arrow Icon */}
               <ArrowRight
                 size={14}
-                className="relative z-10 text-[#f88a0d] transition-all duration-300 group-hover:translate-x-1 group-hover:text-white"
+                className="relative z-10 text-white transition-all duration-300 group-hover:translate-x-1.5"
               />
             </Link>
           </motion.div>
@@ -160,21 +163,22 @@ export function Navbar() {
               <li className="pt-4 border-t border-border">
                 <motion.div
                   whileTap={{ scale: 0.97 }}
-                  className="rounded-full p-[2px] bg-gradient-to-r from-[#134c2c] via-[#2da021] to-[#f88a0d] animate-border-shimmer shadow-md"
+                  className="relative group rounded-full p-[2px] bg-gradient-to-r from-[#f88a0d] via-[#fb923c] to-[#d97706] animate-border-shimmer shadow-md"
                 >
+                  <span className="absolute -inset-0.5 rounded-full bg-[#f88a0d] opacity-35 blur-xs animate-pulse pointer-events-none" />
                   <Link
                     href="/contact"
-                    className="flex items-center justify-between px-5 py-3 rounded-full bg-[#0c2a19] text-white text-xs font-black tracking-wider uppercase"
+                    className="relative flex items-center justify-between px-5 py-3 rounded-full bg-gradient-to-r from-[#f88a0d] to-[#ea580c] text-white text-xs font-black tracking-wider uppercase"
                     onClick={() => setMobileOpen(false)}
                   >
                     <span className="flex items-center gap-2">
                       <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f88a0d] opacity-75" />
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#f88a0d]" />
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
                       </span>
                       Partner With Us
                     </span>
-                    <ArrowRight size={15} className="text-[#f88a0d]" />
+                    <ArrowRight size={15} className="text-white" />
                   </Link>
                 </motion.div>
               </li>

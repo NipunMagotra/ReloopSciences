@@ -79,9 +79,6 @@ export function Footer() {
                 </span>
               </div>
             </Link>
-            <p className="text-xs text-emerald-300/50">
-              Based in India
-            </p>
           </div>
 
           {/* Connect Section */}
