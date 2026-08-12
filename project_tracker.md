@@ -41,25 +41,25 @@ This document serves as the master checklist and progress tracker for the Reloop
 - [ ] **Why circularity matters:** The necessity of a closed-loop system.
 
 ## 📄 Page 4: Our Approach & Solutions
-**Overall Status:** [ ] Not Started
+**Overall Status:** [x] Completed
 *(Note: Combined from original Pages 4 & 5. Single page only, no subpages.)*
 
 **Sections:**
-- [ ] **Our Approach Overview:**
-  - [ ] Circular journey
-  - [ ] Stakeholder ecosystem
-  - [ ] Material recovery concept
-- [ ] **Solution 1: Laboratory Sustainability Assessment:**
-  - [ ] Waste stream mapping
-  - [ ] Material flow understanding
-  - [ ] Circularity opportunity
-- [ ] **Solution 2: Circular Economy Programmes:**
-  - [ ] Exploring laboratory plastic recovery pathway
-  - [ ] Stakeholder engagement
-- [ ] **Solution 3: Traceability and Reporting:**
-  - [ ] Material tracking concept
-  - [ ] Sustainability metrics
-  - [ ] ESG reporting
+- [x] **Our Approach Overview:**
+  - [x] Circular journey
+  - [x] Stakeholder ecosystem
+  - [x] Material recovery concept
+- [x] **Solution 1: Laboratory Sustainability Assessment:**
+  - [x] Waste stream mapping
+  - [x] Material flow understanding
+  - [x] Circularity opportunity
+- [x] **Solution 2: Circular Economy Programmes:**
+  - [x] Exploring laboratory plastic recovery pathway
+  - [x] Stakeholder engagement
+- [x] **Solution 3: Traceability and Reporting:**
+  - [x] Material tracking concept
+  - [x] Sustainability metrics
+  - [x] ESG reporting
 
 ## 📄 Page 5: Pilot Programme
 **Overall Status:** [ ] Not Started

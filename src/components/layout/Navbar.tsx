@@ -11,6 +11,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
   { href: "/challenges", label: "The Challenges" },
+  { href: "/solutions", label: "Our Approach & Solutions" },
   { href: "/pilot", label: "Pilot Programme" },
   { href: "/contact", label: "Contact" },
 ];
@@ -56,7 +57,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-7">
+        <ul className="hidden md:flex items-center gap-3 lg:gap-5 xl:gap-6">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
