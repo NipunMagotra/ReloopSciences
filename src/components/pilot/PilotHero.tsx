@@ -2,8 +2,8 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import { ArrowRight, Mail, Sparkles } from "lucide-react";
-import { PilotInfographic } from "./PilotInfographic";
+import { ArrowRight, Mail } from "lucide-react";
+import { InfographicLightbox } from "@/components/ui/InfographicLightbox";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -83,8 +83,14 @@ export function PilotHero() {
           whileInView="visible"
           viewport={{ once: true }}
           custom={4}
+          className="mt-14 max-w-5xl mx-auto"
         >
-          <PilotInfographic />
+          <InfographicLightbox
+            src="/images/pilot-programme-infographic.png"
+            alt="Reloop Sciences Pilot Programme 6-Step Methodology and Expected Impact"
+            badgeTitle="6-Stage Pilot Methodology & Measurable Environmental Impact"
+            badgeCategory="Partnership • Collection • Impact"
+          />
         </motion.div>
       </div>
     </section>

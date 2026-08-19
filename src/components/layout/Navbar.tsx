@@ -33,6 +33,7 @@ export function Navbar() {
             height={96}
             priority
             unoptimized
+            style={{ imageRendering: "-webkit-optimize-contrast" }}
             className="h-11 sm:h-13 md:h-15 lg:h-16 w-auto object-contain transition-opacity duration-300 group-hover:opacity-90"
             onError={(e) => {
               e.currentTarget.style.display = 'none';

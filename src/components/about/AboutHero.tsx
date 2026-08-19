@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
-import { AboutInfographic } from "./AboutInfographic";
+import { InfographicLightbox } from "@/components/ui/InfographicLightbox";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -60,8 +60,14 @@ export function AboutHero() {
           whileInView="visible"
           viewport={{ once: true }}
           custom={3}
+          className="mt-12 max-w-5xl mx-auto"
         >
-          <AboutInfographic />
+          <InfographicLightbox
+            src="/images/about-us-infographic.png"
+            alt="About Reloop Sciences - Building a Circular Future for Laboratories"
+            badgeTitle="Our Purpose: Mission, Vision, Values & Commitment"
+            badgeCategory="Circular Life Sciences"
+          />
         </motion.div>
 
         {/* Content Callout Grid */}

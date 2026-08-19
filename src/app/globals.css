@@ -289,12 +289,10 @@ body {
   animation: border-shimmer 3s ease infinite;
 }
 
-/* Image Crispness and High-DPI Clarity */
-img {
+/* ─── Ultra-Sharp Image Rendering ─────────────────────────── */
+img, picture, svg {
   image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-}
-
-.high-res-canvas {
-  image-rendering: high-quality;
+  text-rendering: optimizeLegibility;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }

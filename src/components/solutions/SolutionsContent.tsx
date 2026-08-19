@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { InfographicLightbox } from "@/components/ui/InfographicLightbox";
 import { motion } from "motion/react";
-import { SolutionsInfographic } from "./SolutionsInfographic";
 import {
   Recycle,
   Search,
@@ -329,8 +329,14 @@ export function SolutionsContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.35 }}
+            className="mt-14 max-w-5xl mx-auto"
           >
-            <SolutionsInfographic />
+            <InfographicLightbox
+              src="/images/approach-solutions-infographic.png"
+              alt="Our Approach & Solution - Reloop Sciences Circular Lifecycle"
+              badgeTitle="Complete 5-Stage Closed-Loop Lifecycle & Core Enablers"
+              badgeCategory="Collect • Recycle • Reuse"
+            />
           </motion.div>
         </div>
       </section>

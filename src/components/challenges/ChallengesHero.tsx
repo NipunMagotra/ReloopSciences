@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import { AlertCircle, FlaskConical, Sparkles } from "lucide-react";
-import { ChallengesInfographic } from "./ChallengesInfographic";
+import { AlertCircle, FlaskConical } from "lucide-react";
+import { InfographicLightbox } from "@/components/ui/InfographicLightbox";
 
 const plasticTypes = [
   "Pipette tips",
@@ -72,8 +72,14 @@ export function ChallengesHero() {
           whileInView="visible"
           viewport={{ once: true }}
           custom={3}
+          className="mt-12 max-w-5xl mx-auto"
         >
-          <ChallengesInfographic />
+          <InfographicLightbox
+            src="/images/challenges-infographic.png"
+            alt="The Challenge - Laboratory Plastic Waste Roadmap"
+            badgeTitle="The Linear Challenge: From Lab Bench to Lost Opportunity"
+            badgeCategory="Need For Circular Solutions"
+          />
         </motion.div>
 
         {/* Plastic Consumables Grid */}

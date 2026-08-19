@@ -61,6 +61,7 @@ export function Footer() {
                 width={380}
                 height={96}
                 unoptimized
+                style={{ imageRendering: "-webkit-optimize-contrast" }}
                 className="h-11 sm:h-13 md:h-15 lg:h-16 w-auto object-contain"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';

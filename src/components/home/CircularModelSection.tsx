@@ -4,8 +4,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ThreeCircularLoop } from "./ThreeCircularLoop";
 import { CircularHubDiagram } from "./CircularHubDiagram";
-import { CircularInfographic } from "./CircularInfographic";
 import { Globe, GitMerge, LayoutDashboard, Sparkles } from "lucide-react";
+import { InfographicLightbox } from "@/components/ui/InfographicLightbox";
 
 export function CircularModelSection() {
   const [activeView, setActiveView] = useState<"3d" | "infographic" | "diagram">("3d");
@@ -84,7 +84,12 @@ export function CircularModelSection() {
               transition={{ duration: 0.4 }}
               className="mb-10 max-w-5xl mx-auto"
             >
-              <CircularInfographic />
+              <InfographicLightbox
+                src="/images/circular-model-infographic.jpg"
+                alt="Closing the Loop - Reloop Sciences Circular Model"
+                badgeTitle="Reloop Closed-Loop Recovery Architecture"
+                badgeCategory="Transparent • Traceable • Circular"
+              />
             </motion.div>
           )}
 
