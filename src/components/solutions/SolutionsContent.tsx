@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
+import { SolutionsInfographic } from "./SolutionsInfographic";
 import {
   Recycle,
   Search,
@@ -266,7 +267,7 @@ export function SolutionsContent() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f88a0d] opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#f88a0d]" />
             </span>
-            Our Approach & Solutions
+            Approach & Solutions
           </motion.div>
 
           {/* Main Title */}
@@ -320,6 +321,16 @@ export function SolutionsContent() {
                 {pill}
               </span>
             ))}
+          </motion.div>
+
+          {/* Featured Approach & Solutions Infographic Showcase */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+          >
+            <SolutionsInfographic />
           </motion.div>
         </div>
       </section>

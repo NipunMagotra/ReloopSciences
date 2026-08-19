@@ -25,14 +25,17 @@ interface MediaVideoSectionProps {
 }
 
 export function MediaVideoSection({
-  videoId = "", // Empty default — no unwanted default video links
+  videoId = "",
   youtubeChannelUrl = "https://www.youtube.com",
   linkedinUrl = "#",
   email = "mailto:hello@reloopsciences.com",
 }: MediaVideoSectionProps) {
   return (
-    <section className="py-16 md:py-24 px-6 bg-offwhite border-b border-gray-200/60 relative">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-16 md:py-24 px-6 bg-offwhite border-b border-gray-200/60 relative overflow-hidden">
+      {/* Subtle background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#2da021]/5 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <span className="eyebrow block">Media & Highlights</span>
           <h2 className="text-2xl md:text-4xl font-bold text-[#134c2c] tracking-tight">
@@ -43,33 +46,61 @@ export function MediaVideoSection({
           </p>
         </div>
 
-        {/* Video Player Container */}
+        {/* Video Player / Coming Soon Container */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative w-full max-w-4xl mx-auto aspect-video rounded-3xl overflow-hidden border-2 border-emerald-950/15 shadow-2xl bg-gradient-to-br from-[#0c2a19] via-[#134c2c] to-[#0c2a19] mb-10 flex flex-col items-center justify-center text-white p-8 text-center"
+          className="relative w-full max-w-4xl mx-auto aspect-video rounded-3xl overflow-hidden border-2 border-emerald-950/20 shadow-2xl bg-gradient-to-br from-[#0a2315] via-[#134c2c] to-[#07190e] mb-10 flex flex-col items-center justify-center text-white p-6 sm:p-10 text-center group"
         >
+          {/* Decorative ambient background glows */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#2da021]/15 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#f88a0d]/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-[#2da021]/15 rounded-full blur-3xl pointer-events-none" />
+
           {videoId ? (
             <iframe
-              className="w-full h-full"
+              className="w-full h-full relative z-10"
               src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=0&rel=0`}
               title="Reloop Sciences Video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             />
           ) : (
-            <div className="space-y-4 max-w-md">
-              <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center mx-auto text-[#f88a0d] shadow-lg">
-                <Play size={28} className="fill-[#f88a0d] ml-1" />
+            <div className="relative z-10 space-y-5 max-w-lg mx-auto flex flex-col items-center">
+              {/* Coming Soon Status Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/15 shadow-inner">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f88a0d] opacity-80" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#f88a0d]" />
+                </span>
+                <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#f88a0d]">
+                  Coming Soon
+                </span>
               </div>
-              <h3 className="text-xl font-bold text-white">
-                Official Video Highlights
-              </h3>
-              <p className="text-xs sm:text-sm text-emerald-100/80 leading-relaxed">
-                Reloop Sciences official video overview. Pass your video ID to embed directly.
-              </p>
+
+              {/* Play Button Icon with Glow Halo */}
+              <div className="relative my-1">
+                <div className="absolute -inset-3 rounded-full bg-[#f88a0d]/25 blur-md animate-pulse pointer-events-none" />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/10 backdrop-blur-xl border border-white/25 flex items-center justify-center text-white shadow-2xl group-hover:scale-105 group-hover:bg-white/15 transition-all duration-300">
+                  <Play size={30} className="fill-white ml-1 text-white opacity-95 group-hover:fill-[#f88a0d] group-hover:text-[#f88a0d] transition-colors duration-300" />
+                </div>
+              </div>
+
+              {/* Action Button */}
+              <div className="pt-2 flex items-center gap-3">
+                <a
+                  href={youtubeChannelUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-bold tracking-wider uppercase backdrop-blur-sm transition-all duration-200 hover:scale-105 shadow-sm"
+                >
+                  <YoutubeIcon size={15} className="text-[#ff4444]" />
+                  Subscribe for Release
+                  <ArrowUpRight size={13} />
+                </a>
+              </div>
             </div>
           )}
         </motion.div>

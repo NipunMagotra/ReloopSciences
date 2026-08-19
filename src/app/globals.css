@@ -288,3 +288,13 @@ body {
   background-size: 200% 200%;
   animation: border-shimmer 3s ease infinite;
 }
+
+/* Image Crispness and High-DPI Clarity */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.high-res-canvas {
+  image-rendering: high-quality;
+}

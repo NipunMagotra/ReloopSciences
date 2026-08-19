@@ -4,10 +4,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ThreeCircularLoop } from "./ThreeCircularLoop";
 import { CircularHubDiagram } from "./CircularHubDiagram";
-import { Globe, GitMerge } from "lucide-react";
+import { CircularInfographic } from "./CircularInfographic";
+import { Globe, GitMerge, LayoutDashboard, Sparkles } from "lucide-react";
 
 export function CircularModelSection() {
-  const [activeView, setActiveView] = useState<"3d" | "diagram">("3d");
+  const [activeView, setActiveView] = useState<"3d" | "infographic" | "diagram">("3d");
 
   return (
     <section id="circular-model" className="py-16 md:py-24 px-6 bg-offwhite relative overflow-hidden">
@@ -22,7 +23,7 @@ export function CircularModelSection() {
           </p>
 
           {/* Clean View Mode Toggle Pills */}
-          <div className="flex items-center justify-center gap-2 pt-4">
+          <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
             <button
               onClick={() => setActiveView("3d")}
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 ${
@@ -33,6 +34,17 @@ export function CircularModelSection() {
             >
               <Globe size={14} />
               3D Interactive Model
+            </button>
+            <button
+              onClick={() => setActiveView("infographic")}
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 ${
+                activeView === "infographic"
+                  ? "bg-[#134c2c] text-white shadow-md"
+                  : "bg-white text-gray-600 border border-gray-200 hover:text-[#134c2c]"
+              }`}
+            >
+              <LayoutDashboard size={14} />
+              Infographic Roadmap
             </button>
             <button
               onClick={() => setActiveView("diagram")}
@@ -50,7 +62,7 @@ export function CircularModelSection() {
 
         {/* Dynamic View Display */}
         <AnimatePresence mode="wait">
-          {activeView === "3d" ? (
+          {activeView === "3d" && (
             <motion.div
               key="3d-view"
               initial={{ opacity: 0, y: 12 }}
@@ -61,7 +73,22 @@ export function CircularModelSection() {
             >
               <ThreeCircularLoop />
             </motion.div>
-          ) : (
+          )}
+
+          {activeView === "infographic" && (
+            <motion.div
+              key="infographic-view"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.4 }}
+              className="mb-10 max-w-5xl mx-auto"
+            >
+              <CircularInfographic />
+            </motion.div>
+          )}
+
+          {activeView === "diagram" && (
             <motion.div
               key="diagram-view"
               initial={{ opacity: 0, y: 12 }}

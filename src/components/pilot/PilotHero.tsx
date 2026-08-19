@@ -2,7 +2,8 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Mail, Sparkles } from "lucide-react";
+import { PilotInfographic } from "./PilotInfographic";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -74,6 +75,17 @@ export function PilotHero() {
             </a>
           </motion.div>
         </div>
+
+        {/* Featured Pilot Programme Infographic Showcase */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          custom={4}
+        >
+          <PilotInfographic />
+        </motion.div>
       </div>
     </section>
   );

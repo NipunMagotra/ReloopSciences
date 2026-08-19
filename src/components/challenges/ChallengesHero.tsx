@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import { AlertCircle, FlaskConical } from "lucide-react";
+import { AlertCircle, FlaskConical, Sparkles } from "lucide-react";
+import { ChallengesInfographic } from "./ChallengesInfographic";
 
 const plasticTypes = [
   "Pipette tips",
@@ -64,8 +65,19 @@ export function ChallengesHero() {
           </motion.p>
         </div>
 
+        {/* Featured Challenges Infographic Showcase */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          custom={3}
+        >
+          <ChallengesInfographic />
+        </motion.div>
+
         {/* Plastic Consumables Grid */}
-        <div className="mt-14 max-w-4xl mx-auto bg-white p-8 md:p-10 rounded-3xl border border-gray-100 shadow-[0_4px_25px_rgba(0,0,0,0.03)]">
+        <div className="mt-12 max-w-4xl mx-auto bg-white p-8 md:p-10 rounded-3xl border border-gray-100 shadow-[0_4px_25px_rgba(0,0,0,0.03)]">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 rounded-xl bg-orange-50 text-[#f88a0d] flex items-center justify-center">
               <FlaskConical size={20} />

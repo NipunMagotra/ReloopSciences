@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { AboutInfographic } from "./AboutInfographic";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -52,14 +53,25 @@ export function AboutHero() {
           </motion.p>
         </div>
 
+        {/* Featured About Us Infographic Showcase */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          custom={3}
+        >
+          <AboutInfographic />
+        </motion.div>
+
         {/* Content Callout Grid */}
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={3}
+            custom={4}
             className="bg-white p-8 md:p-10 rounded-3xl border border-gray-100 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_35px_rgba(0,0,0,0.06)] transition-all duration-300 flex flex-col justify-between"
           >
             <p className="text-gray-600 text-base md:text-lg leading-relaxed">
@@ -72,7 +84,7 @@ export function AboutHero() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            custom={4}
+            custom={5}
             className="bg-[#0c2a19] text-white p-8 md:p-10 rounded-3xl border border-emerald-800/40 shadow-xl flex flex-col justify-between relative overflow-hidden group"
           >
             <div className="absolute -top-12 -right-12 w-36 h-36 bg-[#2da021]/20 rounded-full blur-2xl pointer-events-none" />

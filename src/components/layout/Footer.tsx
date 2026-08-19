@@ -56,10 +56,11 @@ export function Footer() {
           <div className="space-y-1">
             <Link href="/" className="flex items-center group">
               <Image
-                src="/logo.png"
+                src="/footer.png"
                 alt="Reloop Sciences Logo"
                 width={380}
                 height={96}
+                unoptimized
                 className="h-11 sm:h-13 md:h-15 lg:h-16 w-auto object-contain"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';

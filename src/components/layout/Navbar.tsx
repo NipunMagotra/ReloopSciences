@@ -11,26 +11,28 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
   { href: "/challenges", label: "Challenges" },
-  { href: "/solutions", label: "Our Approach & Solutions" },
+  { href: "/solutions", label: "Approach & Solutions" },
   { href: "/pilot", label: "Pilot Programme" },
   { href: "/contact", label: "Contact" },
 ];
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [hoveredPath, setHoveredPath] = useState<string | null>(null);
   const pathname = usePathname();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-offwhite/90 backdrop-blur-md border-b border-border/60 shadow-xs">
-      <nav className="mx-auto max-w-7xl px-6 lg:px-8 flex items-center justify-between h-20 md:h-22">
+      <nav className="mx-auto max-w-[1440px] px-6 lg:px-10 xl:px-12 flex items-center justify-between h-20 md:h-22 gap-4">
         {/* Logo / Wordmark */}
-        <Link href="/" className="flex items-center group py-1">
+        <Link href="/" className="flex items-center group py-1 shrink-0">
           <Image
             src="/logo.png"
             alt="Reloop Sciences Logo"
             width={380}
             height={96}
             priority
+            unoptimized
             className="h-11 sm:h-13 md:h-15 lg:h-16 w-auto object-contain transition-opacity duration-300 group-hover:opacity-90"
             onError={(e) => {
               e.currentTarget.style.display = 'none';
@@ -57,25 +59,55 @@ export function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-3 lg:gap-5 xl:gap-6">
+        <ul
+          className="hidden md:flex items-center gap-1 lg:gap-2.5 xl:gap-4 shrink-0 mx-auto"
+          onMouseLeave={() => setHoveredPath(null)}
+        >
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
+            const isHovered = hoveredPath === link.href;
+
             return (
-              <li key={link.href}>
+              <li key={link.href} className="relative shrink-0">
                 <Link
                   href={link.href}
-                  className={`text-xs font-bold uppercase tracking-wider transition-all duration-200 relative py-1 ${
+                  onMouseEnter={() => setHoveredPath(link.href)}
+                  className={`text-[11px] lg:text-xs font-bold uppercase tracking-wider whitespace-nowrap relative px-2.5 lg:px-3 py-1.5 rounded-full transition-colors duration-200 flex items-center justify-center group shrink-0 ${
                     isActive
                       ? "text-[#2da021]"
                       : "text-gray-600 hover:text-[#134c2c]"
                   }`}
                 >
-                  {link.label}
+                  {/* Floating ambient capsule highlight on hover */}
+                  {isHovered && (
+                    <motion.span
+                      layoutId="navHoverBackdrop"
+                      className="absolute inset-0 bg-[#2da021]/8 rounded-full -z-10 border border-[#2da021]/15"
+                      initial={{ opacity: 0, scale: 0.92 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.92 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 28 }}
+                    />
+                  )}
+
+                  {/* Label with micro-lift and strictly single-line nowrap */}
+                  <span className="relative z-10 whitespace-nowrap transition-transform duration-200 group-hover:-translate-y-0.5 inline-block">
+                    {link.label}
+                  </span>
+
+                  {/* Active Indicator Underline */}
                   {isActive && (
                     <motion.span
                       layoutId="activeNavIndicator"
-                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#2da021] rounded-full"
+                      className="absolute bottom-0 left-2.5 right-2.5 lg:left-3 lg:right-3 h-[2.5px] bg-[#2da021] rounded-full shadow-[0_0_8px_rgba(45,160,33,0.4)]"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+
+                  {/* Non-active Hover Animated Underline (expands from center with smooth glow) */}
+                  {!isActive && (
+                    <span 
+                      className="absolute bottom-0 left-2.5 right-2.5 lg:left-3 lg:right-3 h-[2px] bg-gradient-to-r from-[#2da021]/70 via-[#2da021] to-[#2da021]/70 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center opacity-0 group-hover:opacity-100" 
                     />
                   )}
                 </Link>
@@ -85,16 +117,13 @@ export function Navbar() {
         </ul>
 
         {/* Start a Conversation CTA */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-4 shrink-0">
           <motion.div
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.96 }}
             transition={{ type: "spring", stiffness: 400, damping: 22 }}
-            className="relative group rounded-full p-[2px] bg-gradient-to-r from-[#f88a0d] via-[#fb923c] to-[#d97706] animate-border-shimmer shadow-lg hover:shadow-[#f88a0d]/40 hover:shadow-xl transition-all duration-300"
+            className="relative group rounded-full p-[2px] bg-gradient-to-r from-[#f88a0d] via-[#fb923c] to-[#d97706] animate-border-shimmer shadow-xs"
           >
-            {/* Ambient Constant Pulsing Outer Glow Aura */}
-            <span className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#f88a0d] to-[#ea580c] opacity-45 blur-md animate-pulse pointer-events-none group-hover:opacity-80 transition-opacity" />
-
             <Link
               href="/contact"
               className="relative flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#f88a0d] via-[#ea580c] to-[#f88a0d] text-white text-xs font-black tracking-wider uppercase overflow-hidden shadow-inner group-hover:from-[#ea580c] group-hover:to-[#f88a0d] transition-all duration-300"
@@ -150,12 +179,21 @@ export function Navbar() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className={`block text-sm font-bold uppercase tracking-wider transition-colors duration-200 ${
-                        isActive ? "text-[#2da021]" : "text-[#134c2c] hover:text-[#2da021]"
+                      className={`group flex items-center justify-between text-sm font-bold uppercase tracking-wider px-3.5 py-2.5 rounded-xl transition-all duration-200 ${
+                        isActive 
+                          ? "text-[#2da021] bg-[#2da021]/10 font-black" 
+                          : "text-[#134c2c] hover:text-[#2da021] hover:bg-[#2da021]/8 hover:translate-x-1"
                       }`}
                       onClick={() => setMobileOpen(false)}
                     >
-                      {link.label}
+                      <span className="transition-transform duration-200 group-hover:translate-x-1">
+                        {link.label}
+                      </span>
+                      {isActive ? (
+                        <span className="w-2 h-2 rounded-full bg-[#2da021] shadow-[0_0_6px_rgba(45,160,33,0.6)]" />
+                      ) : (
+                        <ArrowRight size={14} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-[#2da021]" />
+                      )}
                     </Link>
                   </li>
                 );
@@ -163,9 +201,8 @@ export function Navbar() {
               <li className="pt-4 border-t border-border">
                 <motion.div
                   whileTap={{ scale: 0.97 }}
-                  className="relative group rounded-full p-[2px] bg-gradient-to-r from-[#f88a0d] via-[#fb923c] to-[#d97706] animate-border-shimmer shadow-md"
+                  className="relative group rounded-full p-[2px] bg-gradient-to-r from-[#f88a0d] via-[#fb923c] to-[#d97706] animate-border-shimmer shadow-xs"
                 >
-                  <span className="absolute -inset-0.5 rounded-full bg-[#f88a0d] opacity-35 blur-xs animate-pulse pointer-events-none" />
                   <Link
                     href="/contact"
                     className="relative flex items-center justify-between px-5 py-3 rounded-full bg-gradient-to-r from-[#f88a0d] to-[#ea580c] text-white text-xs font-black tracking-wider uppercase"
