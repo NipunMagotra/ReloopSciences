@@ -59,97 +59,99 @@ export function Navbar() {
           </div>
         </Link>
 
-        {/* Desktop links */}
-        <ul
-          className="hidden md:flex items-center gap-1 lg:gap-2.5 xl:gap-4 shrink-0 mx-auto"
-          onMouseLeave={() => setHoveredPath(null)}
-        >
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href;
-            const isHovered = hoveredPath === link.href;
-
-            return (
-              <li key={link.href} className="relative shrink-0">
-                <Link
-                  href={link.href}
-                  onMouseEnter={() => setHoveredPath(link.href)}
-                  className={`text-[11px] lg:text-xs font-bold uppercase tracking-wider whitespace-nowrap relative px-2.5 lg:px-3 py-1.5 rounded-full transition-colors duration-200 flex items-center justify-center group shrink-0 ${
-                    isActive
-                      ? "text-[#2da021]"
-                      : "text-gray-600 hover:text-[#134c2c]"
-                  }`}
-                >
-                  {/* Floating ambient capsule highlight on hover */}
-                  {isHovered && (
-                    <motion.span
-                      layoutId="navHoverBackdrop"
-                      className="absolute inset-0 bg-[#2da021]/8 rounded-full -z-10 border border-[#2da021]/15"
-                      initial={{ opacity: 0, scale: 0.92 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.92 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 28 }}
-                    />
-                  )}
-
-                  {/* Label with micro-lift and strictly single-line nowrap */}
-                  <span className="relative z-10 whitespace-nowrap transition-transform duration-200 group-hover:-translate-y-0.5 inline-block">
-                    {link.label}
-                  </span>
-
-                  {/* Active Indicator Underline */}
-                  {isActive && (
-                    <motion.span
-                      layoutId="activeNavIndicator"
-                      className="absolute bottom-0 left-2.5 right-2.5 lg:left-3 lg:right-3 h-[2.5px] bg-[#2da021] rounded-full shadow-[0_0_8px_rgba(45,160,33,0.4)]"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
-
-                  {/* Non-active Hover Animated Underline (expands from center with smooth glow) */}
-                  {!isActive && (
-                    <span 
-                      className="absolute bottom-0 left-2.5 right-2.5 lg:left-3 lg:right-3 h-[2px] bg-gradient-to-r from-[#2da021]/70 via-[#2da021] to-[#2da021]/70 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center opacity-0 group-hover:opacity-100" 
-                    />
-                  )}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-
-        {/* Start a Conversation CTA */}
-        <div className="hidden md:flex items-center gap-4 shrink-0">
-          <motion.div
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.96 }}
-            transition={{ type: "spring", stiffness: 400, damping: 22 }}
-            className="relative group rounded-full p-[2px] bg-gradient-to-r from-[#f88a0d] via-[#fb923c] to-[#d97706] animate-border-shimmer shadow-xs"
+        {/* Desktop Nav Links & CTA aligned to the right */}
+        <div className="hidden md:flex items-center gap-3 lg:gap-5 xl:gap-7 ml-auto shrink-0">
+          <ul
+            className="flex items-center gap-1 lg:gap-2 xl:gap-3.5 shrink-0"
+            onMouseLeave={() => setHoveredPath(null)}
           >
-            <Link
-              href="/contact"
-              className="relative flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#f88a0d] via-[#ea580c] to-[#f88a0d] text-white text-xs font-black tracking-wider uppercase overflow-hidden shadow-inner group-hover:from-[#ea580c] group-hover:to-[#f88a0d] transition-all duration-300"
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              const isHovered = hoveredPath === link.href;
+
+              return (
+                <li key={link.href} className="relative shrink-0">
+                  <Link
+                    href={link.href}
+                    onMouseEnter={() => setHoveredPath(link.href)}
+                    className={`text-[11px] lg:text-xs font-bold uppercase tracking-wider whitespace-nowrap relative px-2.5 lg:px-3 py-1.5 rounded-full transition-colors duration-200 flex items-center justify-center group shrink-0 ${
+                      isActive
+                        ? "text-[#2da021]"
+                        : "text-gray-600 hover:text-[#134c2c]"
+                    }`}
+                  >
+                    {/* Floating ambient capsule highlight on hover */}
+                    {isHovered && (
+                      <motion.span
+                        layoutId="navHoverBackdrop"
+                        className="absolute inset-0 bg-[#2da021]/8 rounded-full -z-10 border border-[#2da021]/15"
+                        initial={{ opacity: 0, scale: 0.92 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.92 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 28 }}
+                      />
+                    )}
+
+                    {/* Label with micro-lift and strictly single-line nowrap */}
+                    <span className="relative z-10 whitespace-nowrap transition-transform duration-200 group-hover:-translate-y-0.5 inline-block">
+                      {link.label}
+                    </span>
+
+                    {/* Active Indicator Underline */}
+                    {isActive && (
+                      <motion.span
+                        layoutId="activeNavIndicator"
+                        className="absolute bottom-0 left-2.5 right-2.5 lg:left-3 lg:right-3 h-[2.5px] bg-[#2da021] rounded-full shadow-[0_0_8px_rgba(45,160,33,0.4)]"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+
+                    {/* Non-active Hover Animated Underline (expands from center with smooth glow) */}
+                    {!isActive && (
+                      <span 
+                        className="absolute bottom-0 left-2.5 right-2.5 lg:left-3 lg:right-3 h-[2px] bg-gradient-to-r from-[#2da021]/70 via-[#2da021] to-[#2da021]/70 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center opacity-0 group-hover:opacity-100" 
+                      />
+                    )}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+
+          {/* Far Right: Start a Conversation CTA */}
+          <div className="flex items-center shrink-0">
+            <motion.div
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 400, damping: 22 }}
+              className="relative group rounded-full p-[2px] bg-gradient-to-r from-[#f88a0d] via-[#fb923c] to-[#d97706] animate-border-shimmer shadow-xs"
             >
-              {/* Shimmer Light Beam Sweep */}
-              <span className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/35 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-1000 ease-out pointer-events-none" />
+              <Link
+                href="/contact"
+                className="relative flex items-center gap-2.5 px-5 lg:px-6 py-2.5 rounded-full bg-gradient-to-r from-[#f88a0d] via-[#ea580c] to-[#f88a0d] text-white text-xs font-black tracking-wider uppercase overflow-hidden shadow-inner group-hover:from-[#ea580c] group-hover:to-[#f88a0d] transition-all duration-300"
+              >
+                {/* Shimmer Light Beam Sweep */}
+                <span className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/35 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-1000 ease-out pointer-events-none" />
 
-              {/* Pulsing live dot */}
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-80" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
-              </span>
+                {/* Pulsing live dot */}
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-80" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+                </span>
 
-              {/* Button text */}
-              <span className="relative z-10 font-extrabold text-white tracking-wider group-hover:tracking-widest transition-all duration-300">
-                Partner With Us
-              </span>
+                {/* Button text */}
+                <span className="relative z-10 font-extrabold text-white tracking-wider group-hover:tracking-widest transition-all duration-300">
+                  Partner With Us
+                </span>
 
-              {/* Animated Arrow Icon */}
-              <ArrowRight
-                size={14}
-                className="relative z-10 text-white transition-all duration-300 group-hover:translate-x-1.5"
-              />
-            </Link>
-          </motion.div>
+                {/* Animated Arrow Icon */}
+                <ArrowRight
+                  size={14}
+                  className="relative z-10 text-white transition-all duration-300 group-hover:translate-x-1.5"
+                />
+              </Link>
+            </motion.div>
+          </div>
         </div>
 
         {/* Mobile toggle */}
