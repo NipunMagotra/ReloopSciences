@@ -133,7 +133,7 @@ export function CircularModelSection() {
               Closed-Loop Ecosystem
             </span>
             <h4 className="text-base md:text-lg font-bold">
-              100% Traceable & Compliant Laboratory Polymer Recycling
+              Fully Traceable & Compliant Laboratory Polymer Recycling
             </h4>
           </div>
           <div className="flex items-center gap-3">

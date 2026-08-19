@@ -31,26 +31,18 @@ function FounderCard({ name }: FounderProps) {
         {/* Icons */}
         <div className="flex justify-center gap-3 mb-6">
           <a
-            href="mailto:contact@reloopsciences.com"
+            href="mailto:hello@reloopsciences.com"
             className="w-9 h-9 rounded-full bg-cream flex items-center justify-center text-gray-400 hover:text-[#f88a0d] hover:bg-green-light transition-all duration-200"
             aria-label={`Email ${name}`}
           >
             <Mail size={16} />
-          </a>
-          <a
-            href="tel:+1234567890"
-            className="w-9 h-9 rounded-full bg-cream flex items-center justify-center text-gray-400 hover:text-[#f88a0d] hover:bg-green-light transition-all duration-200"
-            aria-label={`Call ${name}`}
-          >
-            <Phone size={16} />
           </a>
         </div>
       </div>
 
       {/* Description */}
       <p className="text-muted-foreground text-sm leading-relaxed px-2">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
+        Leading the initiative to develop circular, traceable recovery systems for laboratory plastics.
       </p>
     </div>
   );

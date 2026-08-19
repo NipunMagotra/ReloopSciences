@@ -4,7 +4,6 @@ import { MediaVideoSection } from "@/components/home/MediaVideoSection";
 import { WhyThisMattersSection } from "@/components/home/WhyThisMattersSection";
 import { CircularModelSection } from "@/components/home/CircularModelSection";
 import { BuiltByScientistsSection } from "@/components/home/BuiltByScientistsSection";
-import { ImpactDataSection } from "@/components/home/ImpactDataSection";
 import { HomeCtaSection } from "@/components/home/HomeCtaSection";
 
 export const metadata: Metadata = {
@@ -21,7 +20,6 @@ export default function HomePage() {
       <WhyThisMattersSection />
       <CircularModelSection />
       <BuiltByScientistsSection />
-      <ImpactDataSection />
       <HomeCtaSection />
     </main>
   );
