@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
-import { InfographicLightbox } from "@/components/ui/InfographicLightbox";
+import Image from "next/image";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -53,21 +53,38 @@ export function AboutHero() {
           </motion.p>
         </div>
 
-        {/* Featured About Us Infographic Showcase */}
+        {/* Featured About Us Infographic Showcase (Normal Image) */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           custom={3}
-          className="mt-12 max-w-5xl mx-auto"
+          className="mt-12 max-w-5xl mx-auto rounded-3xl overflow-hidden border border-emerald-950/15 shadow-2xl bg-white"
         >
-          <InfographicLightbox
-            src="/images/about-us-infographic.png"
-            alt="About Reloop Sciences - Building a Circular Future for Laboratories"
-            badgeTitle="Our Purpose: Mission, Vision, Values & Commitment"
-            badgeCategory="Circular Life Sciences"
-          />
+          <div className="relative aspect-[16/9] w-full">
+            <Image
+              src="/images/about-us-infographic.png"
+              alt="About Reloop Sciences - Building a Circular Future for Laboratories"
+              fill
+              priority
+              unoptimized
+              style={{ imageRendering: "-webkit-optimize-contrast" }}
+              className="object-contain bg-white"
+              sizes="(max-width: 1024px) 100vw, 1200px"
+            />
+          </div>
+          <div className="p-4 sm:p-5 bg-gradient-to-r from-[#0c2a19] via-[#134c2c] to-[#0c2a19] text-white flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              <Sparkles size={16} className="text-[#f88a0d]" />
+              <span className="text-xs sm:text-sm font-bold tracking-wide">
+                Our Purpose: Mission, Vision, Values & Commitment
+              </span>
+            </div>
+            <span className="text-[11px] font-semibold uppercase tracking-widest text-[#2da021] bg-white/10 px-3 py-1 rounded-full">
+              Circular Life Sciences
+            </span>
+          </div>
         </motion.div>
 
         {/* Content Callout Grid */}
