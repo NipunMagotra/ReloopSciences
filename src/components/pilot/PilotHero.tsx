@@ -2,8 +2,8 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import { ArrowRight, Mail } from "lucide-react";
-import { InfographicLightbox } from "@/components/ui/InfographicLightbox";
+import Image from "next/image";
+import { ArrowRight, Mail, Sparkles } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -76,21 +76,38 @@ export function PilotHero() {
           </motion.div>
         </div>
 
-        {/* Featured Pilot Programme Infographic Showcase */}
+        {/* Featured Pilot Programme Infographic Showcase (Normal Image) */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           custom={4}
-          className="mt-14 max-w-5xl mx-auto"
+          className="mt-14 max-w-5xl mx-auto rounded-3xl overflow-hidden border border-emerald-950/15 shadow-2xl bg-white"
         >
-          <InfographicLightbox
-            src="/images/pilot-programme-infographic.png"
-            alt="Reloop Sciences Pilot Programme 6-Step Methodology and Expected Impact"
-            badgeTitle="6-Stage Pilot Methodology & Measurable Environmental Impact"
-            badgeCategory="Partnership • Collection • Impact"
-          />
+          <div className="relative aspect-[16/9] w-full">
+            <Image
+              src="/images/pilot-programme-infographic.png"
+              alt="Reloop Sciences Pilot Programme 6-Step Methodology and Expected Impact"
+              fill
+              priority
+              unoptimized
+              style={{ imageRendering: "-webkit-optimize-contrast" }}
+              className="object-contain bg-white"
+              sizes="(max-width: 1024px) 100vw, 1200px"
+            />
+          </div>
+          <div className="p-4 sm:p-5 bg-gradient-to-r from-[#0c2a19] via-[#134c2c] to-[#0c2a19] text-white flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              <Sparkles size={16} className="text-[#f88a0d]" />
+              <span className="text-xs sm:text-sm font-bold tracking-wide">
+                6-Stage Pilot Methodology & Measurable Environmental Impact
+              </span>
+            </div>
+            <span className="text-[11px] font-semibold uppercase tracking-widest text-[#2da021] bg-white/10 px-3 py-1 rounded-full">
+              Partnership • Collection • Impact
+            </span>
+          </div>
         </motion.div>
       </div>
     </section>

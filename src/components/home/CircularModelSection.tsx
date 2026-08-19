@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { ThreeCircularLoop } from "./ThreeCircularLoop";
 import { CircularHubDiagram } from "./CircularHubDiagram";
 import { Globe, GitMerge, LayoutDashboard, Sparkles } from "lucide-react";
-import { InfographicLightbox } from "@/components/ui/InfographicLightbox";
 
 export function CircularModelSection() {
   const [activeView, setActiveView] = useState<"3d" | "infographic" | "diagram">("3d");
@@ -84,12 +84,31 @@ export function CircularModelSection() {
               transition={{ duration: 0.4 }}
               className="mb-10 max-w-5xl mx-auto"
             >
-              <InfographicLightbox
-                src="/images/circular-model-infographic.jpg"
-                alt="Closing the Loop - Reloop Sciences Circular Model"
-                badgeTitle="Reloop Closed-Loop Recovery Architecture"
-                badgeCategory="Transparent • Traceable • Circular"
-              />
+              <div className="relative rounded-3xl overflow-hidden border border-emerald-950/15 shadow-2xl bg-white">
+                <div className="relative aspect-[16/9] w-full">
+                  <Image
+                    src="/images/circular-model-infographic.jpg"
+                    alt="Closing the Loop - Reloop Sciences Circular Model"
+                    fill
+                    priority
+                    unoptimized
+                    style={{ imageRendering: "-webkit-optimize-contrast" }}
+                    className="object-contain bg-[#f8f7f4]"
+                    sizes="(max-width: 1024px) 100vw, 1200px"
+                  />
+                </div>
+                <div className="p-4 sm:p-5 bg-gradient-to-r from-[#0c2a19] to-[#134c2c] text-white flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Sparkles size={16} className="text-[#f88a0d]" />
+                    <span className="text-xs sm:text-sm font-bold tracking-wide">
+                      Reloop Closed-Loop Recovery Architecture
+                    </span>
+                  </div>
+                  <span className="text-[11px] font-semibold uppercase tracking-widest text-[#2da021] bg-white/10 px-3 py-1 rounded-full">
+                    Transparent • Traceable • Circular
+                  </span>
+                </div>
+              </div>
             </motion.div>
           )}
 

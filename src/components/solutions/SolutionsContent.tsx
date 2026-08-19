@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { InfographicLightbox } from "@/components/ui/InfographicLightbox";
+import Image from "next/image";
 import { motion } from "motion/react";
 import {
   Recycle,
@@ -323,20 +323,37 @@ export function SolutionsContent() {
             ))}
           </motion.div>
 
-          {/* Featured Approach & Solutions Infographic Showcase */}
+          {/* Featured Approach & Solutions Infographic Showcase (Normal Image) */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.35 }}
-            className="mt-14 max-w-5xl mx-auto"
+            className="mt-14 max-w-5xl mx-auto rounded-3xl overflow-hidden border border-emerald-950/15 shadow-2xl bg-white"
           >
-            <InfographicLightbox
-              src="/images/approach-solutions-infographic.png"
-              alt="Our Approach & Solution - Reloop Sciences Circular Lifecycle"
-              badgeTitle="Complete 5-Stage Closed-Loop Lifecycle & Core Enablers"
-              badgeCategory="Collect • Recycle • Reuse"
-            />
+            <div className="relative aspect-[16/9] w-full">
+              <Image
+                src="/images/approach-solutions-infographic.png"
+                alt="Our Approach & Solution - Reloop Sciences Circular Lifecycle"
+                fill
+                priority
+                unoptimized
+                style={{ imageRendering: "-webkit-optimize-contrast" }}
+                className="object-contain bg-white"
+                sizes="(max-width: 1024px) 100vw, 1200px"
+              />
+            </div>
+            <div className="p-4 sm:p-5 bg-gradient-to-r from-[#0c2a19] via-[#134c2c] to-[#0c2a19] text-white flex flex-col sm:flex-row items-center justify-between gap-3">
+              <div className="flex items-center gap-2">
+                <Sparkles size={16} className="text-[#f88a0d]" />
+                <span className="text-xs sm:text-sm font-bold tracking-wide">
+                  Complete 5-Stage Closed-Loop Lifecycle & Core Enablers
+                </span>
+              </div>
+              <span className="text-[11px] font-semibold uppercase tracking-widest text-[#2da021] bg-white/10 px-3 py-1 rounded-full">
+                Collect • Recycle • Reuse
+              </span>
+            </div>
           </motion.div>
         </div>
       </section>

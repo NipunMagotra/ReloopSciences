@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import { AlertCircle, FlaskConical } from "lucide-react";
-import { InfographicLightbox } from "@/components/ui/InfographicLightbox";
+import { AlertCircle, FlaskConical, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 const plasticTypes = [
   "Pipette tips",
@@ -65,21 +65,38 @@ export function ChallengesHero() {
           </motion.p>
         </div>
 
-        {/* Featured Challenges Infographic Showcase */}
+        {/* Featured Challenges Infographic Showcase (Normal Image) */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           custom={3}
-          className="mt-12 max-w-5xl mx-auto"
+          className="mt-12 max-w-5xl mx-auto rounded-3xl overflow-hidden border border-orange-950/15 shadow-2xl bg-white"
         >
-          <InfographicLightbox
-            src="/images/challenges-infographic.png"
-            alt="The Challenge - Laboratory Plastic Waste Roadmap"
-            badgeTitle="The Linear Challenge: From Lab Bench to Lost Opportunity"
-            badgeCategory="Need For Circular Solutions"
-          />
+          <div className="relative aspect-[16/9] w-full">
+            <Image
+              src="/images/challenges-infographic.png"
+              alt="The Challenge - Laboratory Plastic Waste Roadmap"
+              fill
+              priority
+              unoptimized
+              style={{ imageRendering: "-webkit-optimize-contrast" }}
+              className="object-contain bg-white"
+              sizes="(max-width: 1024px) 100vw, 1200px"
+            />
+          </div>
+          <div className="p-4 sm:p-5 bg-gradient-to-r from-[#134c2c] via-[#0c2a19] to-[#134c2c] text-white flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              <Sparkles size={16} className="text-[#f88a0d]" />
+              <span className="text-xs sm:text-sm font-bold tracking-wide">
+                The Linear Challenge: From Lab Bench to Lost Opportunity
+              </span>
+            </div>
+            <span className="text-[11px] font-semibold uppercase tracking-widest text-[#f88a0d] bg-white/10 px-3 py-1 rounded-full">
+              Need For Circular Solutions
+            </span>
+          </div>
         </motion.div>
 
         {/* Plastic Consumables Grid */}
