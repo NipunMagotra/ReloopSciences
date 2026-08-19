@@ -1,18 +1,15 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { ThreeCircularLoop } from "./ThreeCircularLoop";
-import { CircularHubDiagram } from "./CircularHubDiagram";
-import { Globe, GitMerge, LayoutDashboard, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 export function CircularModelSection() {
-  const [activeView, setActiveView] = useState<"3d" | "infographic" | "diagram">("3d");
-
   return (
-    <section id="circular-model" className="py-16 md:py-24 px-6 bg-offwhite relative overflow-hidden">
+    <section id="circular-model" className="py-16 md:py-24 px-6 bg-offwhite relative overflow-hidden space-y-16">
       <div className="max-w-6xl mx-auto relative z-10">
+        {/* Section 1: 4-Step 3D Interactive Model */}
         <div className="text-center max-w-3xl mx-auto mb-10 space-y-4">
           <span className="eyebrow block">The Circular Loop</span>
           <h2 className="text-2xl md:text-4xl font-bold text-[#134c2c] tracking-tight">
@@ -21,110 +18,45 @@ export function CircularModelSection() {
           <p className="text-sm md:text-base font-bold text-[#2da021] bg-emerald-950/5 border border-emerald-800/10 py-2 px-5 rounded-full inline-block">
             Plastic becomes products again. Waste becomes value.
           </p>
-
-          {/* Clean View Mode Toggle Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
-            <button
-              onClick={() => setActiveView("3d")}
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 ${
-                activeView === "3d"
-                  ? "bg-[#134c2c] text-white shadow-md"
-                  : "bg-white text-gray-600 border border-gray-200 hover:text-[#134c2c]"
-              }`}
-            >
-              <Globe size={14} />
-              3D Interactive Model
-            </button>
-            <button
-              onClick={() => setActiveView("infographic")}
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 ${
-                activeView === "infographic"
-                  ? "bg-[#134c2c] text-white shadow-md"
-                  : "bg-white text-gray-600 border border-gray-200 hover:text-[#134c2c]"
-              }`}
-            >
-              <LayoutDashboard size={14} />
-              Infographic Roadmap
-            </button>
-            <button
-              onClick={() => setActiveView("diagram")}
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 ${
-                activeView === "diagram"
-                  ? "bg-[#134c2c] text-white shadow-md"
-                  : "bg-white text-gray-600 border border-gray-200 hover:text-[#134c2c]"
-              }`}
-            >
-              <GitMerge size={14} />
-              Hub & Spoke Diagram
-            </button>
-          </div>
         </div>
 
-        {/* Dynamic View Display */}
-        <AnimatePresence mode="wait">
-          {activeView === "3d" && (
-            <motion.div
-              key="3d-view"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.4 }}
-              className="mb-10"
-            >
-              <ThreeCircularLoop />
-            </motion.div>
-          )}
+        {/* 3D Interactive Model */}
+        <div className="mb-16">
+          <ThreeCircularLoop />
+        </div>
 
-          {activeView === "infographic" && (
-            <motion.div
-              key="infographic-view"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.4 }}
-              className="mb-10 max-w-5xl mx-auto"
-            >
-              <div className="relative rounded-3xl overflow-hidden border border-emerald-950/15 shadow-2xl bg-white">
-                <div className="relative aspect-[16/9] w-full">
-                  <Image
-                    src="/images/circular-model-infographic.jpg"
-                    alt="Closing the Loop - Reloop Sciences Circular Model"
-                    fill
-                    priority
-                    unoptimized
-                    style={{ imageRendering: "-webkit-optimize-contrast" }}
-                    className="object-contain bg-[#f8f7f4]"
-                    sizes="(max-width: 1024px) 100vw, 1200px"
-                  />
-                </div>
-                <div className="p-4 sm:p-5 bg-gradient-to-r from-[#0c2a19] to-[#134c2c] text-white flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Sparkles size={16} className="text-[#f88a0d]" />
-                    <span className="text-xs sm:text-sm font-bold tracking-wide">
-                      Reloop Closed-Loop Recovery Architecture
-                    </span>
-                  </div>
-                  <span className="text-[11px] font-semibold uppercase tracking-widest text-[#2da021] bg-white/10 px-3 py-1 rounded-full">
-                    Transparent • Traceable • Circular
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-          )}
-
-          {activeView === "diagram" && (
-            <motion.div
-              key="diagram-view"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.4 }}
-              className="mb-10"
-            >
-              <CircularHubDiagram />
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Section 2: Separate Infographic Roadmap */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-14 max-w-5xl mx-auto rounded-3xl overflow-hidden border border-emerald-950/15 shadow-2xl bg-white"
+        >
+          <div className="relative aspect-[16/9] w-full">
+            <Image
+              src="/images/circular-model-infographic.jpg"
+              alt="Closing the Loop - Reloop Sciences Circular Model"
+              fill
+              priority
+              unoptimized
+              style={{ imageRendering: "-webkit-optimize-contrast" }}
+              className="object-contain bg-[#f8f7f4]"
+              sizes="(max-width: 1024px) 100vw, 1200px"
+            />
+          </div>
+          <div className="p-4 sm:p-5 bg-gradient-to-r from-[#0c2a19] to-[#134c2c] text-white flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              <Sparkles size={16} className="text-[#f88a0d]" />
+              <span className="text-xs sm:text-sm font-bold tracking-wide">
+                Reloop Closed-Loop Recovery Architecture
+              </span>
+            </div>
+            <span className="text-[11px] font-semibold uppercase tracking-widest text-[#2da021] bg-white/10 px-3 py-1 rounded-full">
+              Transparent • Traceable • Circular
+            </span>
+          </div>
+        </motion.div>
 
         {/* Visual Summary Banner */}
         <div className="p-6 md:p-8 rounded-3xl bg-gradient-to-r from-[#0c2a19] via-[#134c2c] to-[#0c2a19] text-white border border-emerald-800/50 shadow-xl flex flex-col md:flex-row items-center justify-between gap-4">
