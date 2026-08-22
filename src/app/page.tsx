@@ -16,9 +16,9 @@ export default function HomePage() {
   return (
     <main className="min-h-screen">
       <Hero />
+      <CircularModelSection />
       <MediaVideoSection />
       <WhyThisMattersSection />
-      <CircularModelSection />
       <BuiltByScientistsSection />
       <HomeCtaSection />
     </main>

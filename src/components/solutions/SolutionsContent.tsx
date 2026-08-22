@@ -654,9 +654,16 @@ export function SolutionsContent() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
             {PARTNERS.map((partner, idx) => {
               const Icon = partner.icon;
+
+              const colPlacement =
+                idx === 3
+                  ? "lg:col-span-2 lg:col-start-2"
+                  : idx === 4
+                  ? "md:col-span-2 md:max-w-md md:mx-auto w-full lg:col-span-2 lg:max-w-none"
+                  : "lg:col-span-2";
 
               return (
                 <motion.div
@@ -666,16 +673,13 @@ export function SolutionsContent() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.08 }}
                   whileHover={{ y: -5 }}
-                  className="p-8 rounded-3xl bg-emerald-950/50 border border-emerald-800/50 hover:bg-emerald-900/60 hover:border-[#2da021] transition-all duration-300 flex flex-col justify-between group shadow-lg"
+                  className={`p-8 rounded-3xl bg-emerald-950/50 border border-emerald-800/50 hover:bg-emerald-900/60 hover:border-[#2da021] transition-all duration-300 flex flex-col justify-between group shadow-lg ${colPlacement}`}
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-6">
+                    <div className="mb-6">
                       <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2da021] to-[#134c2c] text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
                         <Icon size={28} />
                       </div>
-                      <span className="text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-emerald-900/80 text-[#f88a0d] border border-emerald-700/50">
-                        {partner.tag}
-                      </span>
                     </div>
 
                     <h3 className="text-xl font-extrabold text-white mb-2">

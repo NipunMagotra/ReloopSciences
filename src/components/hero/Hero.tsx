@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import { CircularJourney } from "./CircularJourney";
 
@@ -44,9 +44,9 @@ export function Hero() {
               animate="visible"
               custom={1}
             >
-              India’s Labs Are Throwing Away a Hidden Resource.
+              India’s Labs Hold an Untapped Resource.
               <span className="block text-[#2da021] mt-2">
-                We’re Turning It Into a Circular Economy.
+                We’re Unlocking It for a Circular Economy.
               </span>
             </motion.h1>
 
@@ -96,14 +96,6 @@ export function Hero() {
             <CircularJourney />
           </motion.div>
         </div>
-      </div>
-
-      {/* ─── Scroll indicator ──────────────────────────────── */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 opacity-60">
-        <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-gray-400">
-          Scroll Down
-        </span>
-        <ChevronDown size={16} className="scroll-indicator text-gray-400" />
       </div>
     </section>
   );

@@ -13,7 +13,6 @@ const navLinks = [
   { href: "/challenges", label: "Challenges" },
   { href: "/solutions", label: "Approach & Solutions" },
   { href: "/pilot", label: "Pilot Programme" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export function Navbar() {
