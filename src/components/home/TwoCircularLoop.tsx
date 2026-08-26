@@ -297,18 +297,16 @@ export function TwoCircularLoop() {
                   }}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  style={{
-                    position: "absolute",
-                    top: pos.top,
-                    left: pos.left,
-                    transform: pos.transform,
-                  }}
                   className={`z-20 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex flex-col items-center justify-center transition-all duration-300 shadow-xl ${
                     isActive
                       ? "bg-white border-2 scale-110 shadow-2xl"
                       : "bg-white/90 hover:bg-white border border-gray-200 opacity-80 hover:opacity-100"
                   }`}
                   style={{
+                    position: "absolute",
+                    top: pos.top,
+                    left: pos.left,
+                    transform: pos.transform,
                     borderColor: isActive ? step.cssColor : "rgba(226, 232, 240, 0.9)",
                     boxShadow: isActive
                       ? `0 10px 25px -5px ${step.cssColor}40`
