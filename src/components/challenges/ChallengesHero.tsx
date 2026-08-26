@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { AlertCircle, FlaskConical, Sparkles } from "lucide-react";
+import { FlaskConical, Sparkles } from "lucide-react";
 import Image from "next/image";
 
 const plasticTypes = [
@@ -33,22 +33,11 @@ export function ChallengesHero() {
     <section className="relative pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden bg-gradient-to-b from-offwhite via-white to-offwhite">
       <div className="mx-auto max-w-6xl px-6 lg:px-10 relative z-10">
         <div className="text-center max-w-4xl mx-auto space-y-6">
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={0}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-950/5 border border-[#f88a0d]/30 text-[#f88a0d] text-xs font-semibold uppercase tracking-widest"
-          >
-            <AlertCircle size={14} />
-            The Challenges
-          </motion.div>
-
           <motion.h1
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            custom={1}
+            custom={0}
             className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-[#134c2c] tracking-tight leading-[1.2]"
           >
             Laboratory Sustainability in a Single-Use World
@@ -58,7 +47,7 @@ export function ChallengesHero() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            custom={2}
+            custom={1}
             className="text-lg md:text-xl text-[#134c2c]/80 font-medium leading-relaxed max-w-3xl mx-auto"
           >
             Modern scientific research relies heavily on single-use plastic consumables to ensure safety, sterility, reproducibility, and regulatory compliance.

@@ -22,21 +22,11 @@ export function PilotHero() {
     <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-gradient-to-b from-offwhite via-white to-offwhite">
       <div className="mx-auto max-w-6xl px-6 lg:px-10 relative z-10">
         <div className="text-center max-w-4xl mx-auto space-y-6">
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={0}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-900/5 border border-[#2da021]/30 text-[#2da021] text-xs font-semibold uppercase tracking-widest"
-          >
-            Pilot Programme
-          </motion.div>
-
           <motion.h1
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            custom={1}
+            custom={0}
             className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-[#134c2c] tracking-tight leading-[1.2]"
           >
             Help Shape the Future of Laboratory Sustainability
@@ -46,7 +36,7 @@ export function PilotHero() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            custom={2}
+            custom={1}
             className="text-lg md:text-xl text-[#134c2c]/80 font-medium leading-relaxed max-w-3xl mx-auto"
           >
             Reloop Sciences is seeking universities, research institutes, biotech companies, pharmaceutical R&D teams, recyclers, and manufacturers interested in exploring sustainable approaches to laboratory material recovery.
@@ -56,7 +46,7 @@ export function PilotHero() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            custom={3}
+            custom={2}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
           >
             <Link
@@ -82,7 +72,7 @@ export function PilotHero() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          custom={4}
+          custom={3}
           className="mt-14 max-w-5xl mx-auto rounded-3xl overflow-hidden border border-emerald-950/15 shadow-2xl bg-white"
         >
           <div className="relative aspect-[16/9] w-full">

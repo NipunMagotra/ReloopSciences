@@ -24,7 +24,6 @@ import {
   Building2,
   PackageCheck,
   Check,
-  ChevronRight,
   ShieldCheck,
   FileSpreadsheet,
   Workflow
@@ -256,25 +255,11 @@ export function SolutionsContent() {
         <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-[#2da021]/15 via-[#f88a0d]/10 to-transparent blur-3xl rounded-full pointer-events-none -z-10" />
 
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-900/10 border border-emerald-800/20 text-[#134c2c] text-xs font-black tracking-widest uppercase mb-6 shadow-xs"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f88a0d] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#f88a0d]" />
-            </span>
-            Approach & Solutions
-          </motion.div>
-
           {/* Main Title */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.6 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[#134c2c] tracking-tight leading-[1.08] mb-8"
           >
             Building a <span className="text-[#2da021]">Circular Future</span> for{" "}
@@ -692,10 +677,6 @@ export function SolutionsContent() {
                     <p className="text-emerald-100/80 text-sm leading-relaxed">
                       {partner.description}
                     </p>
-                  </div>
-
-                  <div className="mt-8 pt-4 border-t border-emerald-900/80 flex items-center text-xs font-bold text-[#2da021] group-hover:text-[#f88a0d] transition-colors">
-                    Explore Collaboration <ChevronRight size={14} className="ml-1 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </motion.div>
               );
