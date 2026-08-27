@@ -21,36 +21,13 @@ export function AboutHero() {
   return (
     <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-gradient-to-b from-offwhite via-white to-offwhite">
       <div className="mx-auto max-w-6xl px-6 lg:px-10 relative z-10">
-        <div className="text-center max-w-4xl mx-auto space-y-6">
-          <motion.h1
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={0}
-            className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-[#134c2c] tracking-tight leading-[1.2]"
-          >
-            Building a Circular Future for Laboratory Materials
-          </motion.h1>
-
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={1}
-            className="text-lg md:text-xl text-[#134c2c]/80 font-medium leading-relaxed max-w-3xl mx-auto"
-          >
-            Reloop Sciences is a sustainability-focused company exploring innovative solutions for laboratory plastic recovery and circular economy practices within the life sciences sector.
-          </motion.p>
-        </div>
-
-        {/* Featured About Us Infographic Showcase (Normal Image) */}
+        {/* Featured About Us Infographic Showcase (Normal Image on Top) */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={3}
-          className="mt-12 max-w-5xl mx-auto rounded-3xl overflow-hidden border border-emerald-950/15 shadow-2xl bg-white"
+          animate="visible"
+          custom={0}
+          className="max-w-5xl mx-auto rounded-3xl overflow-hidden border border-emerald-950/15 shadow-2xl bg-white mb-12"
         >
           <div className="relative aspect-[16/9] w-full">
             <Image
@@ -76,6 +53,30 @@ export function AboutHero() {
             </span>
           </div>
         </motion.div>
+
+        <div className="text-center max-w-4xl mx-auto space-y-6">
+          <motion.h1
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={1}
+            className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-[#134c2c] tracking-tight leading-[1.2]"
+          >
+            Building a Circular Future for Laboratory Materials
+          </motion.h1>
+
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={2}
+            className="text-lg md:text-xl text-[#134c2c]/80 font-medium leading-relaxed max-w-3xl mx-auto"
+          >
+            Reloop Sciences is a sustainability-focused company exploring innovative solutions for laboratory plastic recovery and circular economy practices within the life sciences sector.
+          </motion.p>
+        </div>
 
         {/* Content Callout Grid */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">

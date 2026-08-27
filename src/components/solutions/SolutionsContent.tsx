@@ -254,7 +254,7 @@ export function SolutionsContent() {
         {/* Ambient Gradient Background Orbs */}
         <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-[#2da021]/15 via-[#f88a0d]/10 to-transparent blur-3xl rounded-full pointer-events-none -z-10" />
 
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
           {/* Main Title */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -268,21 +268,15 @@ export function SolutionsContent() {
             </span>
           </motion.h1>
 
-          {/* Paragraphs */}
+          {/* Intro Paragraph */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6 text-stone-600 text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl mx-auto font-normal"
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="text-stone-600 text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl mx-auto font-normal"
           >
             <p>
-              Laboratories rely on plastic consumables every day to support scientific research, innovation, and discovery. While these materials are essential for maintaining safety, quality, and reproducibility, many eventually enter disposal pathways with limited opportunities for recovery.
-            </p>
-            <div className="p-6 rounded-2xl bg-white/80 border border-stone-200/80 shadow-sm backdrop-blur-xs text-stone-800 font-medium">
-              At <strong className="text-[#134c2c]">Reloop Sciences</strong>, we believe suitable non-hazardous laboratory plastics should be viewed as <span className="text-[#2da021] font-bold">valuable resources</span> rather than waste.
-            </div>
-            <p className="text-stone-700 font-medium">
-              Our mission is to build a <strong className="text-[#134c2c]">traceable circular economy ecosystem</strong> that connects laboratories, recyclers, and manufacturers through transparent material recovery pathways.
+              While single-use plastics are essential for scientific research, most enter disposal pathways without recovery. At <strong className="text-[#134c2c]">Reloop Sciences</strong>, we transform suitable non-hazardous laboratory plastics into <span className="text-[#2da021] font-bold">valuable resources</span> by building a traceable circular economy ecosystem connecting laboratories, recyclers, and manufacturers.
             </p>
           </motion.div>
 
@@ -290,7 +284,7 @@ export function SolutionsContent() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
             className="mt-10 flex flex-wrap items-center justify-center gap-3"
           >
             {[
@@ -308,13 +302,13 @@ export function SolutionsContent() {
             ))}
           </motion.div>
 
-          {/* Featured Approach & Solutions Infographic Showcase (Normal Image) */}
+          {/* Featured Approach & Solutions Infographic Showcase (Positioned below feature pills) */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.35 }}
-            className="mt-14 max-w-5xl mx-auto rounded-3xl overflow-hidden border border-emerald-950/15 shadow-2xl bg-white"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-14 max-w-5xl mx-auto rounded-3xl overflow-hidden border border-emerald-950/15 shadow-2xl bg-white text-left"
           >
             <div className="relative aspect-[16/9] w-full">
               <Image
