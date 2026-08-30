@@ -16,9 +16,7 @@ import {
   CheckCircle2,
   ArrowRight,
   ArrowDown,
-  Box,
   QrCode,
-  LineChart,
   Layers,
   Sparkles,
   Building2,
@@ -26,7 +24,6 @@ import {
   Check,
   ShieldCheck,
   FileSpreadsheet,
-  Workflow
 } from "lucide-react";
 
 const ECOSYSTEM_STEPS = [

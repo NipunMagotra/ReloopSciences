@@ -227,6 +227,7 @@ export function ContactForm() {
             <button
               type="submit"
               disabled={isPending}
+              data-umami-event="contact-form-submit"
               className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#f88a0d] hover:bg-[#d87609] text-white text-base font-semibold tracking-wide rounded-xl transition-all duration-300 shadow-xl shadow-orange-950/40 hover:-translate-y-0.5 disabled:opacity-60 disabled:hover:translate-y-0 disabled:cursor-not-allowed group"
             >
               {isPending ? (

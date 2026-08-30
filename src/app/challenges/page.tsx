@@ -1,22 +1,56 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { ChallengesHero } from "@/components/challenges/ChallengesHero";
 import { OverlookedChallengeSection } from "@/components/challenges/OverlookedChallengeSection";
 import { SustainabilityExpectationsSection } from "@/components/challenges/SustainabilityExpectationsSection";
 import { WhyPlasticsAreDifferentSection } from "@/components/challenges/WhyPlasticsAreDifferentSection";
+import { JsonLd, getWebPageSchema } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "The Challenges — Reloop Sciences",
+  title: "The Challenges",
   description:
-    "Explore the unique challenges of single-use laboratory plastic waste, sustainability expectations, and specialized recovery pathways.",
+    "Explore the environmental challenges of single-use laboratory plastic waste, sustainability pressures in research, and the need for specialized non-hazardous recovery pathways.",
+  alternates: {
+    canonical: "/challenges",
+  },
+  openGraph: {
+    title: "The Challenges — Reloop Sciences",
+    description:
+      "Explore the environmental challenges of single-use laboratory plastic waste, sustainability pressures in research, and the need for specialized non-hazardous recovery pathways.",
+    url: "https://reloopsciences.com/challenges",
+    images: [
+      {
+        url: "/images/challenges-infographic.png",
+        width: 1200,
+        height: 675,
+        alt: "The Challenges of Laboratory Plastic Waste — Reloop Sciences",
+      },
+    ],
+  },
+  twitter: {
+    title: "The Challenges — Reloop Sciences",
+    description:
+      "Explore the environmental challenges of single-use laboratory plastic waste and specialized recovery pathways.",
+    images: ["/images/challenges-infographic.png"],
+  },
 };
 
 export default function ChallengesPage() {
   return (
-    <main className="min-h-screen">
-      <ChallengesHero />
-      <OverlookedChallengeSection />
-      <SustainabilityExpectationsSection />
-      <WhyPlasticsAreDifferentSection />
-    </main>
+    <>
+      <JsonLd
+        data={getWebPageSchema({
+          title: "The Challenges — Reloop Sciences",
+          description:
+            "Explore the environmental challenges of single-use laboratory plastic waste, sustainability pressures in research, and the need for specialized non-hazardous recovery pathways.",
+          url: "https://reloopsciences.com/challenges",
+        })}
+      />
+      <div className="min-h-screen">
+        <ChallengesHero />
+        <OverlookedChallengeSection />
+        <SustainabilityExpectationsSection />
+        <WhyPlasticsAreDifferentSection />
+      </div>
+    </>
   );
 }

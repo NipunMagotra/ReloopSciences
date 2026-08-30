@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useSyncExternalStore } from "react";
 import Image from "next/image";
 import {
   RotateCw,
@@ -11,7 +11,6 @@ import {
   Recycle,
   Factory,
   RefreshCw,
-  ChevronRight,
   ArrowDown,
 } from "lucide-react";
 
@@ -52,6 +51,22 @@ const STAGES = [
   },
 ];
 
+function subscribeReducedMotion(callback: () => void) {
+  if (typeof window === "undefined") return () => {};
+  const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  mediaQuery.addEventListener("change", callback);
+  return () => mediaQuery.removeEventListener("change", callback);
+}
+
+function getReducedMotionSnapshot() {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function getReducedMotionServerSnapshot() {
+  return false;
+}
+
 /* ─── Component ───────────────────────────────────────────────── */
 
 interface HeroInteractiveCardProps {
@@ -63,35 +78,23 @@ export function HeroInteractiveCard({
   onFlipChange,
   externalFlipped,
 }: HeroInteractiveCardProps) {
-  const [isFlipped, setIsFlipped] = useState(false);
+  const [internalFlipped, setInternalFlipped] = useState(false);
+  const isFlipped = externalFlipped !== undefined ? externalFlipped : internalFlipped;
   const [tilt, setTilt] = useState({ rotateX: 0, rotateY: 0 });
   const [isHovered, setIsHovered] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const prefersReducedMotion = useSyncExternalStore(
+    subscribeReducedMotion,
+    getReducedMotionSnapshot,
+    getReducedMotionServerSnapshot
+  );
   const cardRef = useRef<HTMLDivElement>(null);
-
-  // Sync external flip trigger if provided
-  useEffect(() => {
-    if (externalFlipped !== undefined) {
-      setIsFlipped(externalFlipped);
-    }
-  }, [externalFlipped]);
-
-  // Check prefers-reduced-motion
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mediaQuery.matches);
-    const handler = (e: MediaQueryListEvent) =>
-      setPrefersReducedMotion(e.matches);
-    mediaQuery.addEventListener("change", handler);
-    return () => mediaQuery.removeEventListener("change", handler);
-  }, []);
 
   const toggleFlip = (e?: React.MouseEvent | React.KeyboardEvent) => {
     if (e) {
       e.stopPropagation();
     }
     const nextState = !isFlipped;
-    setIsFlipped(nextState);
+    setInternalFlipped(nextState);
     if (onFlipChange) {
       onFlipChange(nextState);
     }

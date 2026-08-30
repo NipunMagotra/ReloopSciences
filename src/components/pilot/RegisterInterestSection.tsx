@@ -30,6 +30,7 @@ export function RegisterInterestSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 relative z-10">
             <Link
               href="/contact"
+              data-umami-event="pilot-register-click"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#f88a0d] hover:bg-[#d87609] text-white font-semibold text-sm transition-all duration-300 shadow-xl shadow-orange-950/40 group"
             >
               Contact Us & Register
@@ -38,6 +39,7 @@ export function RegisterInterestSection() {
 
             <a
               href="mailto:hello@reloopsciences.com"
+              data-umami-event="pilot-email-click"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-emerald-950/80 border border-emerald-800/60 text-emerald-100 font-semibold text-sm hover:bg-emerald-900 transition-colors"
             >
               <Mail size={18} className="text-[#2da021]" />

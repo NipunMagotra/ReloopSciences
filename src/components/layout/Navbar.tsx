@@ -127,6 +127,7 @@ export function Navbar() {
             >
               <Link
                 href="/contact"
+                data-umami-event="nav-partner-click"
                 className="relative flex items-center gap-2.5 px-5 lg:px-6 py-2.5 rounded-full bg-gradient-to-r from-[#f88a0d] via-[#ea580c] to-[#f88a0d] text-white text-xs font-black tracking-wider uppercase overflow-hidden shadow-inner group-hover:from-[#ea580c] group-hover:to-[#f88a0d] transition-all duration-300"
               >
                 {/* Shimmer Light Beam Sweep */}
@@ -207,6 +208,7 @@ export function Navbar() {
                 >
                   <Link
                     href="/contact"
+                    data-umami-event="nav-mobile-partner-click"
                     className="relative flex items-center justify-between px-5 py-3 rounded-full bg-gradient-to-r from-[#f88a0d] to-[#ea580c] text-white text-xs font-black tracking-wider uppercase"
                     onClick={() => setMobileOpen(false)}
                   >

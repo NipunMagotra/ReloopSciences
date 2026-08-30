@@ -67,6 +67,7 @@ export function Hero() {
               {/* Primary CTA */}
               <Link
                 href="/contact"
+                data-umami-event="hero-partner-click"
                 className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 bg-[#f88a0d] hover:bg-[#d87609] text-white text-base font-semibold tracking-wide rounded-full transition-all duration-300 shadow-xl shadow-orange-950/15 hover:-translate-y-0.5 group"
               >
                 <span>Partner With Us</span>
@@ -76,6 +77,7 @@ export function Hero() {
               {/* Secondary CTA */}
               <Link
                 href="#circular-model"
+                data-umami-event="hero-learn-click"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[#134c2c] font-semibold text-base rounded-full bg-white border border-gray-200 hover:border-[#2da021] hover:text-[#2da021] transition-all duration-300 shadow-xs hover:-translate-y-0.5"
               >
                 Learn How It Works
@@ -94,7 +96,7 @@ export function Hero() {
             <div className="w-full relative overflow-hidden rounded-xl md:rounded-2xl hero-image-mask">
               <Image
                 src="/images/hero-visual.jpg"
-                alt="ReLoop Sciences Circular Laboratory Plastics Ecosystem"
+                alt="Reloop Sciences Circular Laboratory Plastics Ecosystem"
                 width={1024}
                 height={768}
                 priority

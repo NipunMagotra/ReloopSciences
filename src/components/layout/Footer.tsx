@@ -28,6 +28,7 @@ export function Footer() {
           <div className="lg:col-span-5 flex flex-col sm:flex-row gap-3">
             <Link
               href="/contact"
+              data-umami-event="footer-partner-click"
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#f88a0d] hover:bg-[#d87609] text-white font-medium text-sm transition-all duration-300 shadow-lg shadow-orange-950/20 group whitespace-nowrap"
             >
               Partner With Us
@@ -42,6 +43,7 @@ export function Footer() {
               <button
                 type="button"
                 aria-label="Subscribe"
+                data-umami-event="footer-newsletter-click"
                 className="absolute right-1 top-1 bottom-1 w-8 h-8 rounded-full bg-[#2da021] hover:bg-[#236e57] text-white flex items-center justify-center transition-colors"
               >
                 <Send size={13} />
@@ -91,13 +93,17 @@ export function Footer() {
             <div className="flex items-center gap-2">
               <a
                 href="mailto:hello@reloopsciences.com"
+                data-umami-event="footer-email-click"
                 className="w-9 h-9 rounded-full bg-emerald-950/80 border border-emerald-800/50 flex items-center justify-center text-emerald-200 hover:text-white hover:bg-[#2da021] hover:border-[#2da021] transition-all duration-300"
                 aria-label="Email"
               >
                 <Mail size={16} />
               </a>
               <a
-                href="#"
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-umami-event="footer-linkedin-click"
                 className="w-9 h-9 rounded-full bg-emerald-950/80 border border-emerald-800/50 flex items-center justify-center text-emerald-200 hover:text-white hover:bg-[#0a66c2] hover:border-[#0a66c2] transition-all duration-300"
                 aria-label="LinkedIn"
               >
@@ -121,6 +127,7 @@ export function Footer() {
                 href="https://www.youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-umami-event="footer-youtube-click"
                 className="w-9 h-9 rounded-full bg-emerald-950/80 border border-emerald-800/50 flex items-center justify-center text-emerald-200 hover:text-white hover:bg-[#ff0000] hover:border-[#ff0000] transition-all duration-300"
                 aria-label="YouTube"
               >
