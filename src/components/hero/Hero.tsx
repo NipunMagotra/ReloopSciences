@@ -58,7 +58,7 @@ export function Hero() {
             </motion.p>
 
             <motion.div
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 lg:mt-6 xl:mt-10 2xl:mt-12"
               variants={fadeUp}
               initial="hidden"
               animate="visible"
