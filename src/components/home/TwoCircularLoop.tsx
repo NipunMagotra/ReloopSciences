@@ -153,7 +153,7 @@ export function TwoCircularLoop() {
   ];
 
   return (
-    <div className="w-full max-w-6xl mx-auto space-y-10">
+    <div className="w-full max-w-6xl mx-auto space-y-8">
       {/* ─── Step Pills / Navigation Tabs ────────────────── */}
       <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
         {STEPS.map((step, idx) => {
@@ -289,39 +289,43 @@ export function TwoCircularLoop() {
               const pos = nodePositions[idx];
 
               return (
-                <motion.button
+                <div
                   key={step.id}
-                  onClick={() => {
-                    setActiveStep(idx);
-                    setIsAutoPlaying(false);
-                  }}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`z-20 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex flex-col items-center justify-center transition-all duration-300 shadow-xl ${
-                    isActive
-                      ? "bg-white border-2 scale-110 shadow-2xl"
-                      : "bg-white/90 hover:bg-white border border-gray-200 opacity-80 hover:opacity-100"
-                  }`}
+                  className="z-20"
                   style={{
                     position: "absolute",
                     top: pos.top,
                     left: pos.left,
                     transform: pos.transform,
-                    borderColor: isActive ? step.cssColor : "rgba(226, 232, 240, 0.9)",
-                    boxShadow: isActive
-                      ? `0 10px 25px -5px ${step.cssColor}40`
-                      : undefined,
                   }}
                 >
-                  <div
-                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center text-white text-xs font-bold mb-0.5 shadow-sm ${step.badgeBg}`}
+                  <button
+                    onClick={() => {
+                      setActiveStep(idx);
+                      setIsAutoPlaying(false);
+                    }}
+                    className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex flex-col items-center justify-center transition-all duration-300 shadow-xl cursor-pointer hover:scale-110 active:scale-95 ${
+                      isActive
+                        ? "bg-white border-2 scale-110 shadow-2xl"
+                        : "bg-white/90 hover:bg-white border border-gray-200 opacity-80 hover:opacity-100"
+                    }`}
+                    style={{
+                      borderColor: isActive ? step.cssColor : "rgba(226, 232, 240, 0.9)",
+                      boxShadow: isActive
+                        ? `0 10px 25px -5px ${step.cssColor}40`
+                        : undefined,
+                    }}
                   >
-                    <Icon size={16} />
-                  </div>
-                  <span className="text-[10px] font-black text-[#134c2c]">
-                    {step.stepNumber}
-                  </span>
-                </motion.button>
+                    <div
+                      className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center text-white text-xs font-bold mb-0.5 shadow-sm ${step.badgeBg}`}
+                    >
+                      <Icon size={16} />
+                    </div>
+                    <span className="text-[10px] font-black text-[#134c2c]">
+                      {step.stepNumber}
+                    </span>
+                  </button>
+                </div>
               );
             })}
           </div>
@@ -356,7 +360,7 @@ export function TwoCircularLoop() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
-              className={`p-6 sm:p-8 rounded-3xl border-2 bg-gradient-to-br from-white via-white to-gray-50/60 shadow-lg space-y-6 ${current.borderColor}`}
+              className={`p-6 sm:p-8 rounded-3xl border-2 bg-gradient-to-br from-white via-white to-gray-50/60 shadow-lg space-y-5 ${current.borderColor}`}
             >
               {/* Header: Step Number & Title */}
               <div className="flex items-start justify-between gap-4">
@@ -380,33 +384,33 @@ export function TwoCircularLoop() {
                 </div>
 
                 {/* Key Metric Badge */}
-                <div className="text-right hidden sm:block">
+                <div className="text-right shrink-0">
                   <div
-                    className="text-2xl font-black"
+                    className="text-2xl sm:text-3xl font-black"
                     style={{ color: current.cssColor }}
                   >
                     {current.metric}
                   </div>
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-gray-500 max-w-[100px]">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#334155] max-w-[100px]">
                     {current.metricLabel}
                   </div>
                 </div>
               </div>
 
               {/* Detailed Description */}
-              <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+              <p className="text-[#334155] text-sm sm:text-base leading-relaxed">
                 {current.fullDesc}
               </p>
 
               {/* Highlights & Features */}
-              <div className="space-y-2.5 pt-2">
-                <span className="text-xs font-bold uppercase tracking-widest text-gray-400 block">
+              <div className="space-y-2.5 pt-1">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#0c2a19] block">
                   Key Specifications:
                 </span>
                 {current.highlights.map((highlight, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-2.5 text-xs sm:text-sm text-gray-700 font-medium"
+                    className="flex items-start gap-2.5 text-xs sm:text-sm text-[#1e293b] font-medium"
                   >
                     <CheckCircle2
                       size={16}
@@ -419,7 +423,7 @@ export function TwoCircularLoop() {
               </div>
 
               {/* Footer Controls: Prev / Next & Step Indicator */}
-              <div className="pt-4 border-t border-gray-100 flex items-center justify-between gap-4">
+              <div className="pt-4 border-t border-gray-200 flex items-center justify-between gap-4">
                 <div className="flex items-center gap-1.5">
                   {STEPS.map((_, i) => (
                     <button
@@ -448,7 +452,7 @@ export function TwoCircularLoop() {
                       handlePrev();
                       setIsAutoPlaying(false);
                     }}
-                    className="p-2.5 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
+                    className="p-2.5 rounded-full bg-gray-100 hover:bg-gray-200 text-[#334155] transition-colors"
                     aria-label="Previous step"
                   >
                     <ChevronLeft size={18} />

@@ -5,7 +5,7 @@ export function ContactInfo() {
     <div className="mt-20 pt-12 border-t border-emerald-900/50">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <h3 className="text-xs font-semibold tracking-widest uppercase text-[#f88a0d] mb-6">
-          Direct Channels to Contact Us
+          Contact Us
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

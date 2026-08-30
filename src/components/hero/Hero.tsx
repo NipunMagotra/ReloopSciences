@@ -1,9 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, RotateCw } from "lucide-react";
 import { motion } from "motion/react";
+import { HeroInteractiveCard } from "./HeroInteractiveCard";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -18,6 +19,8 @@ const fadeUp = {
 };
 
 export function Hero() {
+  const [isFlipped, setIsFlipped] = useState(false);
+
   return (
     <section
       className="relative min-h-[85vh] flex items-center pt-28 pb-20 md:pt-36 md:pb-24 overflow-hidden bg-gradient-to-b from-offwhite via-white to-offwhite"
@@ -69,47 +72,31 @@ export function Hero() {
                 <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
 
-              {/* Secondary CTA */}
-              <Link
-                href="#circular-model"
-                className="inline-flex items-center justify-center px-7 py-3.5 text-[#134c2c] font-semibold text-base rounded-full bg-white border border-gray-200 hover:border-[#2da021] hover:text-[#2da021] transition-all duration-300 shadow-sm"
+              {/* Secondary CTA: Interactive Flip & Learn */}
+              <button
+                type="button"
+                onClick={() => setIsFlipped((prev) => !prev)}
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[#134c2c] font-semibold text-base rounded-full bg-white border border-gray-200 hover:border-[#2da021] hover:text-[#2da021] transition-all duration-300 shadow-sm group"
+                aria-label={isFlipped ? "Flip back to Visual Showcase" : "Flip card to Learn How It Works"}
               >
-                Learn How It Works
-              </Link>
+                <span>{isFlipped ? "View Visual Showcase" : "Learn How It Works"}</span>
+                <RotateCw size={16} className={`transition-transform duration-500 text-[#f88a0d] group-hover:rotate-180 ${isFlipped ? "rotate-180" : ""}`} />
+              </button>
             </motion.div>
           </div>
 
-          {/* Right Column: Featured Circular Model Infographic */}
+          {/* Right Column: 3D Interactive Flip Card */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={2}
-            className="lg:col-span-6 w-full rounded-3xl overflow-hidden border border-emerald-950/15 shadow-2xl bg-white text-left group"
+            className="lg:col-span-6 w-full text-left"
           >
-            <div className="relative aspect-[16/10] sm:aspect-[16/9.8] w-full">
-              <Image
-                src="/images/circular-model-infographic.jpg"
-                alt="Closing the Loop - Reloop Sciences Circular Model"
-                fill
-                priority
-                unoptimized
-                style={{ imageRendering: "-webkit-optimize-contrast" }}
-                className="object-contain bg-[#f8f7f4]"
-                sizes="(max-width: 1024px) 100vw, 650px"
-              />
-            </div>
-            <div className="p-3.5 sm:p-4 bg-gradient-to-r from-[#0c2a19] via-[#134c2c] to-[#0c2a19] text-white flex items-center justify-between gap-2">
-              <div className="flex items-center gap-2">
-                <Sparkles size={15} className="text-[#f88a0d] shrink-0" />
-                <span className="text-xs sm:text-sm font-bold tracking-wide">
-                  Reloop Closed-Loop Recovery Architecture
-                </span>
-              </div>
-              <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#2da021] bg-white/10 px-2.5 py-0.5 rounded-full shrink-0">
-                Transparent • Traceable • Circular
-              </span>
-            </div>
+            <HeroInteractiveCard
+              externalFlipped={isFlipped}
+              onFlipChange={(flipped) => setIsFlipped(flipped)}
+            />
           </motion.div>
         </div>
       </div>
