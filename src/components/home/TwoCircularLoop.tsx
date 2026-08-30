@@ -4,16 +4,16 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Trash2,
-  Sparkles,
-  RefreshCw,
-  PackageCheck,
-  ArrowRight,
-  CheckCircle2,
-  ShieldCheck,
-  ChevronRight,
+  Droplets,
+  Recycle,
+  Factory,
+  CircleCheck,
+  Leaf,
   ChevronLeft,
+  ArrowRight,
   Pause,
   Play,
+  RotateCw,
 } from "lucide-react";
 
 interface StepDetail {
@@ -22,11 +22,6 @@ interface StepDetail {
   title: string;
   shortDesc: string;
   fullDesc: string;
-  badgeBg: string;
-  color: string;
-  cssColor: string;
-  lightBg: string;
-  borderColor: string;
   icon: React.ElementType;
   highlights: string[];
   metric: string;
@@ -41,11 +36,6 @@ const STEPS: StepDetail[] = [
     shortDesc: "Segregated collection of non‑hazardous PP",
     fullDesc:
       "Dedicated, color-coded collection bins installed directly in partner laboratories. Researchers segregate uncontaminated polypropylene (pipette tips, racks, tubes, plates) at the source.",
-    badgeBg: "bg-[#f88a0d]",
-    color: "orange",
-    cssColor: "#f88a0d",
-    lightBg: "bg-amber-500/10",
-    borderColor: "border-[#f88a0d]/40",
     icon: Trash2,
     highlights: [
       "Custom segregated lab bins provided on-site",
@@ -62,12 +52,7 @@ const STEPS: StepDetail[] = [
     shortDesc: "Clean, compliant material preparation",
     fullDesc:
       "Scheduled pickup by Reloop logistics followed by specialized, eco-friendly chemical washing and de-labeling processes to ensure pure polymer feedstock.",
-    badgeBg: "bg-[#0284c7]",
-    color: "blue",
-    cssColor: "#0284c7",
-    lightBg: "bg-sky-500/10",
-    borderColor: "border-[#0284c7]/40",
-    icon: Sparkles,
+    icon: Droplets,
     highlights: [
       "Eco-efficient sanitization & label removal",
       "Chain-of-custody digital manifests",
@@ -83,12 +68,7 @@ const STEPS: StepDetail[] = [
     shortDesc: "High‑quality PP pellets",
     fullDesc:
       "Advanced shredding, compounding, and extrusion into laboratory-grade recycled polypropylene (rPP) pellets with verified melt-flow index and mechanical integrity.",
-    badgeBg: "bg-[#2da021]",
-    color: "green",
-    cssColor: "#2da021",
-    lightBg: "bg-emerald-500/10",
-    borderColor: "border-[#2da021]/40",
-    icon: RefreshCw,
+    icon: Recycle,
     highlights: [
       "Precision extrusion into high-spec rPP pellets",
       "Thermal and mechanical tensile stress testing",
@@ -104,12 +84,7 @@ const STEPS: StepDetail[] = [
     shortDesc: "New lab products made from recycled PP",
     fullDesc:
       "Recycled pellets are molded into brand-new laboratory essentials—such as pipette tip boxes, storage racks, and tube organizers—re-entering the scientific supply chain.",
-    badgeBg: "bg-[#8b5cf6]",
-    color: "purple",
-    cssColor: "#8b5cf6",
-    lightBg: "bg-purple-500/10",
-    borderColor: "border-[#8b5cf6]/40",
-    icon: PackageCheck,
+    icon: Factory,
     highlights: [
       "Precision injection molding of lab equipment",
       "Fully certified for durability and chemical resistance",
@@ -124,12 +99,12 @@ export function TwoCircularLoop() {
   const [activeStep, setActiveStep] = useState<number>(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
 
-  // Auto-advance every 6 seconds when not paused
+  // Auto-advance every 6.5s when not paused
   useEffect(() => {
     if (!isAutoPlaying) return;
     const interval = setInterval(() => {
       setActiveStep((prev) => (prev + 1) % STEPS.length);
-    }, 6000);
+    }, 6500);
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
@@ -144,145 +119,180 @@ export function TwoCircularLoop() {
     setActiveStep((prev) => (prev - 1 + STEPS.length) % STEPS.length);
   };
 
-  // Node positions in the circular layout (Top, Right, Bottom, Left)
+  // 4 Quadrant Positions on a 500x500 square: Top, Right, Bottom, Left
   const nodePositions = [
-    { top: "6%", left: "50%", transform: "translate(-50%, 0)" }, // 01 Top
-    { top: "50%", left: "94%", transform: "translate(-100%, -50%)" }, // 02 Right
-    { top: "94%", left: "50%", transform: "translate(-50%, -100%)" }, // 03 Bottom
-    { top: "50%", left: "6%", transform: "translate(0, -50%)" }, // 04 Left
+    { top: "3%", left: "50%", transform: "translate(-50%, 0)" }, // 01 Top (Bins)
+    { top: "50%", left: "97%", transform: "translate(-100%, -50%)" }, // 02 Right (Washing)
+    { top: "97%", left: "50%", transform: "translate(-50%, -100%)" }, // 03 Bottom (Recycling)
+    { top: "50%", left: "3%", transform: "translate(0, -50%)" }, // 04 Left (Manufacturing)
   ];
 
   return (
-    <div className="w-full max-w-6xl mx-auto space-y-8">
-      {/* ─── Step Pills / Navigation Tabs ────────────────── */}
-      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-        {STEPS.map((step, idx) => {
-          const isActive = idx === activeStep;
-          const Icon = step.icon;
-          return (
-            <button
-              key={step.id}
-              onClick={() => {
-                setActiveStep(idx);
-                setIsAutoPlaying(false);
-              }}
-              className={`flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 border ${
-                isActive
-                  ? "bg-white text-[#134c2c] shadow-lg border-emerald-900/20 scale-105"
-                  : "bg-white/60 text-gray-600 hover:text-[#134c2c] hover:bg-white border-gray-200/80"
-              }`}
-              style={{
-                borderColor: isActive ? step.cssColor : undefined,
-              }}
-            >
-              <span
-                className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black text-white ${step.badgeBg}`}
+    <div className="w-full space-y-12 sm:space-y-16">
+      {/* ─── Process Journey Navigation ────────────────────── */}
+      <div className="w-full max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 relative">
+          {STEPS.map((step, idx) => {
+            const isActive = idx === activeStep;
+            const isCompleted = idx < activeStep;
+            const StepIcon = step.icon;
+
+            return (
+              <button
+                key={step.id}
+                onClick={() => {
+                  setActiveStep(idx);
+                  setIsAutoPlaying(false);
+                }}
+                className={`group relative text-left p-3.5 sm:p-4 rounded-2xl transition-all duration-300 border cursor-pointer ${
+                  isActive
+                    ? "bg-white border-[#2da021] shadow-lg shadow-[#2da021]/15 ring-2 ring-[#2da021]/20 scale-[1.02]"
+                    : "bg-white/60 hover:bg-white border-gray-200/80 hover:border-gray-300/90 shadow-xs"
+                }`}
               >
-                {step.stepNumber}
-              </span>
-              <span>{step.title}</span>
-              {isActive && (
-                <span
-                  className="w-2 h-2 rounded-full animate-pulse"
-                  style={{ backgroundColor: step.cssColor }}
-                />
-              )}
-            </button>
-          );
-        })}
+                {/* Header row in card */}
+                <div className="flex items-center justify-between mb-2.5">
+                  <span
+                    className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-black transition-all duration-300 ${
+                      isActive
+                        ? "bg-[#2da021] text-white shadow-sm"
+                        : isCompleted
+                        ? "bg-[#134c2c]/12 text-[#134c2c]"
+                        : "bg-gray-100 text-gray-400"
+                    }`}
+                  >
+                    {step.stepNumber}
+                  </span>
+
+                  <StepIcon
+                    size={18}
+                    strokeWidth={2}
+                    className={`transition-colors duration-300 ${
+                      isActive
+                        ? "text-[#2da021]"
+                        : "text-[#134c2c]/50 group-hover:text-[#134c2c]"
+                    }`}
+                  />
+                </div>
+
+                {/* Stage Title */}
+                <div
+                  className={`text-xs sm:text-sm font-bold transition-colors leading-snug ${
+                    isActive
+                      ? "text-[#134c2c]"
+                      : "text-gray-600 group-hover:text-[#134c2c]"
+                  }`}
+                >
+                  {step.title}
+                </div>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
-      {/* ─── Main 2D Interactive Workspace ────────────────── */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white/80 backdrop-blur-md rounded-3xl p-6 sm:p-10 border border-emerald-950/10 shadow-xl shadow-emerald-950/5">
-        {/* ─── Left Col: 2D Circular Interactive Diagram ──────────────── */}
+      {/* ─── Two-Column Interactive Layout ──────────────────── */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-18 items-center">
+        {/* ─── Left Col: Enlarged 2D Circular Interactive Diagram ──── */}
         <div className="lg:col-span-6 flex flex-col items-center justify-center">
           <div
-            className="relative w-full max-w-[420px] aspect-square flex items-center justify-center p-4 select-none"
+            className="relative w-full max-w-[480px] sm:max-w-[500px] xl:max-w-[520px] aspect-square flex items-center justify-center p-3 select-none"
             onMouseEnter={() => setIsAutoPlaying(false)}
           >
-            {/* SVG Connecting Circular Arcs */}
+            {/* SVG Circular Guide and Closed-Loop Flows */}
             <svg
               className="absolute inset-0 w-full h-full"
-              viewBox="0 0 400 400"
+              viewBox="0 0 500 500"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* Outer faint circular guide */}
+              <defs>
+                <linearGradient id="orbitGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#2da021" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#134c2c" stopOpacity="0.3" />
+                </linearGradient>
+              </defs>
+
+              {/* Main Outer Circular Orbit Track */}
               <circle
-                cx="200"
-                cy="200"
-                r="140"
+                cx="250"
+                cy="250"
+                r="180"
                 stroke="#e2e8f0"
-                strokeWidth="2"
-                strokeDasharray="4 4"
-              />
-
-              {/* Animated active circular orbit ring */}
-              <circle
-                cx="200"
-                cy="200"
-                r="140"
-                stroke={current.cssColor}
-                strokeWidth="3"
-                strokeDasharray="16 12"
-                strokeOpacity="0.6"
-                className="animate-[spin_40s_linear_infinite]"
-                style={{ transformOrigin: "200px 200px" }}
-              />
-
-              {/* Directional Flow Arrows between quadrants */}
-              {/* Top to Right */}
-              <path
-                d="M 230 70 A 140 140 0 0 1 330 170"
-                stroke="#f88a0d"
                 strokeWidth="2.5"
+                strokeDasharray="6 6"
+              />
+
+              {/* Animated Closed-Loop Active Path */}
+              <circle
+                cx="250"
+                cy="250"
+                r="180"
+                stroke="url(#orbitGlow)"
+                strokeWidth="3.5"
+                strokeDasharray="24 16"
+                strokeLinecap="round"
+                className="animate-[spin_35s_linear_infinite]"
+                style={{ transformOrigin: "250px 250px" }}
+              />
+
+              {/* 4 Clockwise Flow Arcs */}
+              {/* Arc 1: Top -> Right (01 -> 02) */}
+              <path
+                d="M 290 85 A 180 180 0 0 1 415 210"
+                stroke="#2da021"
+                strokeWidth="3"
                 strokeLinecap="round"
                 opacity={activeStep === 0 ? 1 : 0.25}
+                className="transition-opacity duration-300"
               />
-              {/* Right to Bottom */}
+              {/* Arc 2: Right -> Bottom (02 -> 03) */}
               <path
-                d="M 330 230 A 140 140 0 0 1 230 330"
-                stroke="#0284c7"
-                strokeWidth="2.5"
+                d="M 415 290 A 180 180 0 0 1 290 415"
+                stroke="#2da021"
+                strokeWidth="3"
                 strokeLinecap="round"
                 opacity={activeStep === 1 ? 1 : 0.25}
+                className="transition-opacity duration-300"
               />
-              {/* Bottom to Left */}
+              {/* Arc 3: Bottom -> Left (03 -> 04) */}
               <path
-                d="M 170 330 A 140 140 0 0 1 70 230"
+                d="M 210 415 A 180 180 0 0 1 85 290"
                 stroke="#2da021"
-                strokeWidth="2.5"
+                strokeWidth="3"
                 strokeLinecap="round"
                 opacity={activeStep === 2 ? 1 : 0.25}
+                className="transition-opacity duration-300"
               />
-              {/* Left to Top */}
+              {/* Arc 4: Left -> Top (04 -> 01) */}
               <path
-                d="M 70 170 A 140 140 0 0 1 170 70"
-                stroke="#8b5cf6"
-                strokeWidth="2.5"
+                d="M 85 210 A 180 180 0 0 1 210 85"
+                stroke="#2da021"
+                strokeWidth="3"
                 strokeLinecap="round"
                 opacity={activeStep === 3 ? 1 : 0.25}
+                className="transition-opacity duration-300"
               />
             </svg>
 
-            {/* Central Animated Core Emblem */}
-            <div className="relative z-10 w-28 h-28 rounded-full bg-gradient-to-br from-[#0c2a19] via-[#134c2c] to-[#07190e] border-4 border-white shadow-2xl flex flex-col items-center justify-center text-white text-center p-2">
+            {/* Central ReLoop Closed-Loop Emblem */}
+            <div className="relative z-10 w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-gradient-to-br from-[#0c2a19] via-[#134c2c] to-[#07190e] border-4 border-white shadow-2xl flex flex-col items-center justify-center text-white text-center p-3">
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
-                className="text-[#f88a0d] mb-1"
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="text-[#f88a0d] mb-1.5"
               >
-                <RefreshCw size={24} />
+                <RotateCw size={26} strokeWidth={2} />
               </motion.div>
-              <span className="text-[10px] font-black uppercase tracking-wider text-[#2da021]">
+              <span className="text-[11px] font-black uppercase tracking-widest text-[#2da021]">
                 Reloop
               </span>
-              <span className="text-[9px] font-semibold text-white/80">
+              <span className="text-[9px] font-bold uppercase tracking-wider text-white/85">
                 Closed Loop
               </span>
             </div>
 
-            {/* 4 Interactive 2D Circular Stage Nodes */}
+            {/* 4 Interactive Process Nodes */}
             {STEPS.map((step, idx) => {
               const isActive = idx === activeStep;
               const Icon = step.icon;
@@ -304,24 +314,32 @@ export function TwoCircularLoop() {
                       setActiveStep(idx);
                       setIsAutoPlaying(false);
                     }}
-                    className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex flex-col items-center justify-center transition-all duration-300 shadow-xl cursor-pointer hover:scale-110 active:scale-95 ${
+                    className={`relative w-20 h-20 sm:w-22 sm:h-22 md:w-24 md:h-24 rounded-2xl md:rounded-3xl flex flex-col items-center justify-center transition-all duration-300 cursor-pointer ${
                       isActive
-                        ? "bg-white border-2 scale-110 shadow-2xl"
-                        : "bg-white/90 hover:bg-white border border-gray-200 opacity-80 hover:opacity-100"
+                        ? "bg-white border-2 border-[#2da021] scale-110 shadow-2xl shadow-[#2da021]/30"
+                        : "bg-white/90 hover:bg-white border border-gray-200/90 hover:border-gray-300 opacity-85 hover:opacity-100 hover:scale-105 shadow-md shadow-[#134c2c]/5"
                     }`}
-                    style={{
-                      borderColor: isActive ? step.cssColor : "rgba(226, 232, 240, 0.9)",
-                      boxShadow: isActive
-                        ? `0 10px 25px -5px ${step.cssColor}40`
-                        : undefined,
-                    }}
                   >
+                    {/* Glowing highlight aura for active node */}
+                    {isActive && (
+                      <span className="absolute -inset-1.5 rounded-2xl md:rounded-3xl bg-[#2da021]/20 blur-md -z-10 animate-pulse" />
+                    )}
+
                     <div
-                      className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center text-white text-xs font-bold mb-0.5 shadow-sm ${step.badgeBg}`}
+                      className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-sm font-bold mb-1 transition-all duration-300 ${
+                        isActive
+                          ? "bg-[#2da021] text-white shadow-md shadow-[#2da021]/40"
+                          : "bg-[#134c2c]/8 text-[#134c2c]"
+                      }`}
                     >
-                      <Icon size={16} />
+                      <Icon size={isActive ? 22 : 20} strokeWidth={2} />
                     </div>
-                    <span className="text-[10px] font-black text-[#134c2c]">
+
+                    <span
+                      className={`text-xs font-black tracking-tight ${
+                        isActive ? "text-[#134c2c]" : "text-gray-500"
+                      }`}
+                    >
                       {step.stepNumber}
                     </span>
                   </button>
@@ -330,101 +348,98 @@ export function TwoCircularLoop() {
             })}
           </div>
 
-          {/* Autoplay & Navigation Quick Bar */}
-          <div className="mt-4 flex items-center gap-3 text-xs font-semibold text-gray-500">
+          {/* Autoplay & Interaction Helper */}
+          <div className="mt-6 flex items-center gap-3 text-xs font-medium text-gray-500">
             <button
               onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-              className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-gray-200 hover:border-[#2da021] hover:text-[#2da021] text-gray-700 transition-colors shadow-xs"
             >
               {isAutoPlaying ? (
                 <>
-                  <Pause size={12} /> Auto-cycling
+                  <Pause size={12} strokeWidth={2} className="text-[#2da021]" /> Auto-cycling
                 </>
               ) : (
                 <>
-                  <Play size={12} /> Play Cycle
+                  <Play size={12} strokeWidth={2} className="text-[#f88a0d]" /> Resume Cycle
                 </>
               )}
             </button>
             <span>•</span>
-            <span>Click any stage node to explore</span>
+            <span>Click any node to navigate</span>
           </div>
         </div>
 
-        {/* ─── Right Col: Active Step Detail Card ────────────────────── */}
+        {/* ─── Right Col: Editorial Active Stage Panel ────────── */}
         <div className="lg:col-span-6">
           <AnimatePresence mode="wait">
             <motion.div
               key={current.id}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
-              className={`p-6 sm:p-8 rounded-3xl border-2 bg-gradient-to-br from-white via-white to-gray-50/60 shadow-lg space-y-5 ${current.borderColor}`}
+              className="p-8 sm:p-10 lg:p-12 rounded-3xl bg-white border border-gray-200/80 shadow-xl shadow-[#134c2c]/5 space-y-7 relative"
             >
-              {/* Header: Step Number & Title */}
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex items-center gap-4">
-                  <div
-                    className={`w-14 h-14 rounded-2xl text-white flex items-center justify-center flex-shrink-0 shadow-lg ${current.badgeBg}`}
-                  >
-                    <CurrentIcon size={28} />
-                  </div>
-                  <div>
-                    <span
-                      className="inline-block text-[11px] font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full text-white mb-1 shadow-xs"
-                      style={{ backgroundColor: current.cssColor }}
-                    >
-                      Stage {current.stepNumber} of 04
-                    </span>
-                    <h3 className="text-xl sm:text-2xl font-bold text-[#134c2c]">
+              {/* Header: Stage Badge + Main Title + Metric */}
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-2 border-b border-gray-100">
+                <div className="space-y-2">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full text-[#2da021] bg-[#2da021]/10">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#2da021]" />
+                    Stage {current.stepNumber} of 04
+                  </span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-[#2da021]/10 text-[#2da021] flex items-center justify-center shrink-0">
+                      <CurrentIcon size={22} strokeWidth={2} />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#134c2c] tracking-tight">
                       {current.title}
                     </h3>
                   </div>
                 </div>
 
-                {/* Key Metric Badge */}
-                <div className="text-right shrink-0">
-                  <div
-                    className="text-2xl sm:text-3xl font-black"
-                    style={{ color: current.cssColor }}
-                  >
-                    {current.metric}
+                {/* Key Metric Highlight */}
+                <div className="sm:text-right bg-[#f8f7f4] sm:bg-transparent p-3.5 sm:p-0 rounded-2xl shrink-0">
+                  <div className="flex items-center sm:justify-end gap-1.5 text-3xl sm:text-4xl font-black text-[#2da021] tracking-tight">
+                    <span>{current.metric}</span>
+                    <Leaf size={20} strokeWidth={2} className="text-[#2da021]/80" />
                   </div>
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#334155] max-w-[100px]">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#134c2c]/75 max-w-[140px]">
                     {current.metricLabel}
                   </div>
                 </div>
               </div>
 
-              {/* Detailed Description */}
-              <p className="text-[#334155] text-sm sm:text-base leading-relaxed">
+              {/* Full Description */}
+              <p className="text-base sm:text-lg text-[#134c2c]/85 font-normal leading-relaxed">
                 {current.fullDesc}
               </p>
 
-              {/* Highlights & Features */}
-              <div className="space-y-2.5 pt-1">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#0c2a19] block">
+              {/* Key Specifications */}
+              <div className="space-y-3 pt-1">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#134c2c] block">
                   Key Specifications:
                 </span>
-                {current.highlights.map((highlight, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-start gap-2.5 text-xs sm:text-sm text-[#1e293b] font-medium"
-                  >
-                    <CheckCircle2
-                      size={16}
-                      className="mt-0.5 flex-shrink-0"
-                      style={{ color: current.cssColor }}
-                    />
-                    <span>{highlight}</span>
-                  </div>
-                ))}
+                <div className="space-y-2.5">
+                  {current.highlights.map((highlight, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-start gap-3 text-sm text-[#134c2c]/90 font-medium"
+                    >
+                      <CircleCheck
+                        size={18}
+                        strokeWidth={2}
+                        className="mt-0.5 flex-shrink-0 text-[#2da021]"
+                      />
+                      <span>{highlight}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              {/* Footer Controls: Prev / Next & Step Indicator */}
-              <div className="pt-4 border-t border-gray-200 flex items-center justify-between gap-4">
-                <div className="flex items-center gap-1.5">
+              {/* Footer Process Controls */}
+              <div className="pt-6 border-t border-gray-100 flex items-center justify-between gap-4">
+                {/* 4-Step Progress Dots */}
+                <div className="flex items-center gap-2">
                   {STEPS.map((_, i) => (
                     <button
                       key={i}
@@ -432,41 +447,37 @@ export function TwoCircularLoop() {
                         setActiveStep(i);
                         setIsAutoPlaying(false);
                       }}
-                      className={`h-2 rounded-full transition-all duration-300 ${
+                      className={`h-2.5 rounded-full transition-all duration-300 ${
                         i === activeStep
-                          ? "w-7"
-                          : "w-2 bg-gray-200 hover:bg-gray-300"
+                          ? "w-8 bg-[#2da021]"
+                          : "w-2.5 bg-gray-200 hover:bg-gray-300"
                       }`}
-                      style={{
-                        backgroundColor:
-                          i === activeStep ? current.cssColor : undefined,
-                      }}
                       aria-label={`Go to step ${i + 1}`}
                     />
                   ))}
                 </div>
 
-                <div className="flex items-center gap-2">
+                {/* Navigation Arrows */}
+                <div className="flex items-center gap-2.5">
                   <button
                     onClick={() => {
                       handlePrev();
                       setIsAutoPlaying(false);
                     }}
-                    className="p-2.5 rounded-full bg-gray-100 hover:bg-gray-200 text-[#334155] transition-colors"
-                    aria-label="Previous step"
+                    className="p-2.5 rounded-full bg-gray-100 hover:bg-gray-200 text-[#134c2c] transition-colors cursor-pointer"
+                    aria-label="Previous stage"
                   >
-                    <ChevronLeft size={18} />
+                    <ChevronLeft size={18} strokeWidth={2} />
                   </button>
                   <button
                     onClick={() => {
                       handleNext();
                       setIsAutoPlaying(false);
                     }}
-                    className="flex items-center gap-1 px-4 py-2 rounded-full text-white text-xs font-bold transition-all duration-300 shadow-md hover:scale-105"
-                    style={{ backgroundColor: current.cssColor }}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#134c2c] hover:bg-[#1b623b] text-white text-xs font-bold transition-all duration-300 shadow-md hover:-translate-y-0.5 cursor-pointer"
                   >
-                    Next Stage
-                    <ChevronRight size={16} />
+                    <span>Next Stage</span>
+                    <ArrowRight size={16} strokeWidth={2} />
                   </button>
                 </div>
               </div>
