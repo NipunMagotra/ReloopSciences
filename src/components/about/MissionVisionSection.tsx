@@ -1,84 +1,106 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Compass, Eye, Check } from "lucide-react";
+import { Target, Eye, UsersRound, Globe } from "lucide-react";
+
+const purposeCards = [
+  {
+    eyebrow: "OUR MISSION",
+    title: "Our Mission",
+    description:
+      "To build a transparent, end-to-end system that transforms lab plastic waste into high-quality, circular solutions.",
+    icon: Target,
+    iconColor: "text-[#2da021]",
+    iconBg: "bg-emerald-50 border-emerald-100",
+  },
+  {
+    eyebrow: "OUR VISION",
+    title: "Our Vision",
+    description:
+      "A world where every laboratory operates responsibly, and sustainability is at the core of scientific progress.",
+    icon: Eye,
+    iconColor: "text-[#f88a0d]",
+    iconBg: "bg-orange-50 border-orange-100",
+  },
+  {
+    eyebrow: "OUR VALUES",
+    title: "Our Values",
+    description:
+      "Integrity, transparency, innovation and collaboration drive everything we do.",
+    icon: UsersRound,
+    iconColor: "text-[#2da021]",
+    iconBg: "bg-emerald-50 border-emerald-100",
+  },
+  {
+    eyebrow: "OUR COMMITMENT",
+    title: "Our Commitment",
+    description:
+      "We are committed to measurable impact, continuous improvement and a cleaner future for generations to come.",
+    icon: Globe,
+    iconColor: "text-[#f88a0d]",
+    iconBg: "bg-orange-50 border-orange-100",
+  },
+];
 
 export function MissionVisionSection() {
   return (
-    <section className="py-20 md:py-28 px-6 bg-offwhite relative">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="eyebrow block mb-3">Purpose & Direction</span>
-          <h2 className="text-2xl md:text-4xl font-bold text-[#134c2c] tracking-tight">
-            Our Mission & Vision
+    <section className="py-16 md:py-24 px-6 sm:px-8 lg:px-10 bg-offwhite relative" id="purpose">
+      <div className="max-w-[1400px] mx-auto">
+        {/* Section Heading */}
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <span className="text-xs font-bold tracking-widest text-[#f88a0d] uppercase block mb-2">
+            OUR PURPOSE
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#134c2c] tracking-tight">
+            Mission, Vision, Values &amp; Commitment
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-          {/* Mission Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-white p-8 md:p-12 rounded-3xl border border-gray-100 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_35px_rgba(0,0,0,0.07)] transition-all duration-300 flex flex-col justify-between"
-          >
-            <div>
-              <div className="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-[#2da021] mb-8">
-                <Compass size={28} />
-              </div>
-              <span className="text-xs font-semibold tracking-widest text-[#f88a0d] uppercase block mb-2">
-                Our Core Mission
-              </span>
-              <h3 className="text-2xl md:text-3xl font-bold text-[#134c2c] mb-6">
-                Our Mission
-              </h3>
-              <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-                To support the transition towards more sustainable laboratory practices by developing circular economy solutions that promote material recovery, transparency, and environmental responsibility.
-              </p>
-            </div>
+        {/* 4 Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 items-stretch">
+          {purposeCards.map((card, idx) => {
+            const Icon = card.icon;
+            return (
+              <motion.article
+                key={card.eyebrow}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-100 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:border-emerald-700/25 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group hover:-translate-y-1"
+              >
+                <div>
+                  {/* Small Icon Container */}
+                  <div
+                    className={`w-12 h-12 rounded-2xl border flex items-center justify-center ${card.iconBg} ${card.iconColor} transition-transform duration-300 group-hover:scale-105 mb-4`}
+                  >
+                    <Icon size={24} aria-hidden="true" />
+                  </div>
 
-            <div className="mt-10 pt-6 border-t border-gray-100 flex items-center gap-3 text-sm text-gray-500 font-medium">
-              <span className="w-5 h-5 rounded-full bg-emerald-100 text-[#2da021] flex items-center justify-center flex-shrink-0">
-                <Check size={12} />
-              </span>
-              Promoting material recovery & transparency
-            </div>
-          </motion.div>
+                  {/* Small Orange Accent Line */}
+                  <div className="w-8 h-0.5 bg-[#f88a0d] rounded-full my-3" />
 
-          {/* Vision Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="bg-white p-8 md:p-12 rounded-3xl border border-gray-100 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_35px_rgba(0,0,0,0.07)] transition-all duration-300 flex flex-col justify-between"
-          >
-            <div>
-              <div className="w-14 h-14 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-[#f88a0d] mb-8">
-                <Eye size={28} />
-              </div>
-              <span className="text-xs font-semibold tracking-widest text-[#f88a0d] uppercase block mb-2">
-                Future Ambition
-              </span>
-              <h3 className="text-2xl md:text-3xl font-bold text-[#134c2c] mb-6">
-                Our Vision
-              </h3>
-              <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-6">
-                To become a leading platform for laboratory sustainability, helping research organisations reduce waste, improve environmental performance, and build circular pathways for laboratory materials.
-              </p>
-              <div className="p-5 rounded-2xl bg-emerald-950/5 border border-emerald-800/10 text-[#134c2c] text-sm md:text-base italic leading-relaxed">
-                &ldquo;We envision a future where valuable laboratory resources remain in circulation for as long as possible, creating both environmental and economic benefits.&rdquo;
-              </div>
-            </div>
+                  {/* Eyebrow / Label */}
+                  <span className="text-[11px] font-bold tracking-widest text-[#f88a0d] uppercase block mb-1">
+                    {card.eyebrow}
+                  </span>
 
-            <div className="mt-8 pt-6 border-t border-gray-100 flex items-center gap-3 text-sm text-gray-500 font-medium">
-              <span className="w-5 h-5 rounded-full bg-orange-100 text-[#f88a0d] flex items-center justify-center flex-shrink-0">
-                <Check size={12} />
-              </span>
-              Long-term environmental & economic benefits
-            </div>
-          </motion.div>
+                  {/* Heading */}
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#134c2c] mb-3 leading-snug">
+                    {card.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                    {card.description}
+                  </p>
+                </div>
+
+                {/* Subtle Green Bottom Accent Line */}
+                <div className="absolute bottom-0 inset-x-0 h-1 bg-[#2da021]/80 rounded-b-3xl" />
+              </motion.article>
+            );
+          })}
         </div>
       </div>
     </section>

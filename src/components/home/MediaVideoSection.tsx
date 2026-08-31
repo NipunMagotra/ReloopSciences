@@ -63,7 +63,7 @@ export function MediaVideoSection({
             <iframe
               className="w-full h-full relative z-10"
               src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=0&rel=0`}
-              title="Reloop Sciences Video"
+              title="ReLoop Sciences Video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             />
@@ -113,7 +113,7 @@ export function MediaVideoSection({
             </div>
             <div>
               <h4 className="font-bold text-[#134c2c] text-sm">
-                Reloop Sciences Official Media
+                ReLoop Sciences Official Media
               </h4>
               <p className="text-xs text-gray-500">
                 Follow our official channels & direct communications

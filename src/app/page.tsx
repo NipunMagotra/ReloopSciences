@@ -8,14 +8,14 @@ import { HomeCtaSection } from "@/components/home/HomeCtaSection";
 import { JsonLd, getWebPageSchema } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Reloop Sciences — Circular Economy for Laboratory Plastics in India",
+  title: "ReLoop Sciences — Circular Economy for Laboratory Plastics in India",
   description:
     "A traceable, closed-loop ecosystem transforming clean, non-hazardous laboratory plastics into high-value circular materials across India.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Reloop Sciences — Circular Economy for Laboratory Plastics in India",
+    title: "ReLoop Sciences — Circular Economy for Laboratory Plastics in India",
     description:
       "Building a traceable closed-loop ecosystem that transforms clean, non-hazardous laboratory plastics into circular materials across India.",
     url: "https://reloopsciences.com",
@@ -24,12 +24,12 @@ export const metadata: Metadata = {
         url: "/images/hero-visual.png",
         width: 1200,
         height: 630,
-        alt: "Reloop Sciences — Circular Economy for Laboratory Plastics in India",
+        alt: "ReLoop Sciences — Circular Economy for Laboratory Plastics in India",
       },
     ],
   },
   twitter: {
-    title: "Reloop Sciences — Circular Economy for Laboratory Plastics in India",
+    title: "ReLoop Sciences — Circular Economy for Laboratory Plastics in India",
     description:
       "Building a traceable closed-loop ecosystem that transforms clean, non-hazardous laboratory plastics into circular materials across India.",
     images: ["/images/hero-visual.png"],
@@ -41,7 +41,7 @@ export default function HomePage() {
     <>
       <JsonLd
         data={getWebPageSchema({
-          title: "Reloop Sciences — Circular Economy for Laboratory Plastics in India",
+          title: "ReLoop Sciences — Circular Economy for Laboratory Plastics in India",
           description:
             "A traceable, closed-loop ecosystem transforming clean, non-hazardous laboratory plastics into high-value circular materials across India.",
           url: "https://reloopsciences.com",

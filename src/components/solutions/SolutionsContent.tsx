@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "motion/react";
 import {
   Recycle,
@@ -79,7 +78,7 @@ const OFFERINGS = [
     isPrimary: true,
     icon: QrCode,
     description:
-      "Reloop Sciences is exploring dedicated collection programmes for suitable non-hazardous laboratory plastics. Through barcode-enabled collection systems and material traceability, laboratories can gain greater visibility into their material recovery pathways.",
+      "ReLoop Sciences is exploring dedicated collection programmes for suitable non-hazardous laboratory plastics. Through barcode-enabled collection systems and material traceability, laboratories can gain greater visibility into their material recovery pathways.",
     features: [
       "Dedicated collection containers",
       "Barcode-enabled tracking",
@@ -98,7 +97,7 @@ const OFFERINGS = [
     isPrimary: false,
     icon: Search,
     description:
-      "Understanding sustainability starts with understanding current practices. Reloop Sciences helps organisations review how laboratory materials are used and managed.",
+      "Understanding sustainability starts with understanding current practices. ReLoop Sciences helps organisations review how laboratory materials are used and managed.",
     features: [
       "Material usage patterns",
       "Plastic consumption",
@@ -184,7 +183,7 @@ const OFFERINGS = [
     isPrimary: false,
     icon: BarChart3,
     description:
-      "Organisations increasingly require better visibility into environmental performance and sustainability initiatives. Reloop Sciences supports improved understanding of laboratory material flows through data, reporting, and sustainability insights.",
+      "Organisations increasingly require better visibility into environmental performance and sustainability initiatives. ReLoop Sciences supports improved understanding of laboratory material flows through data, reporting, and sustainability insights.",
     features: [
       "Material recovery reporting",
       "Waste generation trends",
@@ -273,7 +272,7 @@ export function SolutionsContent() {
             className="text-stone-600 text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl mx-auto font-normal"
           >
             <p>
-              While single-use plastics are essential for scientific research, most enter disposal pathways without recovery. At <strong className="text-[#134c2c]">Reloop Sciences</strong>, we transform suitable non-hazardous laboratory plastics into <span className="text-[#2da021] font-bold">valuable resources</span> by building a traceable circular economy ecosystem connecting laboratories, recyclers, and manufacturers.
+              While single-use plastics are essential for scientific research, most enter disposal pathways without recovery. At <strong className="text-[#134c2c]">ReLoop Sciences</strong>, we transform suitable non-hazardous laboratory plastics into <span className="text-[#2da021] font-bold">valuable resources</span> by building a traceable circular economy ecosystem connecting laboratories, recyclers, and manufacturers.
             </p>
           </motion.div>
 
@@ -298,39 +297,6 @@ export function SolutionsContent() {
               </span>
             ))}
           </motion.div>
-
-          {/* Featured Approach & Solutions Infographic Showcase (Positioned below feature pills) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-14 max-w-5xl mx-auto rounded-3xl overflow-hidden border border-emerald-950/15 shadow-2xl bg-white text-left"
-          >
-            <div className="relative aspect-[16/9] w-full">
-              <Image
-                src="/images/approach-solutions-infographic.png"
-                alt="Our Approach & Solution - Reloop Sciences Circular Lifecycle"
-                fill
-                priority
-                unoptimized
-                style={{ imageRendering: "-webkit-optimize-contrast" }}
-                className="object-contain bg-white"
-                sizes="(max-width: 1024px) 100vw, 1200px"
-              />
-            </div>
-            <div className="p-4 sm:p-5 bg-gradient-to-r from-[#0c2a19] via-[#134c2c] to-[#0c2a19] text-white flex flex-col sm:flex-row items-center justify-between gap-3">
-              <div className="flex items-center gap-2">
-                <Sparkles size={16} className="text-[#f88a0d]" />
-                <span className="text-xs sm:text-sm font-bold tracking-wide">
-                  Complete 5-Stage Closed-Loop Lifecycle & Core Enablers
-                </span>
-              </div>
-              <span className="text-[11px] font-semibold uppercase tracking-widest text-[#2da021] bg-white/10 px-3 py-1 rounded-full">
-                Collect • Recycle • Reuse
-              </span>
-            </div>
-          </motion.div>
         </div>
       </section>
 
@@ -345,7 +311,7 @@ export function SolutionsContent() {
               Our Approach
             </h2>
             <p className="text-stone-600 text-lg sm:text-xl">
-              Reloop Sciences is developing a collaborative ecosystem that aims to connect key stakeholders involved in laboratory material management.
+              ReLoop Sciences is developing a collaborative ecosystem that aims to connect key stakeholders involved in laboratory material management.
             </p>
           </div>
 
@@ -704,7 +670,7 @@ export function SolutionsContent() {
                   href="/contact"
                   className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#134c2c] hover:bg-[#0c2a19] text-white font-extrabold text-sm uppercase tracking-wider transition-all duration-300 shadow-lg shadow-emerald-950/20 group"
                 >
-                  Partner With Reloop
+                  Partner With ReLoop
                   <ArrowRight size={16} className="text-[#f88a0d] group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -745,7 +711,7 @@ export function SolutionsContent() {
 
           <div className="relative z-10 max-w-3xl mx-auto space-y-4">
             <h3 className="text-3xl sm:text-4xl font-black tracking-wider uppercase text-white">
-              Reloop <span className="text-[#f88a0d]">Sciences</span>
+              ReLoop <span className="text-[#f88a0d]">Sciences</span>
             </h3>
             <p className="text-lg sm:text-xl font-bold text-[#2da021] tracking-wide">
               Reducing Waste. Recovering Resources. Enabling Circular Science.

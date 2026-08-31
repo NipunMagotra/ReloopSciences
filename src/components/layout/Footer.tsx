@@ -59,7 +59,7 @@ export function Footer() {
             <Link href="/" className="flex items-center group">
               <Image
                 src="/footer.png"
-                alt="Reloop Sciences Logo"
+                alt="ReLoop Sciences Logo"
                 width={380}
                 height={96}
                 unoptimized
@@ -124,7 +124,7 @@ export function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.youtube.com"
+                href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-umami-event="footer-youtube-click"
@@ -141,7 +141,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="py-4 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-emerald-300/50">
-          <p>© {new Date().getFullYear()} Reloop Sciences. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} ReLoop Sciences. All rights reserved.</p>
           
           <div className="flex items-center gap-6">
             <span className="hover:text-emerald-200 cursor-pointer transition-colors">Privacy Policy</span>

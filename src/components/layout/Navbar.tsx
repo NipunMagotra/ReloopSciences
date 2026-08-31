@@ -27,7 +27,7 @@ export function Navbar() {
         <Link href="/" className="flex items-center group py-1 shrink-0">
           <Image
             src="/logo.png"
-            alt="Reloop Sciences Logo"
+            alt="ReLoop Sciences Logo"
             width={380}
             height={96}
             priority

@@ -58,7 +58,7 @@ export function WhyUsSection() {
         <div className="max-w-3xl mb-16">
           <span className="eyebrow block mb-3">The Challenge & Opportunity</span>
           <h2 className="text-2xl md:text-4xl font-bold text-[#134c2c] tracking-tight mb-6">
-            Why Reloop Sciences?
+            Why ReLoop Sciences?
           </h2>
           <div className="p-6 rounded-2xl bg-amber-500/10 border border-amber-500/20 mb-6 flex items-start gap-4">
             <div className="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center text-[#f88a0d] flex-shrink-0 mt-0.5">
@@ -120,7 +120,7 @@ export function WhyUsSection() {
               Collaborative Innovation
             </span>
             <h3 className="text-xl md:text-2xl font-bold leading-snug">
-              Reloop Sciences was created to explore how these challenges can be addressed through collaboration, innovation, and practical implementation.
+              ReLoop Sciences was created to explore how these challenges can be addressed through collaboration, innovation, and practical implementation.
             </h3>
           </div>
           <Link

@@ -185,7 +185,7 @@ export function HeroInteractiveCard({
           <div className="relative w-full h-full flex-1">
             <Image
               src="/images/hero-visual-showcase.png"
-              alt="Reloop Sciences - Closed-Loop Lab Plastics Recovery Visual Showcase"
+              alt="ReLoop Sciences - Closed-Loop Lab Plastics Recovery Visual Showcase"
               fill
               priority
               unoptimized

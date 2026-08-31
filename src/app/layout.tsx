@@ -21,12 +21,12 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://reloopsciences.com"),
   title: {
-    default: "Reloop Sciences — Circular Economy for Laboratory Plastics in India",
-    template: "%s | Reloop Sciences",
+    default: "ReLoop Sciences — Circular Economy for Laboratory Plastics in India",
+    template: "%s | ReLoop Sciences",
   },
   description:
-    "Reloop Sciences is building a traceable circular economy ecosystem in India, recovering and recycling non-hazardous laboratory plastics into high-grade circular materials.",
-  applicationName: "Reloop Sciences",
+    "ReLoop Sciences is building a traceable circular economy ecosystem in India, recovering and recycling non-hazardous laboratory plastics into high-grade circular materials.",
+  applicationName: "ReLoop Sciences",
   keywords: [
     "laboratory plastic recycling India",
     "circular economy life sciences",
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
     "sustainable lab infrastructure India",
     "laboratory material recovery",
   ],
-  authors: [{ name: "Reloop Sciences", url: "https://reloopsciences.com" }],
-  creator: "Reloop Sciences",
-  publisher: "Reloop Sciences",
+  authors: [{ name: "ReLoop Sciences", url: "https://reloopsciences.com" }],
+  creator: "ReLoop Sciences",
+  publisher: "ReLoop Sciences",
   formatDetection: {
     email: false,
     address: false,
@@ -52,8 +52,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://reloopsciences.com",
-    siteName: "Reloop Sciences",
-    title: "Reloop Sciences — Circular Economy for Laboratory Plastics in India",
+    siteName: "ReLoop Sciences",
+    title: "ReLoop Sciences — Circular Economy for Laboratory Plastics in India",
     description:
       "A traceable closed-loop ecosystem transforming non-hazardous laboratory plastics into circular materials across India.",
     images: [
@@ -61,13 +61,13 @@ export const metadata: Metadata = {
         url: "/images/hero-visual.png",
         width: 1200,
         height: 630,
-        alt: "Reloop Sciences — Circular Economy for Laboratory Plastics",
+        alt: "ReLoop Sciences — Circular Economy for Laboratory Plastics",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Reloop Sciences — Circular Economy for Laboratory Plastics in India",
+    title: "ReLoop Sciences — Circular Economy for Laboratory Plastics in India",
     description:
       "A traceable closed-loop ecosystem transforming non-hazardous laboratory plastics into circular materials across India.",
     images: ["/images/hero-visual.png"],

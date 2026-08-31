@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     canonical: "/challenges",
   },
   openGraph: {
-    title: "The Challenges — Reloop Sciences",
+    title: "The Challenges — ReLoop Sciences",
     description:
       "Explore the environmental challenges of single-use laboratory plastic waste, sustainability pressures in research, and the need for specialized non-hazardous recovery pathways.",
     url: "https://reloopsciences.com/challenges",
@@ -22,12 +22,12 @@ export const metadata: Metadata = {
         url: "/images/challenges-infographic.png",
         width: 1200,
         height: 675,
-        alt: "The Challenges of Laboratory Plastic Waste — Reloop Sciences",
+        alt: "The Challenges of Laboratory Plastic Waste — ReLoop Sciences",
       },
     ],
   },
   twitter: {
-    title: "The Challenges — Reloop Sciences",
+    title: "The Challenges — ReLoop Sciences",
     description:
       "Explore the environmental challenges of single-use laboratory plastic waste and specialized recovery pathways.",
     images: ["/images/challenges-infographic.png"],
@@ -39,7 +39,7 @@ export default function ChallengesPage() {
     <>
       <JsonLd
         data={getWebPageSchema({
-          title: "The Challenges — Reloop Sciences",
+          title: "The Challenges — ReLoop Sciences",
           description:
             "Explore the environmental challenges of single-use laboratory plastic waste, sustainability pressures in research, and the need for specialized non-hazardous recovery pathways.",
           url: "https://reloopsciences.com/challenges",

@@ -50,7 +50,7 @@ export function ContactInfo() {
             <div>
               <p className="font-semibold text-white group-hover:text-[#0a66c2] transition-colors">LinkedIn</p>
               <p className="text-emerald-200/70 text-xs mt-0.5">
-                Reloop Sciences Official
+                ReLoop Sciences Official
               </p>
             </div>
           </a>
@@ -75,7 +75,7 @@ export function ContactInfo() {
             <div>
               <p className="font-semibold text-white group-hover:text-[#ff0000] transition-colors">YouTube</p>
               <p className="text-emerald-200/70 text-xs mt-0.5">
-                Reloop Sciences Channel
+                ReLoop Sciences Channel
               </p>
             </div>
           </a>

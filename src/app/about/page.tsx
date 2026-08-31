@@ -8,28 +8,28 @@ import { JsonLd, getWebPageSchema } from "@/components/seo/JsonLd";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about Reloop Sciences, our mission, vision, and how we are pioneering circular pathways for non-hazardous laboratory plastics in India's life sciences ecosystem.",
+    "Learn about ReLoop Sciences, our mission, vision, and how we are pioneering circular pathways for non-hazardous laboratory plastics in India's life sciences ecosystem.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
-    title: "About Us — Reloop Sciences",
+    title: "About Us — ReLoop Sciences",
     description:
-      "Learn about Reloop Sciences, our mission, vision, and how we are pioneering circular pathways for non-hazardous laboratory plastics.",
+      "Learn about ReLoop Sciences, our mission, vision, and how we are pioneering circular pathways for non-hazardous laboratory plastics.",
     url: "https://reloopsciences.com/about",
     images: [
       {
         url: "/images/about-us-infographic.png",
         width: 1200,
         height: 675,
-        alt: "About Reloop Sciences — Mission, Vision and Circular Life Sciences",
+        alt: "About ReLoop Sciences — Mission, Vision and Circular Life Sciences",
       },
     ],
   },
   twitter: {
-    title: "About Us — Reloop Sciences",
+    title: "About Us — ReLoop Sciences",
     description:
-      "Learn about Reloop Sciences, our mission, vision, and circular economy initiatives for laboratory plastics.",
+      "Learn about ReLoop Sciences, our mission, vision, and circular economy initiatives for laboratory plastics.",
     images: ["/images/about-us-infographic.png"],
   },
 };
@@ -39,9 +39,9 @@ export default function AboutPage() {
     <>
       <JsonLd
         data={getWebPageSchema({
-          title: "About Us — Reloop Sciences",
+          title: "About Us — ReLoop Sciences",
           description:
-            "Learn about Reloop Sciences, our mission, vision, and how we are pioneering circular pathways for non-hazardous laboratory plastics in India's life sciences ecosystem.",
+            "Learn about ReLoop Sciences, our mission, vision, and how we are pioneering circular pathways for non-hazardous laboratory plastics in India's life sciences ecosystem.",
           url: "https://reloopsciences.com/about",
           type: "AboutPage",
         })}

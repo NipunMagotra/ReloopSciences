@@ -2,102 +2,79 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, Mail, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.7,
-      delay: 0.15 + i * 0.1,
+      duration: 0.6,
+      delay: 0.12 + i * 0.1,
     },
   }),
 };
 
 export function PilotHero() {
   return (
-    <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-gradient-to-b from-offwhite via-white to-offwhite">
-      <div className="mx-auto max-w-6xl px-6 lg:px-10 relative z-10">
-        <div className="text-center max-w-4xl mx-auto space-y-6">
-          <motion.h1
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={0}
-            className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-[#134c2c] tracking-tight leading-[1.2]"
-          >
-            Help Shape the Future of Laboratory Sustainability
-          </motion.h1>
+    <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-gradient-to-b from-offwhite via-white to-offwhite text-center">
+      {/* Background ambient glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[450px] bg-[#2da021]/5 blur-[150px] rounded-full pointer-events-none" />
 
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={1}
-            className="text-lg md:text-xl text-[#134c2c]/80 font-medium leading-relaxed max-w-3xl mx-auto"
-          >
-            Reloop Sciences is seeking universities, research institutes, biotech companies, pharmaceutical R&D teams, recyclers, and manufacturers interested in exploring sustainable approaches to laboratory material recovery.
-          </motion.p>
-
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={2}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
-          >
-            <Link
-              href="#register"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#f88a0d] hover:bg-[#d87609] text-white font-medium text-sm transition-all duration-300 shadow-xl shadow-orange-950/20 group"
-            >
-              Register Interest
-              <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
-            <a
-              href="mailto:hello@reloopsciences.com"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white border border-gray-200 text-[#134c2c] font-medium text-sm hover:border-[#2da021] hover:text-[#2da021] transition-all duration-300 shadow-sm"
-            >
-              <Mail size={18} />
-              hello@reloopsciences.com
-            </a>
-          </motion.div>
-        </div>
-
-        {/* Featured Pilot Programme Infographic Showcase (Normal Image) */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-8 relative z-10">
+        {/* Green Eyebrow Tag */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={3}
-          className="mt-14 max-w-5xl mx-auto rounded-3xl overflow-hidden border border-emerald-950/15 shadow-2xl bg-white"
+          animate="visible"
+          custom={0}
+          className="inline-flex items-center justify-center gap-2 mb-4"
         >
-          <div className="relative aspect-[16/9] w-full">
-            <Image
-              src="/images/pilot-programme-infographic.png"
-              alt="Reloop Sciences Pilot Programme 6-Step Methodology and Expected Impact"
-              fill
-              priority
-              unoptimized
-              style={{ imageRendering: "-webkit-optimize-contrast" }}
-              className="object-contain bg-white"
-              sizes="(max-width: 1024px) 100vw, 1200px"
-            />
-          </div>
-          <div className="p-4 sm:p-5 bg-gradient-to-r from-[#0c2a19] via-[#134c2c] to-[#0c2a19] text-white flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div className="flex items-center gap-2">
-              <Sparkles size={16} className="text-[#f88a0d]" />
-              <span className="text-xs sm:text-sm font-bold tracking-wide">
-                6-Stage Pilot Methodology & Measurable Environmental Impact
-              </span>
-            </div>
-            <span className="text-[11px] font-semibold uppercase tracking-widest text-[#2da021] bg-white/10 px-3 py-1 rounded-full">
-              Partnership • Collection • Impact
-            </span>
-          </div>
+          <span className="w-2 h-2 rounded-full bg-[#2da021]" />
+          <span className="text-xs sm:text-sm font-black tracking-widest uppercase text-[#2da021]">
+            PILOT PROGRAMME
+          </span>
+        </motion.div>
+
+        {/* Main Heading */}
+        <motion.h1
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={1}
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-[#134c2c] tracking-tight leading-[1.18] mb-6"
+        >
+          Building the Future Through Real-World Testing.
+        </motion.h1>
+
+        {/* Supporting Paragraph */}
+        <motion.p
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={2}
+          className="text-base sm:text-lg md:text-xl text-[#134c2c]/85 font-normal leading-relaxed mb-9 max-w-2xl mx-auto"
+        >
+          Our pilot programme is a real-world test of our circular model. We partner with laboratories to implement, track and refine our solution for measurable impact.
+        </motion.p>
+
+        {/* Centered CTA Button */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={3}
+          className="flex items-center justify-center"
+        >
+          <Link
+            href="/contact"
+            data-umami-event="pilot-hero-partner-click"
+            className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 bg-[#f88a0d] hover:bg-[#d87609] text-white text-sm sm:text-base font-bold tracking-wider uppercase rounded-full transition-all duration-300 shadow-xl shadow-orange-950/15 hover:-translate-y-0.5 group"
+          >
+            <span>Partner With Us</span>
+            <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
         </motion.div>
       </div>
     </section>

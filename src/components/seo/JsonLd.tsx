@@ -18,15 +18,15 @@ export function getOrganizationSchema() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": "https://reloopsciences.com/#organization",
-    name: "Reloop Sciences",
+    name: "ReLoop Sciences",
     url: "https://reloopsciences.com",
     logo: {
       "@type": "ImageObject",
       url: "https://reloopsciences.com/logo.png",
-      caption: "Reloop Sciences Logo",
+      caption: "ReLoop Sciences Logo",
     },
     description:
-      "Reloop Sciences is developing a circular economy ecosystem focused on recovering and recycling non-hazardous laboratory plastics in India.",
+      "ReLoop Sciences is developing a circular economy ecosystem focused on recovering and recycling non-hazardous laboratory plastics in India.",
     email: "hello@reloopsciences.com",
     areaServed: {
       "@type": "Country",
@@ -47,7 +47,7 @@ export function getWebSiteSchema() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": "https://reloopsciences.com/#website",
-    name: "Reloop Sciences",
+    name: "ReLoop Sciences",
     url: "https://reloopsciences.com",
     description:
       "A traceable, closed-loop ecosystem transforming non-hazardous laboratory plastics into high-grade circular materials across India.",

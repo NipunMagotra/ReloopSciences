@@ -89,7 +89,7 @@ export async function submitContactForm(
       const resend = new Resend(resendApiKey);
 
       const recipient = process.env.CONTACT_EMAIL || "hello@reloopsciences.com";
-      const sender = process.env.RESEND_FROM_EMAIL || "Reloop Contact <onboarding@resend.dev>";
+      const sender = process.env.RESEND_FROM_EMAIL || "ReLoop Contact <onboarding@resend.dev>";
 
       await resend.emails.send({
         from: sender,

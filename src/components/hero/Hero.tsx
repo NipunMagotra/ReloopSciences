@@ -28,7 +28,7 @@ export function Hero() {
 
       <div className="mx-auto max-w-[1440px] px-6 sm:px-8 lg:px-10 xl:px-12 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-14 items-center">
-          {/* Left Column: Hero Content (~42–45%) */}
+          {/* Left Column: Compact Hero Content (~42–45%) */}
           <div className="lg:col-span-5 flex flex-col justify-center text-left w-full max-w-[650px]">
             <motion.h1
               className="text-3xl sm:text-4xl lg:text-[2.15rem] xl:text-[2.55rem] 2xl:text-[2.85rem] font-bold text-[#134c2c] tracking-tight leading-[1.15] max-w-[640px]"
@@ -48,7 +48,7 @@ export function Hero() {
             </motion.h1>
 
             <motion.p
-              className="text-base sm:text-lg lg:text-xl text-[#134c2c]/85 font-normal leading-relaxed mt-6 mb-8 md:mt-7 md:mb-10 max-w-[600px]"
+              className="text-base sm:text-lg lg:text-xl text-[#134c2c]/85 font-normal leading-relaxed mt-5 md:mt-6 mb-8 md:mb-9 max-w-[600px]"
               variants={fadeUp}
               initial="hidden"
               animate="visible"
@@ -58,7 +58,7 @@ export function Hero() {
             </motion.p>
 
             <motion.div
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 lg:mt-6 xl:mt-10 2xl:mt-12"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
               variants={fadeUp}
               initial="hidden"
               animate="visible"
@@ -96,7 +96,7 @@ export function Hero() {
             <div className="w-full relative overflow-hidden rounded-xl md:rounded-2xl hero-image-mask">
               <Image
                 src="/images/hero-visual.jpg"
-                alt="Reloop Sciences Circular Laboratory Plastics Ecosystem"
+                alt="ReLoop Sciences Circular Laboratory Plastics Ecosystem"
                 width={1024}
                 height={768}
                 priority
@@ -110,4 +110,3 @@ export function Hero() {
     </section>
   );
 }
-

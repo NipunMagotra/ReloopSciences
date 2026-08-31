@@ -6,7 +6,7 @@ import { Zap, Award, Users, Lightbulb } from "lucide-react";
 const benefits = [
   {
     title: "Early Access",
-    description: "Help shape the future direction of Reloop Sciences.",
+    description: "Help shape the future direction of ReLoop Sciences.",
     icon: Zap,
     color: "text-[#f88a0d]",
     bg: "bg-orange-50",

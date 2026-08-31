@@ -51,7 +51,7 @@ const STEPS: StepDetail[] = [
     title: "Collection & Washing",
     shortDesc: "Clean, compliant material preparation",
     fullDesc:
-      "Scheduled pickup by Reloop logistics followed by specialized, eco-friendly chemical washing and de-labeling processes to ensure pure polymer feedstock.",
+      "Scheduled pickup by ReLoop logistics followed by specialized, eco-friendly chemical washing and de-labeling processes to ensure pure polymer feedstock.",
     icon: Droplets,
     highlights: [
       "Eco-efficient sanitization & label removal",
@@ -285,7 +285,7 @@ export function TwoCircularLoop() {
                 <RotateCw size={26} strokeWidth={2} />
               </motion.div>
               <span className="text-[11px] font-black uppercase tracking-widest text-[#2da021]">
-                Reloop
+                ReLoop
               </span>
               <span className="text-[9px] font-bold uppercase tracking-wider text-white/85">
                 Closed Loop

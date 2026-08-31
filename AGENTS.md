@@ -1,3 +1,14 @@
+# Antigravity Agent Rules & Workflow Constraints
+
+## ⚠️ STRICT RULE: Git Commits & Push Policy
+
+**NEVER CREATE A GIT COMMIT OR PUSH TO REMOTE UNLESS THE USER EXPLICITLY INSTRUCTS YOU TO DO SO.**
+
+1. Do NOT run `git commit` automatically after completing a task.
+2. Do NOT run `git push` automatically.
+3. Keep all changes in the local working tree for the user to review, test, and approve.
+4. Only perform `git commit` / `git push` when the user explicitly provides a command or message asking to commit.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 # This is NOT the Next.js you know
