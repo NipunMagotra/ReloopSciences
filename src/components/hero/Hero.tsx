@@ -27,38 +27,40 @@ export function Hero() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-[#2da021]/4 blur-[160px] rounded-full pointer-events-none" />
 
       <div className="mx-auto max-w-[1440px] px-6 sm:px-8 lg:px-10 xl:px-12 w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-14 items-stretch">
           {/* Left Column: Compact Hero Content (~42–45%) */}
-          <div className="lg:col-span-5 flex flex-col justify-center text-left w-full max-w-[650px]">
-            <motion.h1
-              className="text-3xl sm:text-4xl lg:text-[2.15rem] xl:text-[2.55rem] 2xl:text-[2.85rem] font-bold text-[#134c2c] tracking-tight leading-[1.15] max-w-[640px]"
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={0}
-            >
-              <span className="block">
-                <span className="block sm:whitespace-nowrap">India’s Labs Hold an</span>
-                <span className="block sm:whitespace-nowrap">Untapped Resource.</span>
-              </span>
-              <span className="block text-[#2da021] mt-3 sm:mt-4">
-                <span className="block sm:whitespace-nowrap">We’re Unlocking It for</span>
-                <span className="block sm:whitespace-nowrap">a Circular Economy.</span>
-              </span>
-            </motion.h1>
+          <div className="lg:col-span-5 flex flex-col justify-between text-left w-full max-w-[650px] py-1 sm:py-2">
+            <div>
+              <motion.h1
+                className="text-3xl sm:text-4xl lg:text-[2.15rem] xl:text-[2.55rem] 2xl:text-[2.85rem] font-bold text-[#134c2c] tracking-tight leading-[1.15] max-w-[640px]"
+                variants={fadeUp}
+                initial="hidden"
+                animate="visible"
+                custom={0}
+              >
+                <span className="block">
+                  <span className="block sm:whitespace-nowrap">India’s Labs Hold an</span>
+                  <span className="block sm:whitespace-nowrap">Untapped Resource.</span>
+                </span>
+                <span className="block text-[#2da021] mt-3 sm:mt-4">
+                  <span className="block sm:whitespace-nowrap">We’re Unlocking It for</span>
+                  <span className="block sm:whitespace-nowrap">a Circular Economy.</span>
+                </span>
+              </motion.h1>
 
-            <motion.p
-              className="text-base sm:text-lg lg:text-xl text-[#134c2c]/85 font-normal leading-relaxed mt-5 md:mt-6 mb-8 md:mb-9 max-w-[600px]"
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={1}
-            >
-              A traceable, closed-loop system that transforms clean lab plastics into new lab products across India.
-            </motion.p>
+              <motion.p
+                className="text-base sm:text-lg lg:text-xl text-[#134c2c]/85 font-normal leading-relaxed mt-5 md:mt-6 max-w-[600px]"
+                variants={fadeUp}
+                initial="hidden"
+                animate="visible"
+                custom={1}
+              >
+                A traceable, closed-loop system that transforms clean lab plastics into new lab products across India.
+              </motion.p>
+            </div>
 
             <motion.div
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-8 lg:mt-auto pt-2"
               variants={fadeUp}
               initial="hidden"
               animate="visible"

@@ -23,26 +23,12 @@ export function PilotHero() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[450px] bg-[#2da021]/5 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="mx-auto max-w-4xl px-6 sm:px-8 relative z-10">
-        {/* Green Eyebrow Tag */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={0}
-          className="inline-flex items-center justify-center gap-2 mb-4"
-        >
-          <span className="w-2 h-2 rounded-full bg-[#2da021]" />
-          <span className="text-xs sm:text-sm font-black tracking-widest uppercase text-[#2da021]">
-            PILOT PROGRAMME
-          </span>
-        </motion.div>
-
         {/* Main Heading */}
         <motion.h1
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          custom={1}
+          custom={0}
           className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-[#134c2c] tracking-tight leading-[1.18] mb-6"
         >
           Building the Future Through Real-World Testing.
@@ -53,7 +39,7 @@ export function PilotHero() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          custom={2}
+          custom={1}
           className="text-base sm:text-lg md:text-xl text-[#134c2c]/85 font-normal leading-relaxed mb-9 max-w-2xl mx-auto"
         >
           Our pilot programme is a real-world test of our circular model. We partner with laboratories to implement, track and refine our solution for measurable impact.
@@ -64,7 +50,7 @@ export function PilotHero() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          custom={3}
+          custom={2}
           className="flex items-center justify-center"
         >
           <Link

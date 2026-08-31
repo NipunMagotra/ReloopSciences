@@ -24,7 +24,7 @@ export function PilotCtaSection() {
               fill
               priority
               unoptimized
-              className="object-cover object-[35%_center]"
+              className="object-cover object-[25%_center]"
               sizes="(max-width: 1024px) 100vw, 48vw"
             />
 
