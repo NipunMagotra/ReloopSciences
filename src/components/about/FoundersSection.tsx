@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
-import { Mail, GraduationCap, Microscope, Sparkles, Quote } from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -18,12 +17,11 @@ const fadeUp = {
 
 export function FoundersSection() {
   return (
-    <section className="bg-gradient-to-b from-offwhite via-white to-offwhite py-20 sm:py-24 px-6 relative overflow-hidden">
-      {/* Background Subtle Accents */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-[#2da021]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-96 h-96 bg-[#f88a0d]/5 rounded-full blur-3xl pointer-events-none" />
+    <section className="bg-gradient-to-b from-offwhite via-white to-offwhite py-16 sm:py-20 px-4 relative overflow-hidden">
+      {/* Background Subtle Ambient Glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#2da021]/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-5xl mx-auto relative z-10">
+      <div className="max-w-3xl mx-auto relative z-10">
         {/* Section Header */}
         <motion.div
           variants={fadeUp}
@@ -31,125 +29,84 @@ export function FoundersSection() {
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
           custom={0}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-6 sm:mb-8"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/60 mb-3.5">
-            <Sparkles className="w-3.5 h-3.5 text-[#2da021]" />
-            <span className="text-xs font-semibold tracking-wider uppercase text-[#134c2c]">
-              Leadership & Science
-            </span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#134c2c] mb-3 tracking-tight">
-            Meet the Founder
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#134c2c] tracking-tight">
+            Meet the Co-Founder
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto text-base sm:text-lg">
-            Bridging scientific excellence with closed-loop sustainability for life sciences.
-          </p>
         </motion.div>
 
-        {/* Founder Feature Card */}
+        {/* Shrunk & Compact Founder Feature Card */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
           custom={1}
-          className="bg-white rounded-3xl p-6 sm:p-10 md:p-12 shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_20px_50px_rgba(45,160,33,0.08)] transition-all duration-500"
+          className="group max-w-[450px] mx-auto bg-white rounded-[28px] sm:rounded-[32px] p-5 sm:p-7 md:p-8 border border-[#2da021]/60 shadow-[0_10px_35px_rgba(45,160,33,0.06)] hover:shadow-[0_16px_45px_rgba(45,160,33,0.11)] transition-all duration-500 relative"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Image Column */}
-            <div className="lg:col-span-5 flex flex-col items-center">
-              <div className="relative group">
-                {/* Glowing ring animation on hover */}
-                <div className="absolute -inset-1.5 bg-gradient-to-r from-[#2da021] via-[#f88a0d] to-[#2da021] rounded-3xl opacity-20 group-hover:opacity-60 blur-md transition-all duration-500" />
-                
-                <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden shadow-md bg-gray-100 border-2 border-white">
-                  <Image
-                    src="/images/dr-priya.jpg"
-                    alt="Dr. Priya — Founder of ReLoop Sciences"
-                    fill
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                    priority
-                    sizes="(max-width: 640px) 256px, 288px"
-                  />
-                </div>
+          <div className="flex flex-col items-center text-center">
+            {/* Circular Avatar with Subtle Green & Orange Dual Halo */}
+            <div className="relative mb-5">
+              {/* Soft Ambient Halo (Subtle Green #2da021 & Orange #f88a0d) */}
+              <div 
+                className="absolute -inset-2.5 sm:-inset-3.5 rounded-full bg-[conic-gradient(from_0deg,rgba(45,160,33,0.35)_0%,rgba(248,138,13,0.3)_25%,rgba(45,160,33,0.35)_50%,rgba(248,138,13,0.3)_75%,rgba(45,160,33,0.35)_100%)] blur-xl opacity-15 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700 pointer-events-none animate-[spin_10s_linear_infinite]" 
+              />
 
-                {/* Badge Overlay */}
-                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-sm border border-emerald-100 shadow-lg px-4 py-1.5 rounded-full flex items-center gap-2 whitespace-nowrap">
-                  <span className="w-2 h-2 rounded-full bg-[#2da021] animate-pulse" />
-                  <span className="text-xs font-bold text-[#134c2c]">Neuroscientist & Founder</span>
+              {/* Dual-Color Delicate Border Ring */}
+              <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full p-[2px] sm:p-[2.5px] bg-[conic-gradient(from_0deg,rgba(45,160,33,0.5)_0%,rgba(248,138,13,0.45)_25%,rgba(45,160,33,0.5)_50%,rgba(248,138,13,0.45)_75%,rgba(45,160,33,0.5)_100%)] shadow-[0_4px_16px_rgba(45,160,33,0.1)] group-hover:shadow-[0_6px_20px_rgba(248,138,13,0.15)] transition-all duration-500">
+                {/* White Gap Ring */}
+                <div className="w-full h-full rounded-full overflow-hidden relative bg-white p-[2px]">
+                  {/* Image Container */}
+                  <div className="w-full h-full rounded-full overflow-hidden relative bg-slate-100">
+                    <Image
+                      src="/images/dr-priya.jpg"
+                      alt="Dr. Priya — Co-Founder of ReLoop Sciences"
+                      fill
+                      className="object-cover object-[center_18%] group-hover:scale-108 transition-transform duration-700 ease-out"
+                      priority
+                      sizes="(max-width: 640px) 144px, 160px"
+                    />
+                  </div>
                 </div>
-              </div>
-
-              {/* Contact Link */}
-              <div className="mt-7 flex items-center gap-3">
-                <a
-                  href="mailto:hello@reloopsciences.com"
-                  className="inline-flex items-center gap-2 text-xs font-semibold text-gray-600 hover:text-[#2da021] bg-gray-50 hover:bg-emerald-50/80 px-4 py-2 rounded-full border border-gray-200/80 transition-all duration-200"
-                  aria-label="Contact Dr. Priya via email"
-                >
-                  <Mail size={14} className="text-[#f88a0d]" />
-                  <span>hello@reloopsciences.com</span>
-                </a>
               </div>
             </div>
 
-            {/* Information Column */}
-            <div className="lg:col-span-7 flex flex-col justify-between text-left">
-              <div>
-                <div className="flex flex-wrap items-center gap-2 mb-2">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-[#134c2c] tracking-tight">
-                    Dr. Priya
-                  </h3>
-                  <span className="text-xs font-semibold px-2.5 py-0.5 rounded-md bg-[#2da021]/10 text-[#2da021]">
-                    Ph.D.
-                  </span>
-                </div>
-                <p className="text-sm font-semibold uppercase tracking-wider text-[#f88a0d] mb-5">
-                  Founder & Lead Scientist
-                </p>
+            {/* Name & Badge */}
+            <div className="flex items-center justify-center gap-2 mb-0.5">
+              <h3 className="text-2xl sm:text-[26px] font-extrabold text-[#134c2c] tracking-tight">
+                Dr. Priya
+              </h3>
+              <span className="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-[#eaf7ee] text-[#1b7a43] border border-emerald-200/50">
+                Ph.D.
+              </span>
+            </div>
+            
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#f88a0d] mb-4.5">
+              CO-FOUNDER
+            </p>
 
-                {/* Tagline Banner / Quote */}
-                <div className="relative bg-emerald-50/70 border-l-4 border-[#2da021] rounded-r-2xl p-4 sm:p-5 mb-6">
-                  <Quote className="w-6 h-6 text-[#2da021]/30 absolute top-3 right-3" />
-                  <p className="text-base sm:text-lg font-bold text-[#134c2c] italic">
-                    “Built from science. Driven by sustainability.”
-                  </p>
-                </div>
-
-                {/* Bio Paragraphs */}
-                <div className="space-y-3.5 text-gray-600 text-sm sm:text-base leading-relaxed">
-                  <p>
-                    <strong className="text-gray-900 font-semibold">Dr. Priya</strong> is a neuroscientist with a Ph.D. in Biotechnology/Neuroscience and postdoctoral research experience at <span className="text-gray-900 font-medium">McGill University, Canada</span>.
-                  </p>
-                  <p>
-                    Her years of hands-on laboratory research inspired <span className="text-[#134c2c] font-semibold">ReLoop Sciences</span> and its mission to develop more sustainable, traceable, and circular pathways for suitable laboratory plastics.
-                  </p>
-                </div>
+            {/* Quote Callout Box */}
+            <div className="w-full relative bg-[#eff9f2] border-l-4 border-[#2da021] rounded-xl px-4 py-3 mb-4.5 flex items-center justify-between text-left gap-3">
+              <p className="text-[13px] sm:text-[14px] font-bold text-[#0f3d23] italic leading-snug">
+                “Built from science. Driven by sustainability.”
+              </p>
+              {/* Closing Quotation Icon (99 style) */}
+              <div className="shrink-0 text-[#2da021]/45 select-none" aria-hidden="true">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.57-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z" />
+                </svg>
               </div>
+            </div>
 
-              {/* Scientific Highlights / Badges */}
-              <div className="mt-6 pt-6 border-t border-gray-100 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-gray-50/70 border border-gray-100">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-100/60 flex items-center justify-center text-[#2da021] shrink-0">
-                    <Microscope className="w-4 h-4" />
-                  </div>
-                  <div className="text-xs">
-                    <div className="font-bold text-gray-800">Biotechnology & Neuroscience</div>
-                    <div className="text-muted-foreground">Ph.D. Expertise</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-gray-50/70 border border-gray-100">
-                  <div className="w-8 h-8 rounded-lg bg-orange-100/60 flex items-center justify-center text-[#f88a0d] shrink-0">
-                    <GraduationCap className="w-4 h-4" />
-                  </div>
-                  <div className="text-xs">
-                    <div className="font-bold text-gray-800">McGill University, Canada</div>
-                    <div className="text-muted-foreground">Postdoctoral Research</div>
-                  </div>
-                </div>
-              </div>
+            {/* Bio Paragraphs */}
+            <div className="w-full space-y-3 text-left text-slate-700 text-xs sm:text-[13.5px] leading-relaxed">
+              <p>
+                <strong className="text-slate-900 font-bold">Dr. Priya</strong> is a neuroscientist with a Ph.D. in Biotechnology/ Neuroscience and postdoctoral research experience at <strong className="text-slate-900 font-bold">McGill University, Canada</strong>.
+              </p>
+              <p>
+                Her years of hands-on laboratory research inspired <strong className="text-[#134c2c] font-bold">ReLoop Sciences</strong> and its mission to develop more sustainable, traceable, and circular pathways for suitable laboratory plastics.
+              </p>
             </div>
           </div>
         </motion.div>
