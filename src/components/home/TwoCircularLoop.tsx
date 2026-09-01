@@ -8,7 +8,6 @@ import {
   Recycle,
   Factory,
   CircleCheck,
-  Leaf,
   ChevronLeft,
   ArrowRight,
   Pause,
@@ -24,8 +23,6 @@ interface StepDetail {
   fullDesc: string;
   icon: React.ElementType;
   highlights: string[];
-  metric: string;
-  metricLabel: string;
 }
 
 const STEPS: StepDetail[] = [
@@ -42,8 +39,6 @@ const STEPS: StepDetail[] = [
       "Strict non-hazardous PP classification protocol",
       "QR-tagged batch identification at lab origin",
     ],
-    metric: "100%",
-    metricLabel: "Source Segregated Clean PP",
   },
   {
     id: 1,
@@ -58,8 +53,6 @@ const STEPS: StepDetail[] = [
       "Chain-of-custody digital manifests",
       "Zero chemical residue verification",
     ],
-    metric: "99.8%",
-    metricLabel: "Polymer Purity Grade",
   },
   {
     id: 2,
@@ -67,15 +60,13 @@ const STEPS: StepDetail[] = [
     title: "Recycling",
     shortDesc: "High‑quality PP pellets",
     fullDesc:
-      "Advanced shredding, compounding, and extrusion into laboratory-grade recycled polypropylene (rPP) pellets with verified melt-flow index and mechanical integrity.",
+      "Advanced shredding, compounding, and extrusion into laboratory-grade recycled polypropylene pellets with verified melt-flow index and mechanical integrity.",
     icon: Recycle,
     highlights: [
-      "Precision extrusion into high-spec rPP pellets",
+      "Precision extrusion into high-spec pellets",
       "Thermal and mechanical tensile stress testing",
       "Certified batch tracking for circular reuse",
     ],
-    metric: "-70%",
-    metricLabel: "Carbon Footprint Reduction",
   },
   {
     id: 3,
@@ -90,8 +81,6 @@ const STEPS: StepDetail[] = [
       "Fully certified for durability and chemical resistance",
       "Delivered right back to research institutes",
     ],
-    metric: "100%",
-    metricLabel: "Closed-Loop Circularity",
   },
 ];
 
@@ -144,22 +133,20 @@ export function TwoCircularLoop() {
                   setActiveStep(idx);
                   setIsAutoPlaying(false);
                 }}
-                className={`group relative text-left p-3.5 sm:p-4 rounded-2xl transition-all duration-300 border cursor-pointer ${
-                  isActive
-                    ? "bg-white border-[#2da021] shadow-lg shadow-[#2da021]/15 ring-2 ring-[#2da021]/20 scale-[1.02]"
-                    : "bg-white/60 hover:bg-white border-gray-200/80 hover:border-gray-300/90 shadow-xs"
-                }`}
+                className={`group relative text-left p-3.5 sm:p-4 rounded-2xl transition-all duration-300 border cursor-pointer ${isActive
+                  ? "bg-white border-[#2da021] shadow-lg shadow-[#2da021]/15 ring-2 ring-[#2da021]/20 scale-[1.02]"
+                  : "bg-white/60 hover:bg-white border-gray-200/80 hover:border-gray-300/90 shadow-xs"
+                  }`}
               >
                 {/* Header row in card */}
                 <div className="flex items-center justify-between mb-2.5">
                   <span
-                    className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-black transition-all duration-300 ${
-                      isActive
-                        ? "bg-[#2da021] text-white shadow-sm"
-                        : isCompleted
+                    className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-black transition-all duration-300 ${isActive
+                      ? "bg-[#2da021] text-white shadow-sm"
+                      : isCompleted
                         ? "bg-[#134c2c]/12 text-[#134c2c]"
                         : "bg-gray-100 text-gray-400"
-                    }`}
+                      }`}
                   >
                     {step.stepNumber}
                   </span>
@@ -167,21 +154,19 @@ export function TwoCircularLoop() {
                   <StepIcon
                     size={18}
                     strokeWidth={2}
-                    className={`transition-colors duration-300 ${
-                      isActive
-                        ? "text-[#2da021]"
-                        : "text-[#134c2c]/50 group-hover:text-[#134c2c]"
-                    }`}
+                    className={`transition-colors duration-300 ${isActive
+                      ? "text-[#2da021]"
+                      : "text-[#134c2c]/50 group-hover:text-[#134c2c]"
+                      }`}
                   />
                 </div>
 
                 {/* Stage Title */}
                 <div
-                  className={`text-xs sm:text-sm font-bold transition-colors leading-snug ${
-                    isActive
-                      ? "text-[#134c2c]"
-                      : "text-gray-600 group-hover:text-[#134c2c]"
-                  }`}
+                  className={`text-xs sm:text-sm font-bold transition-colors leading-snug ${isActive
+                    ? "text-[#134c2c]"
+                    : "text-gray-600 group-hover:text-[#134c2c]"
+                    }`}
                 >
                   {step.title}
                 </div>
@@ -314,11 +299,10 @@ export function TwoCircularLoop() {
                       setActiveStep(idx);
                       setIsAutoPlaying(false);
                     }}
-                    className={`relative w-20 h-20 sm:w-22 sm:h-22 md:w-24 md:h-24 rounded-2xl md:rounded-3xl flex flex-col items-center justify-center transition-all duration-300 cursor-pointer ${
-                      isActive
-                        ? "bg-white border-2 border-[#2da021] scale-110 shadow-2xl shadow-[#2da021]/30"
-                        : "bg-white/90 hover:bg-white border border-gray-200/90 hover:border-gray-300 opacity-85 hover:opacity-100 hover:scale-105 shadow-md shadow-[#134c2c]/5"
-                    }`}
+                    className={`relative w-20 h-20 sm:w-22 sm:h-22 md:w-24 md:h-24 rounded-2xl md:rounded-3xl flex flex-col items-center justify-center transition-all duration-300 cursor-pointer ${isActive
+                      ? "bg-white border-2 border-[#2da021] scale-110 shadow-2xl shadow-[#2da021]/30"
+                      : "bg-white/90 hover:bg-white border border-gray-200/90 hover:border-gray-300 opacity-85 hover:opacity-100 hover:scale-105 shadow-md shadow-[#134c2c]/5"
+                      }`}
                   >
                     {/* Glowing highlight aura for active node */}
                     {isActive && (
@@ -326,19 +310,17 @@ export function TwoCircularLoop() {
                     )}
 
                     <div
-                      className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-sm font-bold mb-1 transition-all duration-300 ${
-                        isActive
-                          ? "bg-[#2da021] text-white shadow-md shadow-[#2da021]/40"
-                          : "bg-[#134c2c]/8 text-[#134c2c]"
-                      }`}
+                      className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-sm font-bold mb-1 transition-all duration-300 ${isActive
+                        ? "bg-[#2da021] text-white shadow-md shadow-[#2da021]/40"
+                        : "bg-[#134c2c]/8 text-[#134c2c]"
+                        }`}
                     >
                       <Icon size={isActive ? 22 : 20} strokeWidth={2} />
                     </div>
 
                     <span
-                      className={`text-xs font-black tracking-tight ${
-                        isActive ? "text-[#134c2c]" : "text-gray-500"
-                      }`}
+                      className={`text-xs font-black tracking-tight ${isActive ? "text-[#134c2c]" : "text-gray-500"
+                        }`}
                     >
                       {step.stepNumber}
                     </span>
@@ -380,8 +362,8 @@ export function TwoCircularLoop() {
               transition={{ duration: 0.35, ease: "easeOut" }}
               className="p-8 sm:p-10 lg:p-12 rounded-3xl bg-white border border-gray-200/80 shadow-xl shadow-[#134c2c]/5 space-y-7 relative"
             >
-              {/* Header: Stage Badge + Main Title + Metric */}
-              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-2 border-b border-gray-100">
+              {/* Header: Stage Badge + Main Title */}
+              <div className="pb-2 border-b border-gray-100">
                 <div className="space-y-2">
                   <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full text-[#2da021] bg-[#2da021]/10">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#2da021]" />
@@ -394,17 +376,6 @@ export function TwoCircularLoop() {
                     <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#134c2c] tracking-tight">
                       {current.title}
                     </h3>
-                  </div>
-                </div>
-
-                {/* Key Metric Highlight */}
-                <div className="sm:text-right bg-[#f8f7f4] sm:bg-transparent p-3.5 sm:p-0 rounded-2xl shrink-0">
-                  <div className="flex items-center sm:justify-end gap-1.5 text-3xl sm:text-4xl font-black text-[#2da021] tracking-tight">
-                    <span>{current.metric}</span>
-                    <Leaf size={20} strokeWidth={2} className="text-[#2da021]/80" />
-                  </div>
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-[#134c2c]/75 max-w-[140px]">
-                    {current.metricLabel}
                   </div>
                 </div>
               </div>
@@ -447,11 +418,10 @@ export function TwoCircularLoop() {
                         setActiveStep(i);
                         setIsAutoPlaying(false);
                       }}
-                      className={`h-2.5 rounded-full transition-all duration-300 ${
-                        i === activeStep
-                          ? "w-8 bg-[#2da021]"
-                          : "w-2.5 bg-gray-200 hover:bg-gray-300"
-                      }`}
+                      className={`h-2.5 rounded-full transition-all duration-300 ${i === activeStep
+                        ? "w-8 bg-[#2da021]"
+                        : "w-2.5 bg-gray-200 hover:bg-gray-300"
+                        }`}
                       aria-label={`Go to step ${i + 1}`}
                     />
                   ))}

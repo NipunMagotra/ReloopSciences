@@ -19,7 +19,7 @@ const fadeUp = {
 
 export function AboutHero() {
   return (
-    <section className="relative pt-20 pb-6 md:pt-24 md:pb-8 lg:pt-24 lg:pb-8 overflow-hidden bg-gradient-to-b from-offwhite via-white to-offwhite">
+    <section className="relative pt-24 pb-6 md:pt-32 md:pb-8 lg:pt-32 lg:pb-8 overflow-hidden bg-gradient-to-b from-offwhite via-white to-offwhite">
       <div className="mx-auto max-w-[1340px] px-5 sm:px-7 lg:px-8 relative z-10">
         {/* Main Heading */}
         <div className="text-center max-w-4xl mx-auto mb-5 sm:mb-6 lg:mb-7">
@@ -46,7 +46,7 @@ export function AboutHero() {
             {/* LEFT: Text Content */}
             <div className="lg:col-span-7 p-6 sm:p-7 md:p-8 lg:p-9 xl:p-10 flex flex-col justify-center bg-white order-2 lg:order-1">
               <p className="text-base sm:text-lg lg:text-[1.05rem] xl:text-[1.125rem] text-[#134c2c] font-semibold leading-relaxed">
-                <span className="text-[#134c2c]">ReLoop Sciences</span> is on a mission to eliminate laboratory plastic waste through <span className="text-[#2da021]">traceable collection</span>, <span className="text-[#2da021]">advanced recycling</span> and the creation of <span className="text-[#134c2c]">high-quality, sustainable lab products</span>.
+                <span className="text-[#134c2c]">ReLoop Sciences</span> is building traceable circular pathways for suitable non-hazardous laboratory plastics, connecting scientific organisations with recovery, recycling and manufacturing partners.
               </p>
 
               <p className="text-sm sm:text-base lg:text-[0.95rem] text-[#134c2c]/85 font-normal leading-relaxed mt-3.5 sm:mt-4">

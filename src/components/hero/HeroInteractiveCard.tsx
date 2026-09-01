@@ -37,7 +37,7 @@ const STAGES = [
     id: 2,
     num: "03",
     title: "Recycling",
-    desc: "Advanced processing into virgin-grade rPP pellets",
+    desc: "Advanced processing into virgin-grade pellets",
     icon: Recycle,
     color: "#2da021",
   },
@@ -52,7 +52,7 @@ const STAGES = [
 ];
 
 function subscribeReducedMotion(callback: () => void) {
-  if (typeof window === "undefined") return () => {};
+  if (typeof window === "undefined") return () => { };
   const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
   mediaQuery.addEventListener("change", callback);
   return () => mediaQuery.removeEventListener("change", callback);
@@ -152,9 +152,8 @@ export function HeroInteractiveCard({
     >
       {/* Ambient 3D Drop Glow */}
       <div
-        className={`absolute -inset-1.5 rounded-[30px] bg-gradient-to-r from-[#2da021]/20 via-[#f88a0d]/15 to-[#2da021]/20 blur-xl opacity-60 transition-opacity duration-700 pointer-events-none ${
-          isHovered || isFlipped ? "opacity-90 scale-[1.01]" : "opacity-30"
-        }`}
+        className={`absolute -inset-1.5 rounded-[30px] bg-gradient-to-r from-[#2da021]/20 via-[#f88a0d]/15 to-[#2da021]/20 blur-xl opacity-60 transition-opacity duration-700 pointer-events-none ${isHovered || isFlipped ? "opacity-90 scale-[1.01]" : "opacity-30"
+          }`}
       />
 
       {/* 3D Inner Card Container */}
@@ -166,15 +165,15 @@ export function HeroInteractiveCard({
               ? "rotateY(180deg)"
               : "rotateY(0deg)"
             : isFlipped
-            ? "rotateY(180deg)"
-            : isHovered
-            ? `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg)`
-            : "rotateX(0deg) rotateY(0deg)",
+              ? "rotateY(180deg)"
+              : isHovered
+                ? `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg)`
+                : "rotateX(0deg) rotateY(0deg)",
           transition: prefersReducedMotion
             ? "transform 0.3s ease"
             : isHovered && !isFlipped
-            ? "transform 0.12s ease-out, box-shadow 0.3s ease"
-            : "transform 0.8s cubic-bezier(0.34, 1.15, 0.64, 1), box-shadow 0.4s ease",
+              ? "transform 0.12s ease-out, box-shadow 0.3s ease"
+              : "transform 0.8s cubic-bezier(0.34, 1.15, 0.64, 1), box-shadow 0.4s ease",
         }}
       >
         {/* ========================================================= */}

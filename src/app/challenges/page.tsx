@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ChallengesHero } from "@/components/challenges/ChallengesHero";
+import { ChallengeJourney } from "@/components/challenges/ChallengeJourney";
 import { OverlookedChallengeSection } from "@/components/challenges/OverlookedChallengeSection";
 import { SustainabilityExpectationsSection } from "@/components/challenges/SustainabilityExpectationsSection";
 import { WhyPlasticsAreDifferentSection } from "@/components/challenges/WhyPlasticsAreDifferentSection";
@@ -47,6 +48,7 @@ export default function ChallengesPage() {
       />
       <div className="min-h-screen">
         <ChallengesHero />
+        <ChallengeJourney />
         <OverlookedChallengeSection />
         <SustainabilityExpectationsSection />
         <WhyPlasticsAreDifferentSection />

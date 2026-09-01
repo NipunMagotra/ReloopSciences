@@ -27,7 +27,7 @@ const impactMetrics = [
   },
   {
     title: "Emissions Reduction",
-    description: "Measurable Scope 3 carbon footprint reduction through closed-loop recycling.",
+    description: "Measurable carbon footprint reduction through closed-loop recycling.",
     icon: TrendingDown,
   },
   {

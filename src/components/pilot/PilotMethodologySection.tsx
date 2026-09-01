@@ -24,7 +24,7 @@ const stages = [
   {
     step: "02",
     title: "Collection",
-    description: "Dedicated clean PP bins installed on-site with scheduled pickup.",
+    description: "Dedicated clean bins installed on-site with scheduled pickup.",
     icon: Trash2,
     image: "/images/pilot-stage-02-collection.jpg",
     alt: "Laboratory Collection - Segregated clean plastic waste",
@@ -40,7 +40,7 @@ const stages = [
   {
     step: "04",
     title: "Recycling",
-    description: "Advanced eco-washing & extrusion into high-spec rPP pellets.",
+    description: "Advanced washing & extrusion into high-spec pellets.",
     icon: Recycle,
     image: "/images/pilot-stage-04-recycling.jpg",
     alt: "Plastic Recycling - Clean polymer pellets processing",
@@ -48,7 +48,7 @@ const stages = [
   {
     step: "05",
     title: "New Products",
-    description: "Precision molding into certified circular lab consumables.",
+    description: "Precision molding into circular lab consumables.",
     icon: Factory,
     image: "/images/pilot-stage-05-new-products.jpg",
     alt: "New Lab Products - Manufactured from recycled polypropylene",
