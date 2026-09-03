@@ -27,7 +27,7 @@ interface MediaVideoSectionProps {
 export function MediaVideoSection({
   videoId = "",
   youtubeChannelUrl = "https://www.youtube.com",
-  linkedinUrl = "#",
+  linkedinUrl = "https://www.linkedin.com/company/reloop-sciences/",
   email = "mailto:hello@reloopsciences.com",
 }: MediaVideoSectionProps) {
   return (

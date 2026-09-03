@@ -100,7 +100,7 @@ export function Footer() {
                 <Mail size={16} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/reloop-sciences/"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-umami-event="footer-linkedin-click"
