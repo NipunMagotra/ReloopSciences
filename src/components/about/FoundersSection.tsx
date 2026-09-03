@@ -60,7 +60,7 @@ export function FoundersSection() {
                   {/* Image Container */}
                   <div className="w-full h-full rounded-full overflow-hidden relative bg-slate-100">
                     <Image
-                      src="/images/dr-priya.jpg"
+                      src="/images/dr-priya-animated.jpg"
                       alt="Dr. Priya — Co-Founder of ReLoop Sciences"
                       fill
                       className="object-cover object-[center_18%] group-hover:scale-108 transition-transform duration-700 ease-out"
