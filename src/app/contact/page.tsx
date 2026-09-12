@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ContactPageContent } from "./ContactPageContent";
+import { ContactPageContent } from "@/components/contact/ContactPageContent";
 import { JsonLd, getWebPageSchema } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
